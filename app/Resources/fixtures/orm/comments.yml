@@ -1,0 +1,8 @@
+AppBundle\Entity\Comments:
+    coments{1..11}:
+        title: '<sentence()>'
+        encoding: '<dateTime()>'
+        rating: '<numberBetween(1,11)>'
+        content:  '<text(211)>'
+        provider: '@providers*'
+        visitor: '@visitors*'

@@ -1,0 +1,12 @@
+AppBundle\Entity/Courses:
+    courses{1..11}:
+        name: '<name()>'
+        info: '<sentence()>'
+        description: '<text(111)>'
+        price: '<randomDigitNotNull>'
+        start: '<dateTime()>'
+        end: '<dateTime()>'
+        displayOf: '<dateTime()>'
+        displayUp: '<dateTime()>'
+        image: '@images*'
+        providers: '@providers*'

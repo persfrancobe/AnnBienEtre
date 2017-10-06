@@ -37,9 +37,9 @@ class Localities
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="PostalCodes", mappedBy="localities")
+     * @ORM\OneToMany(targetEntity="Postcodes", mappedBy="localities")
      */
-    private $postalCode;
+    private $postcode;
 
     /**
      * @ORM\ManyToOne(targetEntity="Cities", inversedBy="localities")
@@ -53,7 +53,7 @@ class Localities
     public function __construct()
     {
         $this->user = new ArrayCollection();
-        $this->postalCode=new ArrayCollection();
+        $this->postcode=new ArrayCollection();
     }
 
     /**
@@ -76,27 +76,27 @@ class Localities
     /**
      * @return ArrayCollection
      */
-    public function getPostalCode()
+    public function getPostcode()
     {
-        return $this->postalCode;
+        return $this->postcode;
     }
 
     /**
-     * @param mixed $postalCode
+     * @param mixed $postcode
      */
-    public function addPostalCode(PostalCodes $postalCode)
+    public function addPostalCode(Postcodes $postcode)
     {
-        $this->postalCode->add($postalCode);
+        $this->postcode->add($postcode);
         // uncomment if you want to update other side
         //$postalCode->setLocality($this);
     }
 
     /**
-     * @param mixed $postalCode
+     * @param mixed $postcode
      */
-    public function removePostalCode(PostalCodes $postalCode)
+    public function removePostalCode(Postcodes $postcode)
     {
-        $this->postalCode->removeElement($postalCode);
+        $this->postcode->removeElement($postcode);
         // uncomment if you want to update other side
         //$postalCode->setLocality(null);
     }

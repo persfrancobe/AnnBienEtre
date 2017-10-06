@@ -1,0 +1,13 @@
+AppBundle\Entity\Providers:
+    providers{1..11}:
+        name: '<name()>'
+        internetSite: '<domainName>'
+        contactMail: '<email>'
+        telNum: '<phoneNumber>'
+        tvaNum: '<swiftBicNumber>'
+        promotion: '@promotions*'
+        course: '@courses*'
+        image: '@images*'
+        servicesCategory: '@service_categories*'
+        favorite: '@favorites*'
+        note: '@notes*'

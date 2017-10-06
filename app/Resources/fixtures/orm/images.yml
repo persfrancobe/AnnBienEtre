@@ -1,0 +1,4 @@
+AppBundle\Entity\Images:
+    images{1..11}:
+        image: '<imageUrl()>'
+        imgOrder: '<numberBetween(1,11)>'

@@ -6,12 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PostalCodes
+ * Postcodes
  *
- * @ORM\Table(name="postal_codes")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PostalCodesRepository")
+ * @ORM\Table(name="postcodes")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PostcodesRepository")
  */
-class PostalCodes
+class Postcodes
 {
     /**
      * @var int
@@ -25,24 +25,24 @@ class PostalCodes
     /**
      * @var string
      *
-     * @ORM\Column(name="postalCode", type="string", length=255)
+     * @ORM\Column(name="postcode", type="string", length=255)
      */
-    private $postalCode;
+    private $postcode;
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Users", mappedBy="postalCodes")
+     * @ORM\OneToMany(targetEntity="Users", mappedBy="postcodes")
      */
     private $user;
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Localities", inversedBy="postalCodes")
+     * @ORM\ManyToOne(targetEntity="Localities", inversedBy="postcodes")
      */
     private  $locality;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Cities", inversedBy="postalCodes")
+     * @ORM\ManyToOne(targetEntity="Cities", inversedBy="postcodes")
      */
     private  $city;
 
@@ -105,7 +105,7 @@ class PostalCodes
     {
         $this->user->add($user);
         // uncomment if you want to update other side
-        //$user->setPostalCode($this);
+        //$user->setPostcode($this);
     }
 
     /**
@@ -115,7 +115,7 @@ class PostalCodes
     {
         $this->user->removeElement($user);
         // uncomment if you want to update other side
-        //$user->setPostalCode(null);
+        //$user->setPostcode(null);
     }
 
 
@@ -132,25 +132,25 @@ class PostalCodes
     /**
      * Set postalCode
      *
-     * @param string $postalCode
+     * @param string $postcode
      *
-     * @return PostalCodes
+     * @return Postcodes
      */
-    public function setPostalCode($postalCode)
+    public function setPostcode($postcode)
     {
-        $this->postalCode = $postalCode;
+        $this->postcode = $postcode;
 
         return $this;
     }
 
     /**
-     * Get postalCode
+     * Get postcode
      *
      * @return string
      */
-    public function getPostalCode()
+    public function getPostcode()
     {
-        return $this->postalCode;
+        return $this->postcode;
     }
 }
 

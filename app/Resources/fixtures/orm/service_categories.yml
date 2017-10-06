@@ -1,0 +1,9 @@
+AppBundle\Entity\ServiceCategories:
+    service_categories{1..11}:
+        name: '<name>'
+        description: '<text(111>'
+        inAction: '<true>'
+        validated: '<true>'
+        provider: '@providers*'
+        image: '@images*'
+        promotion: '@promotions*'

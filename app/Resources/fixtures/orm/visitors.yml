@@ -1,0 +1,10 @@
+AppBundle\Entity\Visitors:
+    visitors{1..11}:
+        name: '<LastName()>'
+        firstName: '<firstName>'
+        newsletter: '<true>'
+        image: '@images*'
+        abuse: '@abuses*'
+        favorite: '@favorites*'
+        comment: '@comments*'
+        note: '@notes*'

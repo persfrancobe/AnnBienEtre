@@ -97,9 +97,9 @@ class Users
     protected  $locality;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PostalCodes", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="Postcodes", inversedBy="users")
      */
-    protected  $postalCode;
+    protected  $postcode;
 
     /**
      * @var ArrayCollection
@@ -149,17 +149,17 @@ class Users
     /**
      * @return mixed
      */
-    public function getPostalCode()
+    public function getPostcode()
     {
-        return $this->postalCode;
+        return $this->postcode;
     }
 
     /**
-     * @param mixed $postalCode
+     * @param mixed $postcode
      */
-    public function setPostalCode(PostalCodes $postalCode)
+    public function setPostcode(Postcodes $postcode)
     {
-        $this->postalCode = $postalCode;
+        $this->postcode = $postcode;
     }
 
     /**

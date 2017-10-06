@@ -37,9 +37,9 @@ class Cities
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="PostalCodes", mappedBy="cities")
+     * @ORM\OneToMany(targetEntity="Postcodes", mappedBy="cities")
      */
-    private $postalCode;
+    private $postcode;
 
     /**
      * @var ArrayCollection
@@ -55,7 +55,7 @@ class Cities
     {
         $this->user = new ArrayCollection();
         $this->locality = new ArrayCollection();
-        $this->postalCode= new ArrayCollection();
+        $this->postcode= new ArrayCollection();
     }
 
     /**
@@ -90,28 +90,28 @@ class Cities
     /**
      * @return ArrayCollection
      */
-    public function getPostalCode()
+    public function getPostcode()
     {
-        return $this->postalCode;
+        return $this->postcode;
     }
 
     /**
-     * @param mixed $postalCode
+     * @param mixed $postcode
      */
 
-    public function addPostalCode(PostalCodes $postalCode)
+    public function addPostcode(Postcodes $postcode)
     {
-        $this->postalCode->add($postalCode);
+        $this->postcode->add($postcode);
         // uncomment if you want to update other side
         //$postalCode->setCity($this);
     }
 
     /**
-     * @param mixed $postalCode
+     * @param mixed $postcode
      */
-    public function removePostalCode(PostalCodes $postalCode)
+    public function removePostcode(Postcodes $postcode)
     {
-        $this->postalCode->removeElement($postalCode);
+        $this->postcode->removeElement($postcode);
         // uncomment if you want to update other side
         //$postalCode->setCity(null);
     }

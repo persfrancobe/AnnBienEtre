@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Newsletters
@@ -43,9 +44,12 @@ class Newsletters
     private $publication;
 
     /**
-     *
+     * Newsletters constructor.
      */
-
+    public function __construct()
+    {
+        $this->publication=new DateTime();
+    }
 
     /**
      * Get id

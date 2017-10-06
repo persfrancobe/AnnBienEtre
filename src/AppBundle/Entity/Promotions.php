@@ -66,9 +66,9 @@ class Promotions
     private $displayOf;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="displayUp", type="string", length=255)
+     * @ORM\Column(name="displayUp", type="date")
      */
     private $displayUp;
 
@@ -82,14 +82,11 @@ class Promotions
      */
     protected  $serviceCategory;
 
-
     /**
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Images", mappedBy="promotions")
      */
     private $image;
-
-
 
     /**
      * Constructor

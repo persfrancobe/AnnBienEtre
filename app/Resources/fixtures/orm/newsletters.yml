@@ -3,3 +3,4 @@ AppBundle\Entity\Newsletters:
         title: '<name()>'
         pdf: '<image()>'
         publication: '<dateTime()>'
+
