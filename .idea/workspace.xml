@@ -3,25 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d7cd05b0-8780-4a1a-ac30-d45abd6f3953" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/AnnBienEtre.iml" afterPath="$PROJECT_DIR$/.idea/AnnBienEtre.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/abuses.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/blocks.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/cities.yml" afterPath="$PROJECT_DIR$/app/Resources/fixtures/orm/cities.yml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/comments.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/courses.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/favorites.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/images.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/locaities.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/newsletters.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/notes.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/postcodes.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/promotions.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/providers.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/service_categories.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/users.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/visitors.yml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Blocks.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Blocks.php" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/fixtures/orm/fixtures.yml" afterPath="$PROJECT_DIR$/app/Resources/fixtures/orm/fixtures.yml" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Providers.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Providers.php" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategories.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategories.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,31 +18,21 @@
   <component name="ComposerSettings" doNotAsk="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cities.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/fixtures/orm/cities.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="85" column="48" lean-forward="false" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Providers.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Providers.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Providers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-340">
-              <caret line="49" column="7" lean-forward="false" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+            <state relative-caret-position="561">
+              <caret line="81" column="77" lean-forward="false" selection-start-line="81" selection-start-column="77" selection-end-line="81" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceCategories.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ServiceCategories.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="74" column="33" lean-forward="false" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+            <state relative-caret-position="365">
+              <caret line="54" column="79" lean-forward="false" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -83,8 +58,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Images.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Notes.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/PostalCodes.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Providers.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategories.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Visitors.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
@@ -97,7 +70,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Cities.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Localities.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Users.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/Resources/fixtures/orm/newsletters.yml" />
         <option value="$PROJECT_DIR$/app/Resources/fixtures/orm/locaities.yml" />
         <option value="$PROJECT_DIR$/app/Resources/fixtures/orm/postcodes.yml" />
@@ -113,7 +85,11 @@
         <option value="$PROJECT_DIR$/app/Resources/fixtures/orm/notes.yml" />
         <option value="$PROJECT_DIR$/app/Resources/fixtures/orm/favorites.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Blocks.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/Resources/fixtures/orm/cities.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/fixtures/orm/fixtures.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Providers.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategories.php" />
       </list>
     </option>
   </component>
@@ -217,6 +193,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="add_unversioned_files" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -243,12 +220,12 @@
       <workItem from="1507305009400" duration="2246000" />
       <workItem from="1507307369915" duration="13384000" />
       <workItem from="1507321900036" duration="1677000" />
-      <workItem from="1507323775935" duration="14534000" />
+      <workItem from="1507323775935" duration="16011000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31841000" />
+    <option name="totallyTimeSpent" value="33318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -324,13 +301,6 @@
         <state relative-caret-position="2223">
           <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -550,26 +520,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategories.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="74" column="33" lean-forward="false" selection-start-line="74" selection-start-column="33" selection-end-line="74" selection-end-column="33" />
+        <state relative-caret-position="102">
+          <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/fixtures/orm/cities.yml">
+    <entry file="file://$PROJECT_DIR$/app/Resources/fixtures/orm/fixtures.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="85" column="48" lean-forward="false" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
+        <state relative-caret-position="478">
+          <caret line="138" column="9" lean-forward="false" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Providers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="49" column="7" lean-forward="false" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+        <state relative-caret-position="561">
+          <caret line="81" column="77" lean-forward="false" selection-start-line="81" selection-start-column="77" selection-end-line="81" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="54" column="79" lean-forward="false" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="79" />
           <folding />
         </state>
       </provider>

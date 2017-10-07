@@ -136,7 +136,7 @@ AppBundle\Entity\ServiceCategories:
         description: '<sentence()>'
         inAction: true
         validated: true
-        provider: 'providers_*'
+        #provider: 'providers_*'
 
 
 AppBundle\Entity\Promotions:
