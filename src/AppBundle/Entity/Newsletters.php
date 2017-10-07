@@ -48,7 +48,7 @@ class Newsletters
      */
     public function __construct()
     {
-        $this->publication=new DateTime();
+
     }
 
     /**

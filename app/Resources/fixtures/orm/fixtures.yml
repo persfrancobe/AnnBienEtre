@@ -30,7 +30,9 @@ AppBundle\Entity\Users:
         housNum: 18
         street: rue joseph rouyer
         registration: '<dateTime(now)>'
-        bann: false
+        enabled: true
+        salt: '<text(5)>'
+        userName: persfrancobe
         registrationConf: true
         unsuccessfulTestNum: 0
         city: '@cities_*'
@@ -49,7 +51,9 @@ AppBundle\Entity\Visitors:
         housNum: '<buildingNumber()>'
         street: '<streetName()>'
         registration: '<dateTime()>'
-        bann: false
+        enabled: true
+        salt: '<text(5)>'
+        username: '<userName()>'
         registrationConf: true
         unsuccessfulTestNum: '<numberBetween(0,2)>'
         city: '@cities_*'
@@ -68,7 +72,9 @@ AppBundle\Entity\Providers:
         housNum: '<buildingNumber()>'
         street: '<streetName()>'
         registration: '<dateTime()>'
-        bann: false
+        enabled: true
+        salt: '<text(5)>'
+        username: '<userName()>'
         registrationConf: true
         unsuccessfulTestNum: '<numberBetween(0,2)>'
         city: '@cities_*'

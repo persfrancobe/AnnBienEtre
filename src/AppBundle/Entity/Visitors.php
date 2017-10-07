@@ -77,6 +77,7 @@ class Visitors extends Users
         $this->abuse=new ArrayCollection();
         $this->comment=new ArrayCollection();
         $this->favorite=new ArrayCollection();
+        $this->addRole('role_visitor');
     }
 
     /**

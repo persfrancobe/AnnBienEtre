@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Users
@@ -15,12 +16,18 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorColumn(name="user_type", type="string")
  * @ORM\DiscriminatorMap({"admin"="Users","provider" = "Providers", "visitor" = "Visitors"})
  */
-class Users
+class Users extends BaseUser
 {
 
     const TYPE_USER = "admin";
     const TYPE_PROVIDER = "provider";
     const TYPE_VISITOR = "visitor";
+
+    const ROLE_ADMIN = 'ROLE_ADMIN';
+    const ROLE_PROVIDER = 'ROLE_PROVIDER';
+    const ROLE_VISITOR = 'ROLE_VISITOR';
+
+
     /**
      * @var int
      *
@@ -30,19 +37,6 @@ class Users
      */
     protected $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    protected $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    protected $password;
 
     /**
      * @var string
@@ -65,12 +59,6 @@ class Users
      */
     protected $registration;
 
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="bann", type="boolean")
-     */
-    protected $bann;
 
     /**
      * @var bool
@@ -111,9 +99,11 @@ class Users
      * Constructor
      */
     public function __construct(){
+        parent:: __construct();
         $this->user_type=Users::TYPE_USER;
         $this->block=new ArrayCollection();
         $this->registration=new \DateTime();
+        $this->addRole('role_admin');
     }
 
     /**
@@ -205,54 +195,6 @@ class Users
     }
 
     /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return Users
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Users
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
      * Set housNum
      *
      * @param string $housNum
@@ -334,29 +276,7 @@ class Users
         return $this->user_type;
     }
 
-    /**
-     * Set bann
-     *
-     * @param boolean $bann
-     *
-     * @return Users
-     */
-    public function setBann($bann)
-    {
-        $this->bann = $bann;
 
-        return $this;
-    }
-
-    /**
-     * Get bann
-     *
-     * @return bool
-     */
-    public function getBann()
-    {
-        return $this->bann;
-    }
 
     /**
      * Set registrationConf

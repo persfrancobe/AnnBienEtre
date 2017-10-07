@@ -108,6 +108,7 @@ class Providers extends Users
         $this->image=new ArrayCollection();
         $this->serviceCategory=new ArrayCollection();
         $this->favorite=new ArrayCollection();
+        $this->addRole('role_provider');
     }
 
     /**
