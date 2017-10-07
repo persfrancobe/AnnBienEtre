@@ -1,6 +1,0 @@
-AppBundle\Entity\Abuses:
-  abuses{1..11}:
-      description: '<sentence()>'
-      encoding: '<dateTime()>'
-      visitor: '@visitors*'
-      comment: '@comments*'

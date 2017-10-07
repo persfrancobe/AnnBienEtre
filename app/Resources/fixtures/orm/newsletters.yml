@@ -1,6 +1,0 @@
-AppBundle\Entity\Newsletters:
-    newsletters{1..15}:
-        title: '<name()>'
-        pdf: '<image()>'
-        publication: '<dateTime()>'
-

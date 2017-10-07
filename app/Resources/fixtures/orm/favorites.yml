@@ -1,5 +1,0 @@
-AppBundle\Entity\Favorites:
-    favorites{1..11}:
-        date: '<dateTime()>'
-        visitor: '@visitors*'
-        provider: '@providers*'

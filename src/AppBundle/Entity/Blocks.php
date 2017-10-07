@@ -38,9 +38,9 @@ class Blocks
     /**
      * @var integer
      *
-     * @ORM\Column(name="order", type="integer")
+     * @ORM\Column(name="ord", type="integer")
      */
-    private $order;
+    private $ord;
 
     /**
      * @ORM\ManyToOne(targetEntity="Users",inversedBy="blocks")
@@ -64,22 +64,22 @@ class Blocks
     }
 
     /**
-     * @param int $order
+     * @param int $ord
      */
 
-    public function setOrder($order)
+    public function setOrd($ord)
     {
-        $this->order = $order;
+        $this->ord = $ord;
     }
 
     /**
-     * Get order
+     * Get ord
      * @return int
      */
 
-    public function getOrder()
+    public function getOrd()
     {
-        return $this->order;
+        return $this->ord;
     }
 
     /**

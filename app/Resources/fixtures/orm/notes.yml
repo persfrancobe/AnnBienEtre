@@ -1,6 +1,0 @@
-AppBundle\Entity\Notes:
-    notes{1..11}:
-        note: '<numberBetween(1,10)>'
-        date: '<dateTime()>'
-        visitor: '@visitors'
-        provider: '@providers*'

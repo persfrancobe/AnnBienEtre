@@ -1,4 +1,0 @@
-AppBundle\Entity\Localities:
-    localities{1..11}:
-        locality: '<state>'
-        city: '@cities*'

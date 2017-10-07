@@ -1,6 +1,0 @@
-AppBundle\Entity\Blocks:
-    blocks{1..11}:
-        name: '<name()>'
-        description: '<sentence()>'
-        order: '<numberBetween(1,11)>'
-        user: '@users*'

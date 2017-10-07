@@ -1,6 +1,0 @@
-AppBundle\Entity\Cities:
-    cities{1..11}:
-        city: '<city>'
-        user: '<name()>'
-        postcode: '#locality_codes*'
-        locality: '@localities*'
