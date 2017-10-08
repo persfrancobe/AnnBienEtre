@@ -1,10 +1,10 @@
-<div class="card {% if card.class==4 %}card-tall{% endif %}"data-background-image="{{asset (card.image.webPath )}}">
+<div class="card {% if card.class==4 %}card-tall{% endif %}"data-background-image="#{#{asset (card.image.webPath )}#}">
     <div class="card-label"> 
-        <a href="{{path('prestataire',{'id':card.id})}}">{{card.titre}}</a>
+        <a href="#{#{path('providers_show',{'id':card.id})}#}">{{card.titre}}</a>
     </div><!-- /.card-label -->
 
     <div class="card-content">
-        <h2><a href="{{path('prestataire',{'id':card.id})}}">{{card.nom}}</a></h2>
+        <h2><a href="#{#{path('providers_show',{'id':card.id})}#}">{{card.nom}}</a></h2>
 
         <div class="card-meta">
             <i class="fa fa-map-o"></i> {{card.description}}
@@ -20,7 +20,7 @@
 
         <div class="card-actions">
             <a href="#" class="fa fa-bookmark-o"></a>
-            <a href="{{path('prestataire',{'id':card.id})}}" class="fa fa-search"></a>
+            <a href="#{#{path('providers',{'id':card.id})}#}" class="fa fa-search"></a>
             <a href="#" class="fa fa-heart-o"></a>
         </div>
 
