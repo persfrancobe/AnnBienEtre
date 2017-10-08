@@ -1,0 +1,49 @@
+<div class="hero-slider">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+            {% for slide in sliders %}
+                {% if loop.first %}
+                    {% set supl="active" %}
+                {% else %}
+                    {% set supl="" %}
+                {% endif %}
+                <div class="item {{supl}}">
+                    <div class="item-bg" style="background-image: url('{{asset (slide.webPath)}}')"></div>
+                    <img src="{{asset (slide.webPath)}}" alt="{{slide.nom}}">
+
+                     {# <div class="carousel-caption">
+                          <div class="hero-slider-content">
+                             <h1>{{slide.nom}}</h1>
+                  
+                              <div class="hero-slider-rating">
+                                  <i class="fa fa-star"></i>
+                                  <i class="fa fa-star"></i>
+                                  <i class="fa fa-star"></i>
+                                  <i class="fa fa-star"></i>
+                                  <i class="fa fa-star"></i>
+                              </div><!-- /.card-simple-rating -->
+                          </div><!-- /.hero-slider-content -->
+                  
+                          <div class="hero-slider-actions">
+                              <a href="#"><i class="fa fa-heart-o"></i></a>
+                              <a href="listing-detail.html"><i class="fa fa-search"></i></a>
+                              <a href="#"><i class="fa fa-bookmark-o"></i></a>
+                          </div><!-- /.hero-slider-actions -->
+                      </div><!-- /.carousel-caption -->#}
+                </div><!-- /.item -->
+            {% endfor %}
+        </div><!-- /.carousel-inner -->
+              <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <i class="fa fa-long-arrow-left"></i>
+      </a>
+
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <i class="fa fa-long-arrow-right"></i>
+      </a>
+    </div>
+</div><!-- /.hero-slider -->
+
+
+

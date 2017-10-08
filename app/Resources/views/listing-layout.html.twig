@@ -1,0 +1,46 @@
+{% extends "frontend-layout.html.twig" %}
+
+{%block main %}
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="row">
+
+
+
+                    <div class="col-sm-8 col-lg-9">
+                        <div class="content">
+                            <div class="page-title">
+                                <h1>{% block titre %}{% endblock %}</h1>
+                            </div><!-- /.page-title -->
+
+                            <div class="posts">
+                            {% block posts %}{% endblock %}
+
+                        </div><!-- /.posts -->
+
+
+                        <div class="pager">
+                            <ul>
+                                <li><a href="#">Prev</a></li>
+                                <li><a href="#">5</a></li>
+                                <li class="active"><a>6</a></li>
+                                <li><a href="#">7</a></li>
+                                <li><a href="#">Next</a></li>
+                            </ul>
+                        </div><!-- /.pagination -->
+
+
+                    </div><!-- /.content -->
+                </div><!-- /.col-* -->
+
+                <div class="col-sm-4 col-lg-3">
+
+                    {#{include ('AppBundle:Partials:side.html.twig',{categories:categories,stages:stages,prestataires:prestataires})}#}
+
+                </div><!-- /.col-* -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.main-inner -->
+</div><!-- /.main -->
+{% endblock %}

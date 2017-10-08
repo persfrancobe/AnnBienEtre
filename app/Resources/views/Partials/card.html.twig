@@ -1,0 +1,28 @@
+<div class="card {% if card.class==4 %}card-tall{% endif %}"data-background-image="{{asset (card.image.webPath )}}">
+    <div class="card-label"> 
+        <a href="{{path('prestataire',{'id':card.id})}}">{{card.titre}}</a>
+    </div><!-- /.card-label -->
+
+    <div class="card-content">
+        <h2><a href="{{path('prestataire',{'id':card.id})}}">{{card.nom}}</a></h2>
+
+        <div class="card-meta">
+            <i class="fa fa-map-o"></i> {{card.description}}
+        </div><!-- /.card-meta -->
+
+        <div class="card-rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </div><!-- /.card-rating -->
+
+        <div class="card-actions">
+            <a href="#" class="fa fa-bookmark-o"></a>
+            <a href="{{path('prestataire',{'id':card.id})}}" class="fa fa-search"></a>
+            <a href="#" class="fa fa-heart-o"></a>
+        </div>
+
+    </div><!-- /.card-content -->
+</div><!-- /.card -->

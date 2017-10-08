@@ -1,0 +1,43 @@
+<div class="sidebar">
+    <div class="widget">
+        <h2 class="widgettitle">Les Stages</h2>
+        {%for stage in stages%}
+            {{include ('BienEtreBundle:Partials:card-smal-widget.html.twig',{cardSmal:{nom:stage.nom,description:stage.description,tarif:stage.tarif,image:stage.image}})}}
+        {%endfor%}
+
+    </div><!-- /.widget -->
+
+
+    <div class="widget">
+        <h2 class="widgettitle">Prestataire</h2>
+        <div class="background-white p20">
+            {{ render(controller('BienEtreBundle:FrontEnd/Prestataires:rechercheWidget')) }}
+        </div>
+
+    </div><!-- /.widget -->
+
+
+    <div class="widget">
+        <h2 class="widgettitle">Categories</h2>
+
+        <ul class="menu">
+
+            {% for categorie in categories%}
+                <li><a href="{{path('categorie',{'id':categorie.id})}}">{{categorie.nom}}</a></li>
+                {%endfor%}
+        </ul><!-- /.menu -->
+    </div><!-- /.wifget -->
+
+    <div class="widget">
+        <h2 class="widgettitle">Prestataires</h2>
+
+        <ul class="menu">
+
+            {% for prestataire in prestataires%}
+                <li><a href="{{path('categorie',{'id':prestataire.id})}}">{{prestataire.username}}</a></li>
+                {%endfor%}
+        </ul><!-- /.menu -->
+    </div><!-- /.wifget -->
+
+
+</div><!-- /.sidebar -->

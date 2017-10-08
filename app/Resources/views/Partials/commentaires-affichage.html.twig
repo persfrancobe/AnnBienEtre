@@ -1,0 +1,42 @@
+<h2 id="reviews">Tout Les Commentaires</h2>
+<div class="reviews">
+    {% for commentaire in commentaires %}
+        <div class="review">
+            <div class="review-image">
+                <img src="{{asset('bundles/bienetre/img/tmp/agent-1.jpg')}}" alt="">
+            </div><!-- /.review-image -->
+
+            <div class="review-inner">
+                <div class="review-title">
+                    <h2>{{commentaire.titre}}</h2>
+
+                    <span class="report">
+                        <span class="separator">&#8226;</span><i class="fa fa-flag" title="Report" data-toggle="tooltip" data-placement="top"></i>
+                    </span>
+
+                    <div class="review-overall-rating">
+                        <span class="overall-rating-title">Total Score:</span>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div><!-- /.review-rating -->
+                </div><!-- /.review-title -->
+
+                <div class="review-content-wrapper">
+                    <div class="review-content">
+                        <div class="review-pros">
+                            <p>{{commentaire.description}}</p>
+                        </div><!-- /.pros -->
+
+                    </div><!-- /.review-content -->
+
+                </div><!-- /.review-content-wrapper -->
+
+            </div><!-- /.review-inner -->
+        </div><!-- /.review -->
+
+    {% endfor %}
+
+</div><!-- /.reviews -->

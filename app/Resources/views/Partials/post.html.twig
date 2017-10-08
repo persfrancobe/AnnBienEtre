@@ -1,0 +1,13 @@
+<div class="post">
+    <div class="post-image">
+        <img src="{{asset(post.image.webPath )}}" alt="">
+        <a class="read-more" href="{{path('categorie',{'id':post.id})}}">Voir</a>
+    </div><!-- /.post-image -->
+
+    <div class="post-content">
+        <div class="post-label">{{post.titre}}</div><!-- /.post-label -->
+        <div class="post-date">{{post.date}}</div><!-- /.post-date -->
+        <h2>{{post.nom}}</h2>
+        <p>{{post.description}}</p>
+    </div><!-- /.post-content -->
+</div><!-- /.post -->

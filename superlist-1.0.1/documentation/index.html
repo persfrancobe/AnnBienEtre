@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/documentation.css" media="screen, projection"/>
+    <link href="http://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <title>Documentation</title>
+</head>
+<body>
+
+<div class="page">
+    <div class="sidebar">
+        <h2>Table of Contents</h2>
+
+        <ul class="nav nav-pills nav-stacked"></ul>
+    </div>
+
+    <div class="main">
+        <div class="container-fluid">
+            <div class="page-header">
+                <h2>Superlist- Directory Template</h2>
+            </div>
+
+            <div class="wrapper">
+                <h1 id="overview">Overview</h1>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>
+                            <strong>Folder structure for assets/ directory</strong>
+                        </p>
+
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>css</strong> - contains css files which were generated from scss files</li>
+                            <li class="list-group-item"><strong>scss</strong> - contains scss files</li>
+                            <li class="list-group-item"><strong>img</strong> - contains site images</li>
+                            <li class="list-group-item"><strong>js</strong> - contains site javascripts</li>
+                            <li class="list-group-item"><strong>fonts</strong> - contains fonts used on the site</li>
+                            <li class="list-group-item"><strong>libraries</strong> - contains third party libraries used in the theme</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <p>
+                            <strong>Documentation links</strong>
+                        </p>
+
+                        <ul class="list-group">
+                            <a href="http://getbootstrap.com/" class="list-group-item">Bootstrap</a>
+                            <a href="http://sass-lang.com/" class="list-group-item">SASS</a>
+                            <a href="http://jquery.com/" class="list-group-item">jQuery</a>
+                            <a href="http://fortawesome.github.io/Font-Awesome/icons/" class="list-group-item">Font Awesome Icons</a>
+                            <a href="http://fortawesome.github.io/Font-Awesome/examples/" class="list-group-item">Font Awesome Examples</a>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /.wrapper -->
+
+            <div class="wrapper">
+                <h1 id="looking">Looking for right SCSS</h1>
+
+                <p>
+                    Template is split into large amount of small helper files. Sometimes is hard to know which file to open. Here are saveral ways how to find correct file.
+                </p>
+
+                <div class="well">
+                    <h2 id="looking-grep">Using browser</h2>
+
+                    <p>
+                        Template has source maps support. If you don't know what the source maps are read more at http://thesassway.com/intermediate/using-source-maps-with-sass
+                    </p>
+
+                    <p>
+                        We are using Chrome for development but next example should work similar in different browser.
+                    </p>
+
+                    <p>
+                        Firstly open your website in browse and make right click on element which you want to modify and select inspect element.
+                    </p>
+
+                    <br><br>
+
+                    <img src="assets/img/inspect.png" alt="">
+
+                    <br><br><br><br>
+
+                    <p>After that console will display at the bottom of browser. At the right side you can which styles are applied on inspected element and you can see which file contains that properties.</p>
+
+                    <img src="assets/img/inspect2.png" alt="">
+                </div>
+
+                <div class="well">
+                    <h2 id="looking-grep">Using grep</h2>
+
+                    <p>
+                        If you are on Mac or Linux, I recommed to using grep (terminal) to find what you are looking for. For example we are looking file which is containg .navigation class we can use command below.
+                    </p>
+
+                    <img src="assets/img/grep.png" alt="">
+                </div>
+
+            </div><!-- /.wrapper -->
+
+            <div class="wrapper">
+                <h1 id="custom-colors">Custom Colors</h1>
+
+                <p>
+                    You can see color definitions in <strong>assets/scss/_variables.scss</strong>. Feel free to change the colors as needed. After editing the colors you need to compile the sass files. In template there is a bundled automation script so you can compile files easily, just check example below.
+
+<code><pre>$ cd project
+$ npm install gulp gulp-sass
+$ gulp compile
+</pre></code>
+                </p>
+
+                <img src="assets/img/colors.png" alt="">
+            </div><!-- /.wrapper -->
+
+            <div class="wrapper">
+                <h1 id="bootstrap">Bootstrap</h1>
+
+                <div class="alert alert-info">
+                    <p>
+                        Superlist template uses Bootstrap library heavily. Please consider
+                        the bootstrap 3.x documentation as extended documentation to <strong>Superlist</strong> template, as most of the
+                        answers can be found there.
+                    </p><br>
+
+                    <a class="btn btn-primary" href="http://getbootstrap.com/">Read documentation</a>
+                </div>
+
+                <div class="alert alert-warning">
+                    <p>Please pay increased attention to following sections of Bootstrap documentation:</p><br>
+
+                    <div class="btn-group">
+                        <a class="btn btn-warning" href="http://getbootstrap.com/css/#grid">Grid</a>
+                        <a class="btn btn-warning" href="http://getbootstrap.com/css/#buttons">Buttons</a>
+                        <a class="btn btn-warning" href="http://getbootstrap.com/css/#forms">Forms</a>
+                        <a class="btn btn-warning" href="http://getbootstrap.com/components/#input-groups">Input Groups</a>
+                        <a class="btn btn-warning" href="http://getbootstrap.com/components/#nav">Navigation</a>
+                        <a class="btn btn-warning" href="http://getbootstrap.com/components/#navbar">Navbar</a>
+                        <a class="btn btn-warning" href="http://getbootstrap.com/javascript/#carousel">Carousel</a>
+                    </div>
+                </div>
+            </div><!-- /.wrapper -->
+
+            <div class="wrapper">
+                <h1 id="styling">Styling</h1>
+
+                <div class="alert alert-info">
+                    <p>
+                        For CSS files we are usign SASS. The CSS loaded in templates is preprocessed.
+                    </p>
+
+                    <br>
+
+                    <a class="btn btn-primary" href="http://sass-lang.com/install">SASS Installation Instructions</a>
+                </div>
+
+                <h3>SASS files structure</h3>
+
+                <ul>
+                    <li><strong>assets/scss/helpers/_admin.scss</strong> - Admin Structure</li>            
+                    <li><strong>assets/scss/helpers/_buttons.scss</strong> - Buttons</li>            
+                    <li><strong>assets/scss/helpers/_card.scss</strong> - Cards</li>            
+                    <li><strong>assets/scss/helpers/_categories.scss</strong> - Categories</li>            
+                    <li><strong>assets/scss/helpers/_comments.scss</strong> - Comments</li>            
+                    <li><strong>assets/scss/helpers/_commons.scss</strong> - Commons</li>            
+                    <li><strong>assets/scss/helpers/_detail.scss</strong> - Detail</li>            
+                    <li><strong>assets/scss/helpers/_detail_gallery.scss</strong> - Detail Gallery</li>            
+                    <li><strong>assets/scss/helpers/_events.scss</strong> - Events</li>            
+                    <li><strong>assets/scss/helpers/_faq.scss</strong> - FAQ</li>            
+                    <li><strong>assets/scss/helpers/_filter.scss</strong> - Filter</li>            
+                    <li><strong>assets/scss/helpers/_footer.scss</strong> - Footer</li>            
+                    <li><strong>assets/scss/helpers/_forms.scss</strong> - Forms</li>            
+                    <li><strong>assets/scss/helpers/_fullscreen.scss</strong> - Fullscreen</li>            
+                    <li><strong>assets/scss/helpers/_header.scss</strong> - Header</li>            
+                    <li><strong>assets/scss/helpers/_header_nav_user.scss</strong> - Header Navigation User</li>            
+                    <li><strong>assets/scss/helpers/_header_statusbar.scss</strong> - Header Statusbar</li>            
+                    <li><strong>assets/scss/helpers/_hero_image.scss</strong> - Hero Image</li>            
+                    <li><strong>assets/scss/helpers/_hero_slider.scss</strong> - Hero Slider</li>            
+                    <li><strong>assets/scss/helpers/_hero_video.scss</strong> - Hero Video</li>            
+                    <li><strong>assets/scss/helpers/_invoice.scss</strong> - Invoice </li>            
+                    <li><strong>assets/scss/helpers/_map.scss</strong> - Map</li>            
+                    <li><strong>assets/scss/helpers/_pagination.scss</strong> - Pagination</li>            
+                    <li><strong>assets/scss/helpers/_partners.scss</strong> - Partners</li>            
+                    <li><strong>assets/scss/helpers/_posts.scss</strong> - Posts</li>            
+                    <li><strong>assets/scss/helpers/_posts_detail.scss</strong> - Posts Detail</li>            
+                    <li><strong>assets/scss/helpers/_pricing.scss</strong> - Pricing</li>            
+                    <li><strong>assets/scss/helpers/_promotions.scss</strong> - Promotion</li>            
+                    <li><strong>assets/scss/helpers/_reviews.scss</strong> - Reviews</li>            
+                    <li><strong>assets/scss/helpers/_social.scss</strong> - Social</li>            
+                    <li><strong>assets/scss/helpers/_testimonials.scss</strong> - Testimonials</li>            
+                    <li><strong>assets/scss/helpers/_users.scss</strong> - Users</li>            
+                    <li><strong>assets/scss/helpers/_variables.scss</strong> - Variables</li>            
+                    <li><strong>assets/scss/helpers/_widgets.scss</strong> - Widgets</li>               
+                </ul>
+            </div>
+
+            <div class="wrapper">
+                <h1 id="javascript">JavaScript</h1>
+
+                <div class="alert alert-info">
+                    The main javascript file is stored in <i><strong>assets/js/siperlist.js</strong></i>
+                </div>
+
+                <div class="alert alert-info">
+                    Each javascript functionality has its own block with heading in <i><strong>assets/js/superlist.js</strong></i>. If you don't want to use something feel free to remove desired block.
+                </div>
+
+                <div class="alert alert-warning">
+                    Always add new javascript files before the closing &lt;/body&gt; tag.
+                </div>
+
+                <div class="alert alert-warning">
+                    Use jQuery scrict mode.<br>
+                    <br>
+                    <code>
+                        $(document).ready(function() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;'use strict';<br>
+                        });<br>
+                    </code>
+                </div>
+<p><strong>Isotope</strong></p>
+
+<pre><code>var isotope_properties = $('.properties-isotope');
+isotope_properties.isotope({
+    'itemSelector': '.item'
+});
+
+$('.properties-filter a').click(function() {
+    $(this).parent().parent().find('li').removeClass('selected');
+    $(this).parent().addClass('selected');
+
+    var selector = $(this).attr('data-filter');
+    isotope_properties.isotope({ filter: selector });
+    return false;
+});</code></pre>
+
+<p><strong>File Input</strong></p>
+
+<pre><code>$('#input-file').fileinput({
+    initialPreview: [
+    "<img src='/assets/img/tmp/medium/1.jpg' class='file-preview-image' alt='The Moon' title='Property 1'>",
+    "<img src='/assets/img/tmp/medium/2.jpg' class='file-preview-image' alt='The Earth' title='Property 2'>",
+    ],
+    overwriteInitial: true,
+    initialCaption: "Your Uploaded Properties"
+});</code></pre>
+
+<p><strong>Google Map</strong></p>
+
+<pre><code>
+    var map = $('#map');
+    var markers = new Array();
+    var icons = ['support', 'beer', 'plane', 'flag', 'wifi', 'tint', 'star', 'cutlery', 'music', 'recycle'];
+
+    function get_gps_ranges(center_lat, center_lng, range_level_lat, range_level_lng) {
+        var lat = center_lat + (Math.random() * (range_level_lat + range_level_lat) - range_level_lat);
+        var lng = center_lng + (Math.random() * (range_level_lng + range_level_lng) - range_level_lng);
+        return Array(lat, lng);
+    }
+
+    for (var i=0; i < 50; i++) {
+        var position = get_gps_ranges(40.761077, -73.983307, 0.08, 0.60);
+        var icon = icons[Math.floor(Math.random()*icons.length)];
+
+        markers.push({
+            latitude: position[0],
+            longitude: position[1],
+            marker_content: 'marker-content',
+            content: 'infobox-content'
+        });
+    }
+
+    var map_settings = {
+        infowindow: {
+            borderBottomSpacing: 0,
+            height: 195,
+            width: 165,
+            offsetX: 30,
+            offsetY: -120
+        },
+        cluster: {
+            height: 40,
+            width: 40,
+            gridSize: 60
+        },
+        zoom: 11,
+        transparentMarkerImage: map.data('transparent-marker-image'),
+        transparentClusterImage: map.data('transparent-marker-image'),
+        markers: markers,
+        styles: map.data('styles')
+    };
+
+    if (map.length) {
+        map.google_map(map_settings);
+    }
+</code></pre>
+
+<p><strong>Listing Detail Gallery</strong></p>
+
+<pre><code>/**
+ * Detail gallery
+ */
+if ($('.detail-gallery-index').length != 0) {
+    $('.detail-gallery-index').owlCarousel({
+        items: 5,
+        nav: true,
+        dots: true,
+        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>']
+    });
+}
+
+$('.detail-gallery-list-item a').on('click', function(e) {
+    e.preventDefault();
+
+    var link = $(this).attr('rel');
+    $('.detail-gallery-preview img').attr('src', link);
+    $('.detail-gallery-preview a').attr('href', link);
+});
+</code></pre>
+            </div>
+
+            <div class="wrapper">
+                <h1 id="libraries">Libraries</h1>
+
+                <div class="list-group">
+
+                    <li class="list-group-item">
+                        <a href="http://plugins.krajee.com/file-input"><strong>Bootstrap File Input</strong></a> - An enhanced HTML 5 file input for Bootstrap 3.x
+                    </li>
+
+                    <li class="list-group-item">
+                        <a href="http://silviomoreto.github.io/bootstrap-select/"><strong>Bootstrap Select</strong></a> - A custom select for Bootstrap using button dropdown.
+                    </li>
+
+                    <li class="list-group-item">
+                        <a href="http://fontawesome.io/"><strong>Font Awesome</strong></a> - icon-graphic font used for site icons
+                    </li>
+
+
+                    <li class="list-group-item">
+                        <a href="http://owlgraphic.com/owlcarousel/"><strong>OWL Carousel</strong></a> - Touch enabled jQuery plugin that lets you create beautiful responsive carousel slider.
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.main -->
+<div><!-- /.page -->
+
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<script type="text/javascript" src="assets/js/documentation.js"></script>
+</body>
+</html>

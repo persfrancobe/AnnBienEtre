@@ -1,0 +1,66 @@
+  <div class="background-white p20">
+            <div class="detail-overview-hearts">
+                <i class="fa fa-heart"></i> <strong>213 </strong>people love it
+            </div>
+            <div class="detail-overview-rating">
+                <i class="fa fa-star"></i> <strong>4.3 / 5 </strong>from <a href="#reviews">316 reviews</a>
+            </div>
+
+            <div class="detail-actions row">
+                
+                <div class="col-sm-6">
+                    <div class="btn btn-secondary btn-share"><i class="fa fa-share-square-o"></i> Share
+                        <div class="share-wrapper">
+                            <ul class="share">
+                                <li><i class="fa fa-facebook"></i> Facebook</li>
+                                <li><i class="fa fa-twitter"></i> Twitter</li>
+                                <li><i class="fa fa-google-plus"></i> Google+</li>
+                                <li><i class="fa fa-pinterest"></i> Pinterest</li>
+                                <li><i class="fa fa-chain"></i> Link</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- /.col-sm-4 -->
+                <div class="col-sm-6">
+                    <div class="btn btn-secondary btn-claim"><i class="fa fa-hand-peace-o"></i> Claim</div>
+                </div><!-- /.col-sm-4 -->
+            </div><!-- /.detail-actions -->
+        </div>
+
+        <h2><span class="text-secondary">{{prestataire.username}}</span></h2>
+        <div class="background-white p20">
+            <div class="detail-vcard">
+                <div class="detail-logo">
+                    <img src="{{asset('bundles/bienetre/img/tmp/about-us-logo.jpg')}}">
+                </div><!-- /.detail-logo -->
+
+                <div class="detail-contact">
+                    <div class="detail-contact-email">
+                        <i class="fa fa-envelope-o"></i> <a href="mailto:#">{{prestataire.email}}</a>
+                    </div>
+                    <div class="detail-contact-phone">
+                        <i class="fa fa-mobile-phone"></i> <a href="tel:#">{{prestataire.numTel}}</a>
+                    </div>
+                    <div class="detail-contact-website">
+                        <i class="fa fa-globe"></i> <a href="#">{{prestataire.site}}</a>
+                    </div>
+                    <div class="detail-contact-address">
+                        <i class="fa fa-map-o"></i>
+                        {{prestataire.adresRue}}{{prestataire.adresNum}}<br>
+                    </div>
+                </div><!-- /.detail-contact -->
+            </div><!-- /.detail-vcard -->
+
+            <div class="detail-follow">
+                <h5>Follow Us:</h5>
+                <div class="follow-wrapper">
+                    <a class="follow-btn facebook" href="#"><i class="fa fa-facebook"></i></a>
+                    <a class="follow-btn youtube" href="#"><i class="fa fa-youtube"></i></a>
+                    <a class="follow-btn twitter" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="follow-btn tripadvisor" href="#"><i class="fa fa-tripadvisor"></i></a>
+                    <a class="follow-btn google-plus" href="#"><i class="fa fa-google-plus"></i></a>
+                </div><!-- /.follow-wrapper -->
+            </div><!-- /.detail-follow -->
+        </div>
+  
+ 

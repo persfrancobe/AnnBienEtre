@@ -1,0 +1,136 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: table;
+    font-size: 14px;
+    height: 100%;
+    width: 100%;
+}
+
+pre {
+    background-color: rgba(0, 0, 0, .05);
+    border: 0px;
+    border-radius: 0px;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+code {
+    font-family: monospace;
+}
+
+.label {
+    border-radius: 0px;
+    font-size: 10px;
+}
+
+.page {
+    display: table-row;
+}
+
+.sidebar {
+    background-color: #2c3646;
+    border-right: 10px solid #ddd;
+    color: #fff;
+    display: table-cell;
+    vertical-align: top;
+    width: 260px;
+}
+
+.sidebar h2 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0px;
+    padding: 15px;
+}
+
+.sidebar .nav {
+    margin-bottom: 60px;
+}
+
+.sidebar .nav li {
+    margin: 0px 0px 5px 0px;
+}
+
+.sidebar .nav li a {
+    background-color: rgba(255, 255, 255, .02);
+    border-radius: 0px;
+    color: rgba(255, 255, 255, .9);
+    transition: background-color .15s linear;
+}
+
+.sidebar .nav li a:hover {
+    background-color: rgba(255, 255, 255, .05);
+}
+
+.sidebar .nav li ul {
+    list-style: none;
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+}
+
+.sidebar .nav li ul li a {
+    background-color: transparent;
+    display: block;
+    font-size: 12px;
+    padding: 5px 30px 5px 30px;
+}
+
+.sidebar .nav li ul li a:hover {
+    background-color: transparent;
+}
+
+.main {
+    background-color: #f3f6f8;
+    color: #4e616e;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.main .page-header {
+    background-color: #fff;
+    border: 0px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .08);
+    margin: 0px -15px;
+    padding: 0px 1px;;
+}
+
+.main .page-header h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0px;
+    padding: 15px;
+}
+
+.main h1 {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 40px 0px;
+}
+
+.well {
+    background-color: #fff;
+    border: 0px;
+    border-radius: 0px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, .08);
+    margin: 0px 0px 40px 0px;
+}
+
+.well h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: -5px;
+    padding-bottom: 15px;
+}
+
+.well h3 {
+    font-size: 16px;
+}
+
+ol { counter-reset: item }
+ol li { display: block }
+ol li:before { content: counters(item, ".") " "; counter-increment: item }

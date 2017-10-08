@@ -1,0 +1,60 @@
+{#<form class="filter" method="post" action="{{path('recherche_traitment')}}">
+    {{form_start(form)}}
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                {{ form_widget(form.nom,{ 'attr':{"class":"form-control" ,"placeholder":"Nom Du Prestataire" } } ) }}
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                {{ form_widget(form.commune,{ 'attr':{"class":"form-control", "title":"Commune" } } ) }}
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                {{ form_widget(form.categorie,{ 'attr':{"class":"form-control" ,"title":"Categorie" } } ) }}
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+
+    <hr>
+
+    <div class="row">
+        {# <div class="col-sm-8">
+             <div class="filter-actions">
+                 <a href="#"><i class="fa fa-close"></i> Reset Filter</a>
+                 <a href="#"><i class="fa fa-save"></i> Save Search</a>
+             </div><!-- /.filter-actions -->
+         </div><!-- /.col-* -->
+
+        <div class="col-sm-4 col-lg-offset-3">
+            <button type="submit" class="btn btn-primary">Rechercher Le Prestataire</button>
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+    {{form_end(form)}}
+</form>#}
+<div class="col-sm-4 hero-image-form-wrapper">
+    <form  method="post" action="{{path('recherche_traitment')}}">
+        {{form_start(form)}}
+        <h2>Recherche Prestataire</h2>
+
+        <div class="hero-image-keyword form-group">
+            {{ form_widget(form.nom,{ 'attr':{"class":"form-control" ,"placeholder":"Nom Du Prestataire" } } ) }}
+        </div><!-- /.form-group -->
+
+        <div class="hero-image-location form-group">
+            {{ form_widget(form.commune,{ 'attr':{"class":"form-control", "title":"Commune" } } ) }}
+        </div><!-- /.form-group -->
+
+        <div class="hero-image-category form-group">
+            {{ form_widget(form.categorie,{ 'attr':{"class":"form-control" ,"title":"Categorie" } } ) }}
+        </div><!-- /.form-group -->
+
+        <button type="submit" class="btn btn-primary btn-block">Rechercher</button>
+        {{form_end(form)}}
+    </form>
+</div><!-- /.col-* -->
+{#il faut changer la position de la class .hero-image-form-wrapper pour resoudre le problem#}

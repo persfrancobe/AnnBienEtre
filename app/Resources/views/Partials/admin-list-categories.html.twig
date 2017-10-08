@@ -1,0 +1,37 @@
+<div class="cards-system">
+    {% if lentgh and start is null %}
+        {% for cs in cards %}
+            <div class="card-system">
+                <div class="card-system-inner">
+                    <div class="card-system-image" data-background-image="{{ asset(cs.image.webPath)}}">
+                        <a href="{{ path('categorie',{id:cs.id})}}"></a>
+                    </div><!-- /.card-system-image -->
+
+                    <div class="card-system-content">
+                        <h2><a href="{{ path('categorie',{id:cs.id})}}">{{cs.nom}}</a></h2>
+                        <h3>{{cs.description}}</h3>
+                        <a href="#" class="btn btn-primary btn-xs">Modifier</a>
+                        <a href="#" class="btn btn-secondary btn-xs">Supremer</a>
+                    </div>
+                </div>
+            </div><!-- /.card-system -->
+        {% endfor %}
+    {% else %}
+        {% for cs in cards|slice(start,lentgh) %}
+            <div class="card-system">
+                <div class="card-system-inner">
+                    <div class="card-system-image" data-background-image="{{ asset(cs.image.webPath)}}">
+                        <a href="{{ path('categorie',{id:cs.id})}}"></a>
+                    </div><!-- /.card-system-image -->
+
+                    <div class="card-system-content">
+                        <h2><a href="{{ path('categorie',{id:cs.id})}}">{{cs.nom}}</a></h2>
+                        <h3>{{cs.description}}</h3>
+                        <a href="#" class="btn btn-primary btn-xs">Modifier</a>
+                        <a href="#" class="btn btn-secondary btn-xs">Supprimer</a>
+                    </div>
+                </div>
+            </div><!-- /.card-system -->
+        {% endfor %}
+    {% endif %}
+</div><!-- /.cards-system -->

@@ -1,0 +1,21 @@
+<div class="detail-gallery">
+
+    <div class="detail-gallery-preview">
+        <a href="{{asset(img[0].webPath)}}">
+            <img src="{{asset(img[0].webPath)}}">
+        </a>
+    </div>
+    {% if img|length >1 %} 
+        <ul class="detail-gallery-index">
+            {% for image in img %}
+
+                <li class="detail-gallery-list-item active">
+                    <a data-target="{{asset(img.webPath)}}">
+                        <img src="{{asset(img.webPath)}}" alt="img.nom">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif%}
+
+</div><!-- /.detail-gallery -->

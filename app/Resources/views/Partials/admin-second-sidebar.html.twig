@@ -1,0 +1,14 @@
+<div class="sidebar-secondary-admin">
+    <ul>
+        {% for tb in tab %}
+        <li class="active">
+            <a href="{{path(tb.path)}}">
+                <span class="icon"><i class="fa fa-{{tb.icon}}"></i></span>
+                <span class="title">{{tb.titre}}</span>
+                <span class="subtitle">{{tb.soustitre}}</span>
+            </a>
+        </li>
+        {% endfor %}
+
+    </ul>
+</div><!-- /.sidebar-secondary-admin -->

@@ -1,0 +1,26 @@
+.fullscreen-wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.fullscreen-scroll {
+    display: table-cell;
+    padding: 0px;
+    width: 60%;
+}
+
+.fullscreen-scroll-inner {
+    background-image: linear-gradient(to left, rgba(black, .2), transparent 30px);
+    height: 100%;
+    overflow: auto;
+}
+
+.fullscreen-scroll-padding {
+    padding: 30px 20px;
+}
+
+.fullscreen-map {
+    display: table-cell;
+    width: 40%;
+}
