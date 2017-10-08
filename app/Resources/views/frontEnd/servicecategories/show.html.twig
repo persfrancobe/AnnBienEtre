@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Servicecategory</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ serviceCategory.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ serviceCategory.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ serviceCategory.description }}</td>
+            </tr>
+            <tr>
+                <th>Inaction</th>
+                <td>{% if serviceCategory.inAction %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Validated</th>
+                <td>{% if serviceCategory.validated %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('servicecategories_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

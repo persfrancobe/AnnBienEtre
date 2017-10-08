@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Promotion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ promotion.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ promotion.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ promotion.description }}</td>
+            </tr>
+            <tr>
+                <th>Pdf</th>
+                <td>{{ promotion.pdf }}</td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>{% if promotion.start %}{{ promotion.start|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{% if promotion.end %}{{ promotion.end|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Displayof</th>
+                <td>{% if promotion.displayOf %}{{ promotion.displayOf|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Displayup</th>
+                <td>{% if promotion.displayUp %}{{ promotion.displayUp|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('promotions_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -56,6 +56,13 @@ class Postcodes
         $this->user = new ArrayCollection();
     }
 
+
+    public function __toString()
+    {
+        return $this->postcode;
+    }
+
+
     /**
      * @return mixed
      */

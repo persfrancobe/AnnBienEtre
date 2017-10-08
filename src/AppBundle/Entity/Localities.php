@@ -56,6 +56,11 @@ class Localities
         $this->postcode=new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->locality;
+    }
+
     /**
      * @return mixed
      */

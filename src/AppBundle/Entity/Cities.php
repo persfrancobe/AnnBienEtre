@@ -58,6 +58,11 @@ class Cities
         $this->postcode= new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->city;
+    }
+
     /**
      * @return ArrayCollection
      */

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Servicecategories list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Inaction</th>
+                <th>Validated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for serviceCategory in serviceCategories %}
+            <tr>
+                <td><a href="{{ path('servicecategories_show', { 'id': serviceCategory.id }) }}">{{ serviceCategory.id }}</a></td>
+                <td>{{ serviceCategory.name }}</td>
+                <td>{{ serviceCategory.description }}</td>
+                <td>{% if serviceCategory.inAction %}Yes{% else %}No{% endif %}</td>
+                <td>{% if serviceCategory.validated %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('servicecategories_show', { 'id': serviceCategory.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

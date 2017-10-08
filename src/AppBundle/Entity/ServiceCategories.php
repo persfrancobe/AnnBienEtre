@@ -68,6 +68,11 @@ class ServiceCategories
      */
     private $promotion;
 
+    public function __toString()
+    {
+        return $this->description;
+    }
+
 
     /**
      * Constructor
