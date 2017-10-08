@@ -1,45 +1,13 @@
-{% extends "listing-layout.html.twig" %}
-{% block titre %}Tout Les Categories
+{% extends "frontEnd/listing-layout.html.twig" %}
+{% block titre %}Tout Les Promotions
 {% endblock %}
-{% block main %}
-    <h1>Promotions list</h1>
+{% block posts %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Pdf</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Displayof</th>
-                <th>Displayup</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for promotion in promotions %}
-            <tr>
-                <td><a href="{{ path('promotions_show', { 'id': promotion.id }) }}">{{ promotion.id }}</a></td>
-                <td>{{ promotion.name }}</td>
-                <td>{{ promotion.description }}</td>
-                <td>{{ promotion.pdf }}</td>
-                <td>{% if promotion.start %}{{ promotion.start|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if promotion.end %}{{ promotion.end|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if promotion.displayOf %}{{ promotion.displayOf|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if promotion.displayUp %}{{ promotion.displayUp|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('promotions_show', { 'id': promotion.id }) }}">show</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    
-{% endblock %}
+    {% if  promotions is iterable%}
+        {%for promotion in  promotions%}
+            {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, nom:promotion.name,image:'/Resources/public/img/logo.png',description:promotion.description,rout:'promotions_show'}}) }}
+        {%endfor%}
+    {%else%}
+        {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, nom:promotion.name,image:'/Resources/public/img/logo.png',description:promotion.description,rout:'promotions_show'}}) }}
+    {%endif%}
+{%endblock%}

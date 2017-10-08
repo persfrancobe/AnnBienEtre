@@ -1,47 +1,13 @@
-{% extends "listing-layout.html.twig" %}
-{% block titre %}Courses list
+{% extends "frontEnd/listing-layout.html.twig" %}
+{% block titre %}Tout Les courses
 {% endblock %}
-{% block main %}
-    <h1>Courses list</h1>
+{% block posts %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Displayof</th>
-                <th>Displayup</th>
-                <th>Info</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for course in courses %}
-            <tr>
-                <td><a href="{{ path('courses_show', { 'id': course.id }) }}">{{ course.id }}</a></td>
-                <td>{{ course.name }}</td>
-                <td>{{ course.description }}</td>
-                <td>{{ course.price }}</td>
-                <td>{% if course.start %}{{ course.start|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if course.end %}{{ course.end|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if course.displayOf %}{{ course.displayOf|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if course.displayUp %}{{ course.displayUp|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ course.info }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('courses_show', { 'id': course.id }) }}">show</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    
-{% endblock %}
+    {% if  courses is iterable%}
+        {%for course in  courses%}
+            {{ include('Partials/big-post.html.twig',{post:{id:course.id, nom:course.name,image:'/Resources/public/img/logo.png',description:course.description,rout:'courses_show'}}) }}
+        {%endfor%}
+    {%else%}
+        {{ include('Partials/big-post.html.twig',{post:{id:course.id, nom:course.name,image:'/Resources/public/img/logo.png',description:course.description,rout:'courses_show'}}) }}
+    {%endif%}
+{%endblock%}

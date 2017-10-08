@@ -1,51 +1,13 @@
-{% extends "listing-layout.html.twig" %}
-{% block titre %}Tout Les Categories
+{% extends "frontEnd/listing-layout.html.twig" %}
+{% block titre %}Tout Les Prestataires
 {% endblock %}
-{% block main %}
-    <h1>Providers list</h1>
+{% block posts %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Internetsite</th>
-                <th>Contactemail</th>
-                <th>Telnum</th>
-                <th>Tvanum</th>
-                <th>Id</th>
-                <th>Housnum</th>
-                <th>Street</th>
-                <th>Registration</th>
-                <th>Registrationconf</th>
-                <th>Unsuccessfultestnum</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for provider in providers %}
-            <tr>
-                <td><a href="{{ path('providers_show', { 'id': provider.id }) }}">{{ provider.name }}</a></td>
-                <td>{{ provider.internetSite }}</td>
-                <td>{{ provider.contactEmail }}</td>
-                <td>{{ provider.telNum }}</td>
-                <td>{{ provider.tvaNum }}</td>
-                <td>{{ provider.id }}</td>
-                <td>{{ provider.housNum }}</td>
-                <td>{{ provider.street }}</td>
-                <td>{% if provider.registration %}{{ provider.registration|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if provider.registrationConf %}Yes{% else %}No{% endif %}</td>
-                <td>{{ provider.unsuccessfulTestNum }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('providers_show', { 'id': provider.id }) }}">show</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    
-{% endblock %}
+    {% if  providers is iterable%}
+        {%for provider in  providers%}
+           {{ include('Partials/big-post.html.twig',{post:{id:provider.id, nom:provider.name,image:'/Resources/public/img/logo.png',description:provider.email,rout:'providers_show'}}) }}
+        {%endfor%}
+        {%else%}
+            {{ include('Partials/big-post.html.twig',{post:{id:provider.id, nom:provider.name,image:'/Resources/public/img/logo.png',description:provider.email,rout:'providers_show'}}) }}
+    {%endif%}
+{%endblock%}

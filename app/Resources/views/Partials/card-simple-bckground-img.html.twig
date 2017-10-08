@@ -1,7 +1,7 @@
 <div class="card-simple" data-background-image="">
     <div class="card-simple-background">
         <div class="card-simple-content">
-            <h2><a href="listing-detail.html">{{card_simple.titre}}</a></h2>
+            <h2><a href="{{path(card_simple.rout_detail,{'id':card_simple.id})}}">{{card_simple.titre}}</a></h2>
             <div class="card-simple-rating">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -11,9 +11,9 @@
             </div><!-- /.card-rating -->
 
             <div class="card-simple-actions ">
-                <a href="#" class="fa fa-bookmark-o"></a>
-                <a href="listing-detail.html" class="fa fa-search"></a>
-                <a href="#" class="fa fa-heart-o"></a>
+                <a href="{{path(card_simple.rout_bookmark,{'id':card_simple.id})}}" class="fa fa-bookmark-o"></a>
+                <a href="{{path(card_simple.rout_serch,{'id':card_simple.id})}}" class="fa fa-search"></a>
+                <a href="{{path(card_simple.rout_favorit,{'id':card_simple.id})}}" class="fa fa-heart-o"></a>
             </div><!-- /.card-simple-actions -->
         </div><!-- /.card-simple-content -->
 
