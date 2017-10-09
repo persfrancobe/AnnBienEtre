@@ -160,7 +160,7 @@ AppBundle\Entity\Promotions:
 
 AppBundle\Entity\Images:
     images_{1..11}:
-        image: '<imageUrl()>'
+        webPath: '<imageUrl()>'
         imgOrder: '<numberBetween(1,11)>'
         provider: '@providers_*'
         serviceCategory: '@service.categories_*'

@@ -1,14 +1,14 @@
 <h2 id="reviews">Tout Les Commentaires</h2>
 <div class="reviews">
-    {% for commentaire in commentaires %}
+    {% for comment in comments %}
         <div class="review">
             <div class="review-image">
-                <img src="{{asset('bundles/bienetre/img/tmp/agent-1.jpg')}}" alt="">
+                <img src="{{asset('Resources/public/img/tmp/agent-1.jpg')}}" alt="">
             </div><!-- /.review-image -->
 
             <div class="review-inner">
                 <div class="review-title">
-                    <h2>{{commentaire.titre}}</h2>
+                    <h2>{{comment.titre}}</h2>
 
                     <span class="report">
                         <span class="separator">&#8226;</span><i class="fa fa-flag" title="Report" data-toggle="tooltip" data-placement="top"></i>
@@ -27,7 +27,7 @@
                 <div class="review-content-wrapper">
                     <div class="review-content">
                         <div class="review-pros">
-                            <p>{{commentaire.description}}</p>
+                            <p>{{comment.description}}</p>
                         </div><!-- /.pros -->
 
                     </div><!-- /.review-content -->

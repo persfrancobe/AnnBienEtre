@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class ProvidersRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findProviders($id) {
+        $qb = $this->createQueryBuilder('p');
+        $qb->select('p')
+            ->where('p.id = :id')
+            ->setParameter('id', $id)
+            ->leftJoin('p.categorie', 'cat')
+            ->addSelect('cat');
+        $query = $this->addJoins($qb);
+        return $query->getQuery()->getSingleResult();
+    }
 }

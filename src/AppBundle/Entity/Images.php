@@ -24,9 +24,9 @@ class Images
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="blob")
+     * @ORM\Column(name="webPath", type="blob")
      */
-    private $image;
+    private $webPath;
 
     /**
      * @var int
@@ -136,27 +136,27 @@ class Images
     }
 
     /**
-     * Set image
+     * Set webPath
      *
      * @param string $image
      *
      * @return Images
      */
-    public function setImage($image)
+    public function setWebPath($webPath)
     {
-        $this->image = $image;
+        $this->webPath=$webPath;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get webPath
      *
      * @return string
      */
-    public function getImage()
+    public function getWebPath()
     {
-        return $this->image;
+        return $this->webPath;
     }
 
     /**
