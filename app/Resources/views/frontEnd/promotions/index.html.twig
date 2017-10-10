@@ -5,9 +5,9 @@
 
     {% if  promotions is iterable%}
         {%for promotion in  promotions%}
-            {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, nom:promotion.name,image:'/Resources/public/img/logo.png',description:promotion.description,rout:'promotions_show'}}) }}
+            {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, nom:promotion.name,image:'img/logo.png',description:promotion.description,rout:'promotion_show'}}) }}
         {%endfor%}
     {%else%}
-        {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, nom:promotion.name,image:'/Resources/public/img/logo.png',description:promotion.description,rout:'promotions_show'}}) }}
+        {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, nom:promotion.name,image:'img/logo.png',description:promotion.description,rout:'promotion_show'}}) }}
     {%endif%}
 {%endblock%}

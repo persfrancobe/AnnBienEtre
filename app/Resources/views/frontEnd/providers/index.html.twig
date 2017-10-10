@@ -5,9 +5,9 @@
 
     {% if  providers is iterable%}
         {%for provider in  providers%}
-           {{ include('Partials/big-post.html.twig',{post:{id:provider.id, nom:provider.name,image:'/Resources/public/img/logo.png',description:provider.email,rout:'providers_show'}}) }}
+           {{ include('Partials/big-post.html.twig',{post:{id:provider.id, nom:provider.name,image:'img/logo.png',description:provider.email,rout:'provider_show'}}) }}
         {%endfor%}
         {%else%}
-            {{ include('Partials/big-post.html.twig',{post:{id:provider.id, nom:provider.name,image:'/Resources/public/img/logo.png',description:provider.email,rout:'providers_show'}}) }}
+            {{ include('Partials/big-post.html.twig',{post:{id:provider.id, nom:provider.name,image:'img/logo.png',description:provider.email,rout:'provider_show'}}) }}
     {%endif%}
 {%endblock%}

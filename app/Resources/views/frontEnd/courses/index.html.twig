@@ -5,9 +5,9 @@
 
     {% if  courses is iterable%}
         {%for course in  courses%}
-            {{ include('Partials/big-post.html.twig',{post:{id:course.id, nom:course.name,image:'/Resources/public/img/logo.png',description:course.description,rout:'courses_show'}}) }}
+            {{ include('Partials/big-post.html.twig',{post:{id:course.id, nom:course.name,image:'img/logo.png',description:course.description,rout:'course_show'}}) }}
         {%endfor%}
     {%else%}
-        {{ include('Partials/big-post.html.twig',{post:{id:course.id, nom:course.name,image:'/Resources/public/img/logo.png',description:course.description,rout:'courses_show'}}) }}
+        {{ include('Partials/big-post.html.twig',{post:{id:course.id, nom:course.name,image:'img/logo.png',description:course.description,rout:'course_show'}}) }}
     {%endif%}
 {%endblock%}

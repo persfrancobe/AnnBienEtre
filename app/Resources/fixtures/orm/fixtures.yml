@@ -1,30 +1,30 @@
-AppBundle\Entity\Newsletters:
-    newsletters_{1..15}:
+AppBundle\Entity\Newsletter:
+    newsletter_{1..15}:
         title: '<name()>'
         pdf: '<image()>'
         publication: '<dateTime()>'
 
 
-AppBundle\Entity\Cities:
-    cities_{1..11}:
+AppBundle\Entity\City:
+    city_{1..11}:
         city: '<city()>'
 
 
-AppBundle\Entity\Localities:
-    localities_{1..11}:
+AppBundle\Entity\Locality:
+    locality_{1..11}:
         locality: '<state()>'
-        city: '@cities_*'
+        city: '@city_*'
 
 
-AppBundle\Entity\Postcodes:
-     postcodes_{1..11}:
+AppBundle\Entity\Postcode:
+     postcode_{1..11}:
          postcode: '<postcode()>'
-         locality: '@localities_*'
-         city: '@cities_*'
+         locality: '@locality_*'
+         city: '@city_*'
 
 
-AppBundle\Entity\Users:
-    users_1:
+AppBundle\Entity\User:
+    user_1:
         email: persfrancobe@gmail.com
         password: kalantaris
         housNum: 18
@@ -35,14 +35,14 @@ AppBundle\Entity\Users:
         userName: persfrancobe
         registrationConf: true
         unsuccessfulTestNum: 0
-        city: '@cities_*'
-        locality: '@localities_*'
-        postcode: '@postcodes_*'
+        city: '@city_*'
+        locality: '@locality_*'
+        postcode: '@postcode_*'
 
 
 
-AppBundle\Entity\Visitors:
-    visitors_{1..11}:
+AppBundle\Entity\Visitor:
+    visitor_{1..11}:
         name: '<LastName()>'
         firstName: '<firstName()>'
         newsletter: true
@@ -56,12 +56,12 @@ AppBundle\Entity\Visitors:
         username: '<userName()>'
         registrationConf: true
         unsuccessfulTestNum: '<numberBetween(0,2)>'
-        city: '@cities_*'
-        locality: '@localities_*'
-        postcode: '@postcodes_*'
+        city: '@city_*'
+        locality: '@locality_*'
+        postcode: '@postcode_*'
 
-AppBundle\Entity\Providers:
-    providers_{1..11}:
+AppBundle\Entity\Provider:
+    provider_{1..11}:
         name: '<name()>'
         internetSite: '<domainName()>'
         contactEmail: '<email()>'
@@ -77,31 +77,31 @@ AppBundle\Entity\Providers:
         username: '<userName()>'
         registrationConf: true
         unsuccessfulTestNum: '<numberBetween(0,2)>'
-        city: '@cities_*'
-        locality: '@localities_*'
-        postcode: '@postcodes_*'
+        city: '@city_*'
+        locality: '@locality_*'
+        postcode: '@postcode_*'
 
 
-AppBundle\Entity\Blocks:
-    blocks_{1..11}:
+AppBundle\Entity\Block:
+    block_{1..11}:
         name: '<name()>'
         description: '<name()>'
         ord: '<numberBetween(1,3)>'
-        user: '@users_*'
+        user: '@user_*'
 
 
-AppBundle\Entity\Comments:
-    comments_{1..11}:
+AppBundle\Entity\Comment:
+    comment_{1..11}:
         title: '<sentence()>'
         encoding: '<dateTime()>'
         rating: '<numberBetween(1,11)>'
         content:  '<text(211)>'
-        provider: '@providers_*'
-        visitor: '@visitors_*'
+        provider: '@provider_*'
+        visitor: '@visitor_*'
 
 
-AppBundle\Entity\Courses:
-    courses_{1..11}:
+AppBundle\Entity\Course:
+    course_{1..11}:
         name: '<name()>'
         info: '<sentence()>'
         description: '<text(111)>'
@@ -110,43 +110,43 @@ AppBundle\Entity\Courses:
         end: '<dateTime()>'
         displayOf: '<dateTime()>'
         displayUp: '<dateTime()>'
-        provider: '@providers_*'
+        provider: '@provider_*'
 
 
-AppBundle\Entity\Notes:
-    notes_{1..11}:
+AppBundle\Entity\Note:
+    note_{1..11}:
         note: '<numberBetween(1,10)>'
         date: '<dateTime()>'
-        visitor: '@visitors_*'
-        provider: '@providers_*'
+        visitor: '@visitor_*'
+        provider: '@provider_*'
 
 
-AppBundle\Entity\Abuses:
-    abuses_{1..11}:
+AppBundle\Entity\Abuse:
+    abuse_{1..11}:
         description: '<sentence()>'
         encoding: '<dateTime()>'
-        visitor: '@visitors_*'
-        comment: '@comments_*'
+        visitor: '@visitor_*'
+        comment: '@comment_*'
 
 
-AppBundle\Entity\Favorites:
-    favorites_{1..11}:
+AppBundle\Entity\Favorite:
+    favorite_{1..11}:
         date: '<dateTime()>'
-        visitor: '@visitors_*'
-        provider: '@providers_*'
+        visitor: '@visitor_*'
+        provider: '@provider_*'
 
 
-AppBundle\Entity\ServiceCategories:
-    service.categories_{1..11}:
+AppBundle\Entity\ServiceCategory:
+    service.category_{1..11}:
         name: '<name()>'
         description: '<sentence()>'
         inAction: true
         validated: true
-        provider:  ['@providers_*']
+        providers:  ['@provider_*']
 
 
-AppBundle\Entity\Promotions:
-    promotions_{1..11}:
+AppBundle\Entity\Promotion:
+    promotion_{1..11}:
         name: '<name()>'
         description: '<sentence()>'
         pdf: '<imageUrl()>'
@@ -154,17 +154,17 @@ AppBundle\Entity\Promotions:
         end: '<dateTime()>'
         displayOf: '<dateTime()>'
         displayUp: '<dateTime()>'
-        provider: '@providers_*'
-        serviceCategory: '@service.categories_*'
+        provider: '@provider_*'
+        serviceCategory: '@service.category_*'
 
 
-AppBundle\Entity\Images:
-    images_{1..11}:
+AppBundle\Entity\Image:
+    image_{1..11}:
         webPath: '<imageUrl()>'
         imgOrder: '<numberBetween(1,11)>'
-        provider: '@providers_*'
-        serviceCategory: '@service.categories_*'
-        course: '@courses_*'
-        promotion: '@promotions_*'
+        provider: '@provider_*'
+        serviceCategory: '@service.category_*'
+        course: '@course_*'
+        promotion: '@promotion_*'
 
 

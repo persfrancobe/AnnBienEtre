@@ -16,11 +16,11 @@ class DefaultController extends Controller
     public function homePageAction() {
         $em = $this->getDoctrine()->getManager();
 
-        $providers = $em->getRepository('AppBundle:Providers')->findAll();
-        $promotions = $em->getRepository('AppBundle:Promotions')->findAll();
-        $courses = $em->getRepository('AppBundle:Courses')->findAll();
-        $cities = $em->getRepository('AppBundle:Cities')->findAll();
-        $service_categories = $em->getRepository('AppBundle:ServiceCategories')->findAll();
+        $providers = $em->getRepository('AppBundle:Provider')->findAll();
+        $promotions = $em->getRepository('AppBundle:Promotion')->findAll();
+        $courses = $em->getRepository('AppBundle:Course')->findAll();
+        $cities = $em->getRepository('AppBundle:City')->findAll();
+        $service_categories = $em->getRepository('AppBundle:ServiceCategory')->findAll();
        /* $slider = $em->getRepository('AppBundle:Images')->findBy(array('type' => 'slider'));*/
 
 

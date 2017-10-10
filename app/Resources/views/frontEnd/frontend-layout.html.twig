@@ -12,7 +12,7 @@
                     <div class="header-inner">
                         <div class="header-logo">
                             <a href="{{ path('homepage')}}">
-                                <img src="{{ asset ('/Resources/public/img/logo.png')}}" alt="Logo">
+                                <img src="{{ asset ('img/logo.png')}}" alt="Logo">
                                 <span>{{ mySiteTwig }}</span>
                             </a>
                         </div><!-- /.header-logo -->
@@ -52,15 +52,15 @@
 
                                 <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
                                     <li >
-                                        <a href="{{ path('providers_index')}}">Home <i class="fa"></i></a>
+                                        <a href="{{ path('provider_index')}}">Home <i class="fa"></i></a>
                                     </li>
 
                                     <li >
-                                        <a href="{{ path('providers_index')}}">Prestataires<i class="fa"></i></a>
+                                        <a href="{{ path('provider_index')}}">Prestataires<i class="fa"></i></a>
                                     </li>
 
                                     <li class="has-mega-menu active">
-                                        <a href="{{ path('servicecategories_index')}}">Categories{#<i class="fa fa-chevron-down"></i>#}</a>
+                                        <a href="{{ path('servicecategory_index')}}">Categories{#<i class="fa fa-chevron-down"></i>#}</a>
                                         {#
                                         <ul class="mega-menu">
                                             <li>
@@ -182,7 +182,7 @@
 
                 <div class="footer-bottom-right">
                     <ul class="nav nav-pills">
-                        <li><a href="{{ path('providers_index')}}">Home</a></li>
+                        <li><a href="{{ path('provider_index')}}">Home</a></li>
                         <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
                         <li><a href="contact-1.html">Contact</a></li>
                     </ul><!-- /.nav -->

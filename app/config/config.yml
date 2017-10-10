@@ -77,9 +77,3 @@ fos_user:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
     use_username_form_type: false
-
-assetic:
-    debug:          '%kernel.debug%'
-    use_controller: '%kernel.debug%'
-    filters:
-        cssrewrite: ~

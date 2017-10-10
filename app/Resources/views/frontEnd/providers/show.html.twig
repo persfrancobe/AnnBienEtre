@@ -67,7 +67,7 @@
                                 <div class="row">
                                     {% for promotion in provider.promotion %}
                                         <div class="col-sm-6 col-md-3">
-                                            {{ include('Partials/card-simple-bckground-img.html.twig' ,{ card_simple :{id:promotion.id,title:promotion.name, name:promotion.description,rout_serch:'promotions_show',rout_detail:'promotions_show',rout_bookmark:'promotions_show',rout_favorit:'promotions_show'} }) }}
+                                            {{ include('Partials/card-simple-bckground-img.html.twig' ,{ card_simple :{id:promotion.id,title:promotion.name, name:promotion.description,rout_serch:'promotion_show',rout_detail:'promotion_show',rout_bookmark:'promotion_show',rout_favorit:'promotion_show'} }) }}
                                         </div><!-- /.col-* -->
                                     {% endfor %}
                                 </div><!-- /.row -->

@@ -5,9 +5,9 @@
 
     {% if  serviceCategories is iterable%}
         {%for category in  serviceCategories%}
-            {{ include('Partials/big-post.html.twig',{post:{id:category.id, nom:category.name,image:'/Resources/public/img/logo.png',description:category.description,rout:'servicecategories_show'}}) }}
+            {{ include('Partials/big-post.html.twig',{post:{id:category.id, nom:category.name,image:'img/logo.png',description:category.description,rout:'servicecategory_show'}}) }}
         {%endfor%}
     {%else%}
-        {{ include('Partials/big-post.html.twig',{post:{id:category.id, nom:category.name,image:'/Resources/public/img/logo.png',description:category.description,rout:'servicecategories_show'}}) }}
+        {{ include('Partials/big-post.html.twig',{post:{id:category.id, nom:category.name,image:'img/logo.png',description:category.description,rout:'servicecategory_show'}}) }}
     {%endif%}
 {%endblock%}
