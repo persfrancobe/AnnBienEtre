@@ -1,4 +1,4 @@
-{% extends "frontEnd/listing-layout.html.twig" %}
+{% extends "frontEnd/frontend-layout.html.twig" %}
 {% block titre %}{{ provider.name }}
 {% endblock %}
 {% block main %}
@@ -15,7 +15,7 @@
 
 
 
-                            {#{ include('Partials/provider-gallery.html.twig',{img:prestataire.image}) }#}
+                            {#{ include('Partials/provider-gallery.html.twig',{img:'img/logo.png'}) }#}
 
 
 
@@ -25,9 +25,9 @@
                             <div class="fullwidth mt80">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        {% for category in provider.serviceCategory %}
+                                        {% for category in provider.serviceCategories %}
                                             <div class="posts">
-                                                {{ include('Partials/post.html.twig' ,{ post :{id:category.id, image:'/Resources/public/img/logo.png', titre:category.nom, nom:category.nom, description:category.description, date:'2/15/2141'} }) }}
+                                                {{ include('Partials/post.html.twig' ,{ post :{id:category.id, image:'img/logo.png', title:category.name, name:category.name, description:category.description,rout:'servicecategory_show' ,date:'2/15/2141'} }) }}
                                             </div><!-- /.posts -->
                                         {% endfor %}
                                     </div><!-- /.col-* -->
@@ -36,7 +36,7 @@
                                 </div><!-- /.row -->
                             </div><!-- /.block -->
 
-                            {{ include('Partials/comments-affichage.html.twig',{comments:provider.comment}) }}
+                            {{ include('Partials/comments-affichage.html.twig',{comments:provider.comments}) }}
 
 
 
@@ -49,9 +49,9 @@
 
                             <div class='p20 background-'>
 
-                                {% for course in provider.course%}
+                                {% for course in provider.courses %}
                                     <div class='row'>
-                                        {{ include('Partials/card-smal-widget.html.twig', { card_smal :{image:course.image, name:scourse.nom, description:course.description, price:course.price} }) }}
+                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{image:'img/logo.png', name:course.name, description:course.description, price:course.price} }) }}
                                     </div>
                                 {% endfor %}
 
@@ -65,7 +65,7 @@
 
                             <div class="cards-simple-wrapper">
                                 <div class="row">
-                                    {% for promotion in provider.promotion %}
+                                    {% for promotion in provider.promotions %}
                                         <div class="col-sm-6 col-md-3">
                                             {{ include('Partials/card-simple-bckground-img.html.twig' ,{ card_simple :{id:promotion.id,title:promotion.name, name:promotion.description,rout_serch:'promotion_show',rout_detail:'promotion_show',rout_bookmark:'promotion_show',rout_favorit:'promotion_show'} }) }}
                                         </div><!-- /.col-* -->

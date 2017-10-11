@@ -11,7 +11,7 @@
                     </div>
                     <div class="cards-wrapper">
                         <div class="row">
-                           {% for provider in providers |slice(0, 4) %}
+                            {% for provider in providers |slice(0, 4) %}
                                 {% if  loop.index < 5%}
                                     {% if loop.first %}
                                         {% set cardtall= 0 %}
@@ -66,7 +66,7 @@
                             <div class="col-sm-4">
                                 {% for category in service_categories |slice(0, 3)%}
                                     <div class="posts">
-                                        {{ include('Partials/post.html.twig' ,{ post :{id:category.id,titre:category.name, nom:category.name, description:category.description, date:'2/15/2141',image:'img/logo.png',rout:'servicecategory_show'} }) }}
+                                        {{ include('Partials/post.html.twig' ,{ post :{id:category.id,title:category.name, name:category.name, description:category.description, date:'2/15/2141',image:'img/logo.png',rout:'servicecategory_show'} }) }}
                                     </div><!-- /.posts -->
                                 {% endfor %}
                             </div><!-- /.col-* -->

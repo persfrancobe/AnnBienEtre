@@ -10,14 +10,32 @@ namespace AppBundle\Repository;
  */
 class ProviderRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findProviders($id) {
-        $qb = $this->createQueryBuilder('p');
-        $qb->select('p')
-            ->where('p.id = :id')
-            ->setParameter('id', $id)
-            ->leftJoin('p.categorie', 'cat')
-            ->addSelect('cat');
-        $query = $this->addJoins($qb);
-        return $query->getQuery()->getSingleResult();
+    public function findProvByAll(){
+        $qb=$this->createQueryBuilder('p');
+           $query =  $qb->leftJoin('p.promotions','pr')
+                ->leftJoin('p.courses','c')
+                ->leftJoin('p.comments','cm')
+                ->leftJoin('p.images','i')
+                ->leftJoin('p.serviceCategories','sc')
+                ->leftJoin('p.favorites','f')
+                ->leftJoin('p.notes','n')
+                ->addSelect('c','pr','cm','i','sc','f','n')
+                ->getQuery();
+            return $query->getResult();
+    }
+    public function findProvByOne($id){
+        $qb=$this->createQueryBuilder('p');
+        $query =  $qb->where('p.id=:id')
+            ->setParameter(':id',$id)
+            ->leftJoin('p.promotions','pr')
+            ->leftJoin('p.courses','c')
+            ->leftJoin('p.comments','cm')
+            ->leftJoin('p.images','i')
+            ->leftJoin('p.serviceCategories','sc')
+            ->leftJoin('p.favorites','f')
+            ->leftJoin('p.notes','n')
+            ->addSelect('c','pr','cm','i','sc','f','n')
+            ->getQuery();
+        return $query->getMaxResults();
     }
 }

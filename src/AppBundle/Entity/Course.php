@@ -85,6 +85,11 @@ class Course
     private  $provider;
 
     /**
+     * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="courses")
+     */
+    private  $serviceCategory;
+
+    /**
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Image", mappedBy="course")
      */
@@ -101,6 +106,22 @@ class Course
         $this->displayUp=new DateTime();
         $this->end=new DateTime();
         $this->start=new DateTime();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getServiceCategory()
+    {
+        return $this->serviceCategory;
+    }
+
+    /**
+     * @param mixed $serviceCategory
+     */
+    public function setServiceCategory($serviceCategory)
+    {
+        $this->serviceCategory = $serviceCategory;
     }
 
 

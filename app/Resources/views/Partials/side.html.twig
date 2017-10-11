@@ -1,17 +1,17 @@
 <div class="sidebar">
     <div class="widget">
         <h2 class="widgettitle">Les Stages</h2>
-        {%for stage in stages%}
-            {{include ('BienEtreBundle:Partials:card-smal-widget.html.twig',{cardSmal:{nom:stage.nom,description:stage.description,tarif:stage.tarif,image:stage.image}})}}
+        {%for course in courses |slice(0,5)%}
+            {{include ('Partials/card-smal-widget.html.twig',{cardSmal:{name:course.name,description:course.description,price:course.price,image:'img/logo.png'}})}}
         {%endfor%}
 
     </div><!-- /.widget -->
 
 
     <div class="widget">
-        <h2 class="widgettitle">Prestataire</h2>
+        <h2 class="widgettitle">Rechercher Un Prestataire</h2>
         <div class="background-white p20">
-            {{ render(controller('BienEtreBundle:FrontEnd/Prestataires:rechercheWidget')) }}
+            {#{ render(controller('BienEFrontEnd/Prestataires:rechercheWidget')) }#}
         </div>
 
     </div><!-- /.widget -->
@@ -22,19 +22,19 @@
 
         <ul class="menu">
 
-            {% for categorie in categories%}
-                <li><a href="{{path('categorie',{'id':categorie.id})}}">{{categorie.nom}}</a></li>
+            {% for category in service_categories|slice(0,9)%}
+                <li><a href="{{path('servicecategory_show',{'id':category.id})}}">{{category.name}}</a></li>
                 {%endfor%}
         </ul><!-- /.menu -->
-    </div><!-- /.wifget -->
+    </div><!-- /.widget -->
 
     <div class="widget">
         <h2 class="widgettitle">Prestataires</h2>
 
         <ul class="menu">
 
-            {% for prestataire in prestataires%}
-                <li><a href="{{path('categorie',{'id':prestataire.id})}}">{{prestataire.username}}</a></li>
+            {% for provider in providers|slice(0,9)%}
+                <li><a href="{{path('provider_show',{'id':provider.id})}}">{{provider.username}}</a></li>
                 {%endfor%}
         </ul><!-- /.menu -->
     </div><!-- /.wifget -->

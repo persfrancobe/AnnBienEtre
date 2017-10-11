@@ -100,18 +100,6 @@ AppBundle\Entity\Comment:
         visitor: '@visitor_*'
 
 
-AppBundle\Entity\Course:
-    course_{1..11}:
-        name: '<name()>'
-        info: '<sentence()>'
-        description: '<text(111)>'
-        price: '<numberBetween(1,1999)>'
-        start: '<dateTime()>'
-        end: '<dateTime()>'
-        displayOf: '<dateTime()>'
-        displayUp: '<dateTime()>'
-        provider: '@provider_*'
-
 
 AppBundle\Entity\Note:
     note_{1..11}:
@@ -143,6 +131,20 @@ AppBundle\Entity\ServiceCategory:
         inAction: true
         validated: true
         providers:  ['@provider_*']
+
+
+AppBundle\Entity\Course:
+    course_{1..11}:
+        name: '<name()>'
+        info: '<sentence()>'
+        description: '<text(111)>'
+        price: '<numberBetween(1,1999)>'
+        start: '<dateTime()>'
+        end: '<dateTime()>'
+        displayOf: '<dateTime()>'
+        displayUp: '<dateTime()>'
+        provider: '@provider_*'
+        serviceCategory: '@service.category_*'
 
 
 AppBundle\Entity\Promotion:

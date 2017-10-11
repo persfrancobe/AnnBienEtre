@@ -3,11 +3,11 @@
 {% endblock %}
 {% block posts %}
 
-    {% if  serviceCategories is iterable%}
-        {%for category in  serviceCategories%}
-            {{ include('Partials/big-post.html.twig',{post:{id:category.id, nom:category.name,image:'img/logo.png',description:category.description,rout:'servicecategory_show'}}) }}
+    {% if  service_categories is iterable%}
+        {%for category in  service_categories%}
+            {{ include('Partials/big-post.html.twig',{post:{id:category.id, name:category.name,image:'img/logo.png',description:category.description,rout:'servicecategory_show'}}) }}
         {%endfor%}
     {%else%}
-        {{ include('Partials/big-post.html.twig',{post:{id:category.id, nom:category.name,image:'img/logo.png',description:category.description,rout:'servicecategory_show'}}) }}
+        {{ include('Partials/big-post.html.twig',{post:{id:category.id, name:category.name,image:'img/logo.png',description:category.description,rout:'servicecategory_show'}}) }}
     {%endif%}
 {%endblock%}

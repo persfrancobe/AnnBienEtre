@@ -1,37 +1,93 @@
-{% extends "listing-layout.html.twig" %}
-{% block titre %}Tout Les Categories
+{% extends "frontEnd/frontend-layout.html.twig." %}
+{% block titre %}{{ serviceCategory.name }}
 {% endblock %}
 {% block main %}
-    <h1>Servicecategory</h1>
+    <div class="main">
+        <div class="main-inner">
+            <div class="content">
+                <div class="mt-80 mb80">
+                    <div class="detail-banner" style="background-image: url('{{asset ('img/logo.png')}}');">
+                        <div class="container">
+                            <div class="detail-banner-left">
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ serviceCategory.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ serviceCategory.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ serviceCategory.description }}</td>
-            </tr>
-            <tr>
-                <th>Inaction</th>
-                <td>{% if serviceCategory.inAction %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Validated</th>
-                <td>{% if serviceCategory.validated %}Yes{% else %}No{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+                                <h2 class="detail-title">
+                                    {{serviceCategory.name}}
+                                </h2>
 
-    <ul>
-        <li>
-            <a href="{{ path('servicecategory_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                            </div><!-- /.detail-banner-left -->
+                        </div><!-- /.container -->
+                    </div><!-- /.detail-banner -->
+
+                </div>
+
+                <div class="container">
+                    <div class="row detail-content">
+                        <div class="col-sm-7">
+                            {{ include('Partials/video.html.twig') }}
+                        </div><!-- /.col-sm-7 -->
+
+                        <div class="col-sm-5">
+                            <h2>A Propos de <br/><span class="text-secondary">{{serviceCategory.name}}</span></h2>
+                            <div class="background-white p20">
+
+                                <div class="detail-description">
+                                    <p>{{serviceCategory.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+
+                            <h2><span class="text-secondary">Les Promotions</span></h2>
+
+                            <div class="block background-white background-transparent-image fullwidth">
+
+                                <div class="cards-simple-wrapper">
+                                    <div class="row">
+                                        {% for promotion in serviceCategory.promotions %}
+                                            <div class="col-sm-6 col-md-3">
+                                                {{ include('Partials/card-simple-bckground-img.html.twig' ,{ card_simple :{id:promotion.id,title:promotion.name, name:promotion.description,rout_detail:'promotion_show',rout_favorit:'promotion_show',rout_serch:'promotion_show',rout_bookmark:'promotion_show'} }) }}
+                                            </div><!-- /.col-* -->
+                                        {% endfor %}
+                                    </div><!-- /.row -->
+                                </div><!-- /.cards-simple-wrapper -->
+                            </div>
+
+
+                            <div class="block background-white fullwidth mt80">
+
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        {% for course in serviceCategory.courses |slice(0,2) %}
+
+                                            <div class="events">
+                                                {{ include('Partials:event.html.twig', { event :{ name:course.name, description:course.description, start:course.start} }) }}
+                                            </div><!-- /.events -->
+
+
+                                        {% endfor %}
+                                    </div><!-- /.col-* -->
+                                    <div class="col-sm-4">
+                                        {% for provider in serviceCategory.providers |slice(0, 2)%}
+                                            <div class="posts">
+                                                {{ include('Partials/post.html.twig' ,{ post :{id:provider.id,image:'imf/ogo.png',rout:'provider_show',title:provider.email, name:provider.name, description:provider.internetSite, date:'2/15/2141'} }) }}
+                                            </div><!-- /.posts -->
+                                        {% endfor %}
+                                    </div><!-- /.col-* -->
+
+                                    {#{ render(controller('BienEtreBundle:FrontEnd/Prestataires:recherche')) }#}
+
+                                </div><!-- /.row -->
+                            </div><!-- /.block -->
+
+                        </div>
+
+
+
+                    </div><!-- /.row -->
+
+                </div><!-- /.container -->
+
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
 {% endblock %}

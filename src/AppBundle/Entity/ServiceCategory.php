@@ -67,12 +67,19 @@ class ServiceCategory
      * @ORM\OneToMany(targetEntity="Promotion", mappedBy="serviceCategory")
      */
     private $promotions;
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Course", mappedBy="serviceCategory")
+     */
+    private $courses;
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->description;
     }
-
 
     /**
      * Constructor
@@ -82,6 +89,35 @@ class ServiceCategory
         $this->promotions=new ArrayCollection();
         $this->images=new ArrayCollection();
         $this->providers=new ArrayCollection();
+        $this->courses=new ArrayCollection();
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getCourses()
+    {
+        return $this->courses;
+    }
+
+    /**
+     * @param mixed $course
+     */
+    public function addCourse($course)
+    {
+        $this->courses->add($course);
+        // uncomment if you want to update other side
+        //$course->setServiceCategory($this);
+    }
+
+    /**
+     * @param mixed $course
+     */
+    public function removeCourse($course)
+    {
+        $this->courses->removeElement($course);
+        // uncomment if you want to update other side
+        //$course->setServiceCategory(null);
     }
 
 
