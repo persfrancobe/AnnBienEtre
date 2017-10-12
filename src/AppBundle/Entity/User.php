@@ -16,7 +16,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\DiscriminatorColumn(name="user_type", type="string")
  * @ORM\DiscriminatorMap({"admin"="User","provider" = "Provider", "visitor" = "Visitor"})
  */
-class User extends BaseUser
+class User
 {
 
     const TYPE_USER = "admin";
@@ -73,6 +73,83 @@ class User extends BaseUser
      * @ORM\Column(name="unsuccessfulTestNum", type="integer")
      */
     protected $unsuccessfulTestNum;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username",type="string")
+     */
+    protected $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username_canonical",type="string")
+     */
+    protected $usernameCanonical;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password",type="string")
+     */
+    protected $password;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_canonical",type="string")
+     */
+    protected $emailCanonical;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email",type="string")
+     */
+    protected $email;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt",type="string")
+     */
+    protected $salt;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role",type="text")
+     */
+    protected $role;
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="banned",type="boolean")
+     */
+    protected $banned;
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="enabled",type="boolean")
+     */
+    protected $enabled;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="confirmation_token",type="string")
+     */
+    protected $confirmationToken;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_login", type="date")
+     */
+    protected $lastLogin;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="password_requested_at", type="date")
+     */
+    protected $passwordRequestedAt;
 
     /**
      * @ORM\ManyToOne(targetEntity="City", inversedBy="users")
@@ -104,6 +181,200 @@ class User extends BaseUser
         $this->registration=new \DateTime();
         $this->addRole('role_admin');
     }
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsernameCanonical(): string
+    {
+        return $this->usernameCanonical;
+    }
+
+    /**
+     * @param string $usernameCanonical
+     */
+    public function setUsernameCanonical(string $usernameCanonical)
+    {
+        $this->usernameCanonical = $usernameCanonical;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmailCanonical(): string
+    {
+        return $this->emailCanonical;
+    }
+
+    /**
+     * @param string $emailCanonical
+     */
+    public function setEmailCanonical(string $emailCanonical)
+    {
+        $this->emailCanonical = $emailCanonical;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSalt(): string
+    {
+        return $this->salt;
+    }
+
+    /**
+     * @param string $salt
+     */
+    public function setSalt(string $salt)
+    {
+        $this->salt = $salt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole(string $role)
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isBanned(): bool
+    {
+        return $this->banned;
+    }
+
+    /**
+     * @param bool $banned
+     */
+    public function setBanned(bool $banned)
+    {
+        $this->banned = $banned;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled(bool $enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfirmationToken(): string
+    {
+        return $this->confirmationToken;
+    }
+
+    /**
+     * @param string $confirmationToken
+     */
+    public function setConfirmationToken(string $confirmationToken)
+    {
+        $this->confirmationToken = $confirmationToken;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastLogin(): \DateTime
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * @param \DateTime $lastLogin
+     */
+    public function setLastLogin(\DateTime $lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPasswordRequestedAt(): \DateTime
+    {
+        return $this->passwordRequestedAt;
+    }
+
+    /**
+     * @param \DateTime $passwordRequestedAt
+     */
+    public function setPasswordRequestedAt(\DateTime $passwordRequestedAt)
+    {
+        $this->passwordRequestedAt = $passwordRequestedAt;
+    }
+
+
 
     /**
      * @param mixed $block
