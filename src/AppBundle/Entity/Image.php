@@ -47,7 +47,7 @@ class Image
      */
     private $type;
     /**
-     * @UploadableField(filename="file",path="uploads")
+     * @UploadableField(filename="webPath",path="uploads")
      *
      */
     private $file;

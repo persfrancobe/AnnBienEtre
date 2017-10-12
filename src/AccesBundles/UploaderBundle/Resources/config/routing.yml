@@ -1,3 +1,0 @@
-uploader_homepage:
-    path:     /
-    defaults: { _controller: UploaderBundle:Default:index }
