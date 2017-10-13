@@ -374,7 +374,7 @@ class User
         $this->passwordRequestedAt = $passwordRequestedAt;
     }
 
-
+    
 
     /**
      * @param mixed $block
