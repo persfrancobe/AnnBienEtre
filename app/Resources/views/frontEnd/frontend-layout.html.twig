@@ -5,8 +5,14 @@
 {% block header %}
 
     <div class="page-wrapper">
+        {%  block header_bottom %}
+            {% if app.request.get('_route')=="homepage" %}
+                 {% set head_transparent="header-transparent" %}
+             {% else %}
+                {% set head_transparent="" %}
+            {% endif %}
 
-        <header class="header">
+            <header class="header {{ head_transparent }}">
             <div class="header-wrapper">
                 <div class="container">
                     <div class="header-inner">
@@ -18,26 +24,7 @@
                         </div><!-- /.header-logo -->
 
                         <div class="header-content">
-                            <div class="header-top">
-                                <div class="header-search">
-                                    <input type="text" class="form-control" placeholder="Search for...">
-                                </div><!-- /.header-search -->
-
-                                <ul class="header-nav-social social-links nav nav-pills">
-                                    <li><a href="{{myTweeterTwig}}"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="{{myFacebookTwig}}"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="{{myGoogleTwig}}"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                                </ul><!-- /.header-nav-social -->
-
-                                <ul class="header-nav-secondary nav nav-pills">
-                                    <li><a href="">Conection</a></li>
-                                </ul>
-                            </div><!-- /.header-top -->
-
+                            {% block header_top %}{% endblock %}
 
                             <div class="header-bottom">
                                 <div class="header-action">
@@ -123,6 +110,8 @@
                                 </button>
                                 #}
                             </div><!-- /.header-bottom -->
+
+                            {%  endblock %}
                         </div><!-- /.header-content -->
                     </div><!-- /.header-inner -->
                 </div><!-- /.container -->
@@ -161,9 +150,9 @@
                             <li><a href="{{myFacebookTwig}}"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="{{myGoogleTwig}}"><i class="fa fa-google-plus"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    {#<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>#}
                         </ul><!-- /.header-nav-social -->
                     </div><!-- /.col-* -->
                 </div><!-- /.row -->

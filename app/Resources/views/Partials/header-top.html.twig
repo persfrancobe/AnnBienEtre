@@ -1,0 +1,23 @@
+<div class="header-top">
+    <div class="header-search">
+        <input type="text" class="form-control" placeholder="Search for...">
+    </div><!-- /.header-search -->
+
+    <ul class="header-nav-social social-links nav nav-pills">
+        <li><a href="{{myTweeterTwig}}"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="{{myFacebookTwig}}"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="{{myGoogleTwig}}"><i class="fa fa-google-plus"></i></a></li>
+    </ul><!-- /.header-nav-social -->
+
+    <ul class="header-nav-secondary nav nav-pills">
+        <li><a href="{{ path('fos_user_security_login')}}">Conection</a></li>
+
+        <li>Enregistrer<i class="fa fa-chevron-down"></i>
+            <ul class="sub-menu">
+                <li><a href="#">Prestataire</a></li>
+                <li><a href="#">Internaut</a></li>
+            </ul>
+        </li>
+
+    </ul>
+</div><!-- /.header-top -->
