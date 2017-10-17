@@ -32,12 +32,12 @@ class Position
     /**
      * @ORM\ManyToOne(targetEntity="Visitor", inversedBy="positions")
      */
-    protected  $visitor;
+    private  $visitor;
 
     /**
      * @ORM\ManyToOne(targetEntity="Block", inversedBy="positions")
      */
-    protected  $block;
+    private  $block;
 
     /**
      * @return mixed
@@ -105,5 +105,25 @@ class Position
     {
         return $this->ordre;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getVisitor()
+    {
+        return $this->visitor;
+    }
+
+    /**
+     * @param mixed $visitor
+     */
+    public function setVisitor($visitor)
+    {
+        $this->visitor = $visitor;
+    }
+
+
+
+
 }
 
