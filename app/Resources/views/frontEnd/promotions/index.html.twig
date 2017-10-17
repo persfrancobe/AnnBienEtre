@@ -1,8 +1,8 @@
 {% extends "frontEnd/listing-layout.html.twig" %}
-{% block titre %}Tout Les Promotions
-{% endblock %}
+{% block title %}Tout Les Promotions{% endblock %}
+{% block h1 %}Nos Prestataires{% endblock %}
+{% block h2 %}{{promotions|length }} Promotion Trouvé a votre Recherche{% endblock %}
 {% block posts %}
-
     {% if  promotions is iterable%}
         {%for promotion in  promotions%}
             {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:'img/logo.png',description:promotion.description,rout:'promotion_show'}}) }}
