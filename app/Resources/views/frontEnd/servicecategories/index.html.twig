@@ -1,13 +1,116 @@
-{% extends "frontEnd/listing-layout.html.twig" %}
-{% block titre %} Tout Les Categories
-{% endblock %}
-{% block posts %}
+{% extends "frontEnd/frontend-layout.html.twig" %}
+{% block title %}BienEtre{% endblock %}
+{% block main %}
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
 
-    {% if  service_categories is iterable%}
-        {%for category in  service_categories%}
-            {{ include('Partials/big-post.html.twig',{post:{id:category.id, name:category.name,image:'img/logo.png',description:category.description,rout:'servicecategory_show'}}) }}
-        {%endfor%}
-    {%else%}
-        {{ include('Partials/big-post.html.twig',{post:{id:category.id, name:category.name,image:'img/logo.png',description:category.description,rout:'servicecategory_show'}}) }}
-    {%endif%}
+                    <div class="mb80">
+
+                        {%  include ':Partials:hero-slider.html.twig' with { sliders :{1:{name:'sld1',webPath:'img/tmp/slider-1.jpg'}
+                            ,2:{name:'sld2',webPath:'img/tmp/slider-2.jpg'},3:{name:'sld3',webPath:'img/tmp/slider-3.jpg'} }} %}
+
+                    </div>
+
+
+
+                    <form class="filter" method="post" action="?">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Keyword" class="form-control">
+                                </div> <!-- /.form-group -->
+                            </div><!-- /.col-* -->
+
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" title="Select Location">
+                                        <option>Bronx</option>
+                                        <option>Brooklyn</option>
+                                        <option>Manhattan</option>
+                                        <option>Staten Island</option>
+                                        <option>Queens</option>
+                                    </select>
+                                </div><!-- /.form-group -->
+                            </div><!-- /.col-* -->
+
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" title="Select Category">
+                                        <option value="">Automotive</option>
+                                        <option value="">Jobs</option>
+                                        <option value="">Nightlife</option>
+                                        <option value="">Services</option>
+                                    </select>
+                                </div><!-- /.form-group -->
+                            </div><!-- /.col-* -->
+                        </div><!-- /.row -->
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="filter-actions">
+                                    <a href="#"><i class="fa fa-close"></i> Reset Filter</a>
+                                    <a href="#"><i class="fa fa-save"></i> Save Search</a>
+                                </div><!-- /.filter-actions -->
+                            </div><!-- /.col-* -->
+
+                            <div class="col-sm-4">
+                                <button type="submit" class="btn btn-primary">Redefine Search Result</button>
+                            </div><!-- /.col-* -->
+                        </div><!-- /.row -->
+                    </form>
+
+
+                    <h2 class="page-title">
+                        {{ service_categories|length}} resultas trouvé
+
+                        <form method="get" action="?" class="filter-sort">
+                            <div class="form-group">
+                                <select title="Sort by">
+                                    <option name="price">Price</option>
+                                    <option name="rating">Rating</option>
+                                    <option name="title">Title</option>
+                                </select>
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <select title="Order">
+                                    <option name="ASC">Asc</option>
+                                    <option name="DESC">Desc</option>
+                                </select>
+                            </div><!-- /.form-group -->
+                        </form>
+                    </h2><!-- /.page-title -->
+
+                    <div class="cards-simple-wrapper">
+                        <div class="row">
+                            {% for category in service_categories%}
+                                <div class="col-sm-6 col-md-3">
+                                    {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,image:'img/tmp/product-4.jpg',
+                                        rout_detail:'servicecategory_show',title:category.description,name:category.name,rout_bookmark:'servicecategory_show',
+                                        rout_serch:'servicecategory_show',rout_favorit:'servicecategory_show'}} %}
+                                </div><!-- /.col-* -->
+                            {% endfor %}
+                        </div><!-- /.row -->
+                    </div><!-- /.cards-simple-wrapper -->
+
+
+                    <div class="pager">
+                        <ul>
+                            <li><a href="#">Prev</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="active"><a>6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                    </div><!-- /.pagination -->
+
+
+                </div><!-- /.content -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
 {%endblock%}

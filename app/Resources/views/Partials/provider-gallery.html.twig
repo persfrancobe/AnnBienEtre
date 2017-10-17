@@ -10,8 +10,8 @@
             {% for image in img %}
 
                 <li class="detail-gallery-list-item active">
-                    <a data-target="{{asset(img.webPath)}}">
-                        <img src="{{asset(img.webPath)}}" alt="img.nom">
+                    <a data-target="{{asset(image.webPath)}}">
+                        <img src="{{asset(image.webPath)}}" alt="img.nom">
                     </a>
                 </li>
             {% endfor %}

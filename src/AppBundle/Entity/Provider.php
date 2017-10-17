@@ -51,6 +51,50 @@ class Provider extends User
     private $tvaNum;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text",nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebook", type="string", length=255,nullable=true)
+     */
+    private $facebook;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="youtube", type="string", length=255,nullable=true)
+     */
+    private $youtube;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gmail", type="string", length=255,nullable=true)
+     */
+    private $gmail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="twitter", type="string", length=255,nullable=true)
+     */
+    private $twitter;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="advisor", type="string", length=255,nullable=true)
+     */
+    private $advisor;
+
+
+    /**
      * @var ArrayCollection
      * @ORM\OneToMany(targetEntity="Promotion", mappedBy="provider")
      */
@@ -437,5 +481,103 @@ class Provider extends User
     {
         return $this->tvaNum;
     }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFacebook()
+    {
+        return $this->facebook;
+    }
+
+    /**
+     * @param string $facebook
+     */
+    public function setFacebook($facebook)
+    {
+        $this->facebook = $facebook;
+    }
+
+    /**
+     * @return string
+     */
+    public function getYoutube()
+    {
+        return $this->youtube;
+    }
+
+    /**
+     * @param string $youtube
+     */
+    public function setYoutube($youtube)
+    {
+        $this->youtube = $youtube;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGmail()
+    {
+        return $this->gmail;
+    }
+
+    /**
+     * @param string $gmail
+     */
+    public function setGmail($gmail)
+    {
+        $this->gmail = $gmail;
+    }
+
+    /**
+     * @return string
+     */
+    public function gettwitter()
+    {
+        return $this->twitter;
+    }
+
+    /**
+     * @param string $twitter
+     */
+    public function settwitter($twitter)
+    {
+        $this->twitter = $twitter;
+    }
+
+    /**
+     * @return string
+     */
+    public function getadvisor()
+    {
+        return $this->advisor;
+    }
+
+    /**
+     * @param string $advisor
+     */
+    public function setadvisor($advisor)
+    {
+        $this->advisor = $advisor;
+    }
+
+
 }
 

@@ -4,193 +4,122 @@
 
 {% block header %}
 
-    <div class="page-wrapper">
+<div class="page-wrapper">
+    {%  block header_bottom %}
+    {% if app.request.get('_route')=="homepage" %}
+        {% set head_transparent="header-transparent" %}
+    {% else %}
+        {% set head_transparent="" %}
+    {% endif %}
 
-        <header class="header">
-            <div class="header-wrapper">
-                <div class="container">
-                    <div class="header-inner">
-                        <div class="header-logo">
-                            <a href="{{ path('homepage')}}">
-                                <img src="{{ asset ('img/logo.png')}}" alt="Logo">
-                                <span>{{ mySiteTwig }}</span>
-                            </a>
-                        </div><!-- /.header-logo -->
+    <header class="header {{ head_transparent }}">
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="header-logo">
+                        <a href="{{ path('homepage')}}">
+                            <img src="{{ asset ('img/logo.png')}}" alt="Logo">
+                            <span>{{ mySiteTwig }}</span>
+                        </a>
+                    </div><!-- /.header-logo -->
 
-                        <div class="header-content">
-                            <div class="header-top">
-                                <div class="header-search">
-                                    <input type="text" class="form-control" placeholder="Search for...">
-                                </div><!-- /.header-search -->
+                    <div class="header-content">
+                        {% block header_top %}{% endblock %}
 
-                                <ul class="header-nav-social social-links nav nav-pills">
-                                    <li><a href="{{myTweeterTwig}}"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="{{myFacebookTwig}}"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="{{myGoogleTwig}}"><i class="fa fa-google-plus"></i></a></li>
-                                </ul><!-- /.header-nav-social -->
+                        <div class="header-bottom">
+                            <div class="header-action">
+                                <a href="listing-submit.html" class="header-action-inner" title="Add Listing" data-toggle="tooltip" data-placement="bottom">
+                                    <i class="fa fa-plus"></i>
+                                </a><!-- /.header-action-inner -->
+                            </div><!-- /.header-action -->
 
-                                <ul class="header-nav-secondary nav nav-pills">
-                                    <li><a href="{{ path('fos_user_security_login')}}">Conection</a></li>
+                            <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
+                                <li >
+                                    <a href="{{ path('homepage')}}">Home <i class="fa"></i></a>
+                                </li>
 
-                                    <li>Enregistrer<i class="fa fa-chevron-down"></i>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{ path('fos_user_registration_register',{'type':'provider'})}}">Prestataire</a></li>
-                                            <li><a href="{{ path('fos_user_registration_register',{'type':'visitor'})}}">Internaut</a></li>
-                                        </ul>
-                                    </li>
+                                <li >
+                                    <a href="{{ path('provider_index')}}">Prestataires<i class="fa"></i></a>
+                                </li>
 
-                                </ul>
-                            </div><!-- /.header-top -->
+                                <li class="has-mega-menu active">
+                                    <a href="{{ path('servicecategory_index')}}">Categories<i class="fa fa-chevron-down'à}}"></i></a>
 
+                                    <ul class="mega-menu">
+                                        <li>
+                                            <a href="#">General</a>
+                                            <ul>
+                                                <li><a href="faq.html">FAQ</a></li>
+                                                <li><a href="invoice.html">Invoice</a></li>
+                                                <li><a href="grid.html">Grid System</a></li>
+                                                <li><a href="testimonials.html">Testimonials</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">User Account</a>
+                                            <ul>
+                                                <li><a href="user-profile-edit.html">Profile Edit</a></li>
+                                                <li><a href="login.html">Login Form</a></li>
+                                                <li><a href="register.html">Register Form</a></li>
+                                                <li><a href="change-password.html">Change Password Form</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">Miscellaneous</a>
+                                            <ul>
+                                                <li><a href="sticky-footer.html">Sticky Footer</a></li>
+                                                <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                                                <li><a href="error-403.html">403 - Forbidden</a></li>
+                                                <li><a href="error-404.html">404 - Not Found</a></li>
+                                                <li><a href="error-500.html">500 - Internal Error</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="hidden-xs">
+                                            <div class="special">
+                                                <a href="register.html">Sign Up Now</a>
+                                            </div><!-- /.special-->
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li >
+                                    <a href="#">Blog <i class="fa"></i></a>
+                                </li>
 
-                            <div class="header-bottom">
-                                <div class="header-action">
-                                    <a href="listing-submit.html" class="header-action-inner" title="Add Listing" data-toggle="tooltip" data-placement="bottom">
-                                        <i class="fa fa-plus"></i>
-                                    </a><!-- /.header-action-inner -->
-                                </div><!-- /.header-action -->
+                                <li >
+                                    <a href="#">Admin <i class="fa fa-chevron-down"></i></a>
 
-                                <ul class="header-nav-primary nav nav-pills collapse navbar-collapse">
-                                    <li >
-                                        <a href="{{ path('homepage')}}">Home <i class="fa"></i></a>
-                                    </li>
+                                    <ul class="sub-menu">
+                                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                                        <li><a href="admin-grid.html">Grid System</a></li>
+                                        <li><a href="admin-tables.html">Tables</a></li>
+                                        <li><a href="admin-forms.html">Forms</a></li>
+                                        <li><a href="admin-notifications.html">Notifications</a></li>
+                                    </ul>
+                                </li>
 
-                                    <li >
-                                        <a href="{{ path('provider_index')}}">Prestataires<i class="fa"></i></a>
-                                    </li>
+                                <li >
+                                    <a href="#">Contact <i class="fa"></i></a>
+                                </li>
+                            </ul>
+                            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".header-nav-primary">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
 
-                                    <li class="has-mega-menu active">
-                                        <a href="{{ path('servicecategory_index')}}">Categories{#<i class="fa fa-chevron-down"></i>#}</a>
-                                        {#
-                                        <ul class="mega-menu">
-                                            <li>
-                                                <a href="#">General</a>
-                                                <ul>
-                                                    <li><a href="faq.html">FAQ</a></li>
-                                                    <li><a href="invoice.html">Invoice</a></li>
-                                                    <li><a href="grid.html">Grid System</a></li>
-                                                    <li><a href="testimonials.html">Testimonials</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">User Account</a>
-                                                <ul>
-                                                    <li><a href="user-profile-edit.html">Profile Edit</a></li>
-                                                    <li><a href="login.html">Login Form</a></li>
-                                                    <li><a href="register.html">Register Form</a></li>
-                                                    <li><a href="change-password.html">Change Password Form</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Miscellaneous</a>
-                                                <ul>
-                                                    <li><a href="sticky-footer.html">Sticky Footer</a></li>
-                                                    <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
-                                                    <li><a href="error-403.html">403 - Forbidden</a></li>
-                                                    <li><a href="error-404.html">404 - Not Found</a></li>
-                                                    <li><a href="error-500.html">500 - Internal Error</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="hidden-xs">
-                                                <div class="special">
-                                                    <a href="register.html">Sign Up Now</a>
-                                                </div><!-- /.special-->
-                                            </li>
-                                        </ul>
-                                    </li>s
-                                    <li >
-                                        <a href="#">Blog <i class="fa"></i></a>
-                                    </li>#}
+                        </div><!-- /.header-bottom -->
 
-                                    <li >
-                                        <a href="#">Admin <i class="fa fa-chevron-down"></i></a>
-
-                                        <ul class="sub-menu">
-                                            <li><a href="admin-dashboard.html">Dashboard</a></li>
-                                            <li><a href="admin-grid.html">Grid System</a></li>
-                                            <li><a href="admin-tables.html">Tables</a></li>
-                                            <li><a href="admin-forms.html">Forms</a></li>
-                                            <li><a href="admin-notifications.html">Notifications</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li >
-                                        <a href="#">Contact <i class="fa"></i></a>
-                                    </li>
-                                </ul>
-                                {#
-                                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".header-nav-primary">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                #}
-                            </div><!-- /.header-bottom -->
-                        </div><!-- /.header-content -->
-                    </div><!-- /.header-inner -->
-                </div><!-- /.container -->
-            </div><!-- /.header-wrapper -->
-        </header><!-- /.header -->
+                        {%  endblock %}
+                    </div><!-- /.header-content -->
+                </div><!-- /.header-inner -->
+            </div><!-- /.container -->
+        </div><!-- /.header-wrapper -->
+    </header><!-- /.header -->
 
 
-    {% endblock %}
+{% endblock %}
 {% block main %}{% endblock %}
-
 {% block footer %}
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h2>About {{mySiteTwig}}</h2>
-
-                        <p>BienEtre Est un Site de Presentation des Diffirent Service dans le Domain BienEtre</p>
-                    </div><!-- /.col-* -->
-
-                    <div class="col-sm-4">
-                        <h2>Contact Information</h2>
-
-                        <p>
-                            {{myAdresseTwig}}<br>
-                            {{myTelTwig}}, <a href="#">{{myEmailTwig}}</a>
-                        </p>
-                    </div><!-- /.col-* -->
-
-                    <div class="col-sm-4">
-                        <h2>Stay Connected</h2>
-
-                        <ul class="social-links nav nav-pills">
-                            <li><a href="{{myTweeterTwig}}"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="{{myFacebookTwig}}"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="{{myGoogleTwig}}"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    {#<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>#}
-                        </ul><!-- /.header-nav-social -->
-                    </div><!-- /.col-* -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </div><!-- /.footer-top -->
-
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="footer-bottom-left">
-                    &copy; 2015 All rights reserved. Created by Kalantarian Seyed <a href="#">Aviators</a>.
-                </div><!-- /.footer-bottom-left -->
-
-                <div class="footer-bottom-right">
-                    <ul class="nav nav-pills">
-                        <li><a href="{{ path('provider_index')}}">Home</a></li>
-                        <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
-                        <li><a href="contact-1.html">Contact</a></li>
-                    </ul><!-- /.nav -->
-                </div><!-- /.footer-bottom-right -->
-
-            </div><!-- /.container -->
-        </div>
-    </footer><!-- /.footer -->
-
-</div><!-- /.page-wrapper -->
+    {% include('Partials/footer.html.twig') %}
 {% endblock %}
