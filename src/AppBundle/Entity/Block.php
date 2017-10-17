@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,51 +37,39 @@ class Block
     private $description;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="ord", type="integer")
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Position",mappedBy="block")
      */
-    private $ord;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User",inversedBy="blocks")
-     */
-    private $user;
+    private $positions;
 
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getPositions()
     {
-        return $this->user;
+        return $this->positions;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $position
      */
-    public function setUser(User $user)
+    public function addPosition($position)
     {
-        $this->user = $user;
+        $this->positions->add($position);
+        // uncomment if you want to update other side
+        //$position->setBlock($this);
     }
 
     /**
-     * @param int $ord
+     * @param mixed $position
      */
-
-    public function setOrd($ord)
+    public function removePosition($position)
     {
-        $this->ord = $ord;
+        $this->positions->removeElement($position);
+        // uncomment if you want to update other side
+        //$position->setBlock(null);
     }
 
-    /**
-     * Get ord
-     * @return int
-     */
-
-    public function getOrd()
-    {
-        return $this->ord;
-    }
 
     /**
      * Get id

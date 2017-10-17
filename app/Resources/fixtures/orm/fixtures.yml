@@ -86,8 +86,6 @@ AppBundle\Entity\Block:
     block_{1..11}:
         name: '<name()>'
         description: '<name()>'
-        ord: '<numberBetween(1,3)>'
-        user: '@user_*'
 
 
 AppBundle\Entity\Comment:
@@ -168,5 +166,11 @@ AppBundle\Entity\Image:
         serviceCategory: '@service.category_*'
         course: '@course_*'
         promotion: '@promotion_*'
+
+AppBundle\Entity\Position:
+    position_{1..11}:
+        ordre: '<numberBetween(1,22)>'
+        visitor: '@visitor_*'
+        block: '@block_*'
 
 

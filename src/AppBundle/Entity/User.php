@@ -90,12 +90,6 @@ class User extends BaseUser
     protected  $postcode;
 
     /**
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Block",mappedBy="user")
-     */
-    protected $blocks;
-
-    /**
      * Constructor
      */
     public function __construct(){
@@ -104,36 +98,6 @@ class User extends BaseUser
         $this->registration=new \DateTime();
         $this->addRole('role_admin');
     }
-
-    /**
-     * @param mixed $block
-     */
-    public function addBlock(Block $block)
-    {
-        $this->blocks->add($block);
-        // uncomment if you want to update other side
-        //$blocks->setUser($this);
-    }
-
-    /**
-     * @param mixed $block
-     */
-    public function removeBlock(Block $block)
-    {
-        $this->blocks->removeElement($block);
-        // uncomment if you want to update other side
-        //$blocks->setUser(null);
-    }
-
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getBlocks()
-    {
-        return $this->blocks;
-    }
-
 
     /**
      * @return mixed

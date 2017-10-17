@@ -66,6 +66,12 @@ class Visitor extends User
      */
     private $notes;
 
+    /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Position",mappedBy="visitor")
+     */
+    protected $positions;
+
 
     /**
      * Constructor
@@ -79,6 +85,37 @@ class Visitor extends User
         $this->favorites=new ArrayCollection();
         $this->addRole('role_visitor');
     }
+
+    /**
+     * @param mixed $position
+     */
+    public function addPosition(Position $position)
+    {
+        $this->positions->add($position);
+        // uncomment if you want to update other side
+        //$positions->setVisitor($this);
+    }
+
+    /**
+     * @param mixed $position
+     */
+    public function removePosition(Position $position)
+    {
+        $this->positions->removeElement($position);
+        // uncomment if you want to update other side
+        //$positions->setVisitor(null);
+    }
+
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPositions()
+    {
+        return $this->positions;
+    }
+
+
 
     /**
      * @param mixed $note
