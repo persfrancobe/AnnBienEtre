@@ -1,110 +1,324 @@
-{% extends "frontEnd/frontend-layout.html.twig" %}
+{% extends"frontEnd/frontend-layout.html.twig" %}
 {% block main %}
     <div class="main">
         <div class="main-inner">
-            <div class="container">
-                <div class="content">
-                    <div class="mb80">
+            <div class="content">
+                <div class="mt-150">
+                    <div class="hero-image">
+                        <div class="hero-image-inner" style="background-image: url({{asset('img/tmp/slider-large-3.jpg')}}">
+                            <div class="hero-image-content">
+                                <div class="container">
+                                    <h1>Directory Template</h1>
 
-                        {#{ include('AppBundle:Partials:hero-slider.html.twig' ,{ sliders :sliders }) }#}
+                                    <p>Create your own directory website by using Superlist template <br> incorporating all features of modern directory website.</p>
 
-                    </div>
-                    <div class="cards-wrapper">
-                        <div class="row">
-                            {% for provider in providers |slice(0, 4) %}
-                                {% if  loop.index < 5%}
-                                    {% if loop.first %}
-                                        {% set cardtall= 0 %}
-                                        <div class="col-sm-8">
-                                        <div class="row"><!--row8 debut de index2-->
-                                        {% set taille='12'%}
-                                    {% endif %}
-                                {%if loop.index==2%}
-                                    {% set cardtall= 0 %}
-                                    </div><!-- /.row -->
+                                    <a href="listing-row.html" class="btn btn-primary btn-lg">View Listings</a>
+                                    <a href="listing-submit.html" class="btn btn-secondary btn-lg">Submit</a>
+                                </div><!-- /.container -->
+                            </div><!-- /.hero-image-content -->
+
+                            <div class="hero-image-form-wrapper">
+                                <div class="container">
                                     <div class="row">
-                                    {% set taille='6'%}
-                                {% endif %}
-                                    {% if loop.index==3%}
-                                        {% set cardtall= 0 %}
+                                        <div class="col-sm-4 col-sm-offset-8 col-lg-4 col-lg-offset-7">
+                                            <form method="get" action="?">
+                                                <h2>Start Searching</h2>
 
-                                        {% set taille='6'%}
-                                    {% endif %}
-                                    {% if loop.last%}
+                                                <div class="hero-image-keyword form-group">
+                                                    <input type="text" class="form-control" placeholder="Keyword">
+                                                </div><!-- /.form-group -->
 
-                                        </div><!-- /.row -->
-                                        </div><!--/.col8-->
-                                        {% set taille ='4'%}
-                                        {% set cardtall= 4 %}
-                                    {% endif %}
+                                                <div class="hero-image-location form-group">
+                                                    <select class="form-control" title="Location">
+                                                        <option>Bronx</option>
+                                                        <option>Brooklyn</option>
+                                                        <option>Manhattan</option>
+                                                        <option>Staten Island</option>
+                                                        <option>Queens</option>
+                                                    </select>
+                                                </div><!-- /.form-group -->
 
-                                    <div class="col-sm-{{taille}}">
+                                                <div class="hero-image-category form-group">
+                                                    <select class="form-control" title="Category">
+                                                        <option value="">Automotive</option>
+                                                        <option value="">Jobs</option>
+                                                        <option value="">Nightlife</option>
+                                                        <option value="">Services</option>
+                                                    </select>
+                                                </div><!-- /.form-group -->
 
-                                        {{ include('Partials/card.html.twig', { card :{ id:provider.id, nom:provider.username, description:provider.email, titre:provider.name,
-                                            class:'loop.index', tall:cardtall, rout1:'provider_show', image:'img/logo.png',rout_serch:'provider_show',rout_detail:'provider_show',rout_bookmark:'provider_show',rout_favorit:'provider_show' } }) }}
+                                                <div class="hero-image-price form-group">
+                                                    <input type="text" class="form-control" placeholder="Min. Price">
+                                                </div><!-- /.form-group -->
 
-                                    </div><!-- /.col-* -->
-                                {% endif%}
+                                                <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                            </form>
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.container -->
+                            </div><!-- /.hero-image-form-wrapper -->
+                        </div><!-- /.hero-image-inner -->
+                    </div><!-- /.hero-image -->
 
-                            {% endfor %}
+                </div>
 
-                        </div><!-- /.row -->
-                    </div><!-- /.cards-wrapper -->
-                    <div class="block background-white fullwidth mt80">
+                <div class="container">
+                     <div class="page-header">
+                        <h1>Nos Categories De Services</h1>
+                        <p>Liste des different categories presente pae nos prestataires <br>Et c'est pas tout fait une recherche.</p>
+                    </div><!-- /.page-header -->
 
+                    <div class="cards-simple-wrapper">
                         <div class="row">
-                            <div class="col-sm-4">
-                                {% for course in courses |slice(0,5) %}
-
-                                    <div class="events">
-                                        {{ include('Partials/event.html.twig', { event :{id:course.id, nom:course.name, description:course.description, rout:'course_show',start:course.start} }) }}
-                                    </div><!-- /.events -->
-
-
-                                {% endfor %}
+                            {% for category in service_categories|slice(2,8) %}
+                            <div class="col-sm-6 col-md-3">
+                                {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,image:'img/tmp/product-'~loop.index~'.jpg',
+                                    rout_detail:'servicecategory_show',title:category.description,name:category.name,rout_bookmark:'servicecategory_show',
+                                    rout_serch:'servicecategory_show',rout_favorit:'servicecategory_show'}} %}
                             </div><!-- /.col-* -->
-                            <div class="col-sm-4">
-                                {% for category in service_categories |slice(0, 3)%}
-                                    <div class="posts">
-                                        {{ include('Partials/post.html.twig' ,{ post :{id:category.id,title:category.name, name:category.name, description:category.description, date:'2/15/2141',image:'img/logo.png',rout:'servicecategory_show'} }) }}
-                                    </div><!-- /.posts -->
-                                {% endfor %}
+                            {% endfor %}
+                        </div><!-- /.row -->
+                    </div><!-- /.cards-simple-wrapper -->
+
+
+                    <div class="block background-white fullwidth mt80">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="posts">
+                                    {% for course in courses|slice(0,3) %}
+                                        {% include ':Partials:post.html.twig' with {post:{id:course.id,name:course.name,date:course.start,
+                                            description:course.description,rout:'course_show',image:'img/tmp/product-'~(loop.index+2)~'.jpg',title:course.price}} %}
+                                    {% endfor %}
+                                </div><!-- /.posts -->
+
                             </div><!-- /.col-* -->
 
-                            {#{ render(controller('AppBundle:FrontEnd/provider:recherche')) }#}
+                            <div class="col-sm-6">
+                                <div class="events">
+                                    {% for promotion in promotions|slice(1,4) %}
+                                        {% include ':Partials:event.html.twig' with {event:{id:promotion.id,name:promotion.name,rout:'promotion_show',
+                                            description:promotion.description,date:promotion.start}} %}
+                                    {% endfor %}
+                                </div><!-- /.events -->
 
+                            </div><!-- /.col-* -->
                         </div><!-- /.row -->
                     </div><!-- /.block -->
+
                     <div class="block background-black-light fullwidth">
                         <div class="row">
                             <div class="col-sm-4">
+                                <div class="box">
+                                    <div class="box-icon">
+                                        <i class="fa fa-life-ring"></i>
+                                    </div><!-- /.box-icon -->
 
-                                {{ include('Partials/box.html.twig' ,{ box :{titre:'publicite 1', description:'description de publicite1'} }) }}
+                                    <div class="box-content">
+                                        <h2>E-mail Support</h2>
+                                        <p>Nous sommes toujour la pour repondre a tout vos question .</p>
 
+                                        {#<a href="#">Read More <i class="fa fa-chevron-right"></i></a>#}
+                                    </div><!-- /.box-content -->
+                                </div>
+                            </div><!-- /.col-sm-4 -->
+
+                            <div class="col-sm-4">
+                                <div class="box">
+                                    <div class="box-icon">
+                                        <i class="fa fa-flask"></i>
+                                    </div><!-- /.box-icon -->
+
+                                    <div class="box-content">
+                                        <h2>Toujours Prouvé</h2>
+                                        <p>Nos developpeurs sont la pour vous construir une belle avenir.</p>
+
+                                        {#<a href="#">Read More <i class="fa fa-chevron-right"></i></a>#}
+                                    </div><!-- /.box-content -->
+                                </div>
+                            </div><!-- /.col-sm-4 -->
+
+                            <div class="col-sm-4">
+                                <div class="box">
+                                    <div class="box-icon">
+                                        <i class="fa fa-thumbs-o-up"></i>
+                                    </div><!-- /.box-icon -->
+
+                                    <div class="box-content">
+                                        <h2>La meilleur qualite</h2>
+                                        <p>Nous avons une bonne qualite de travaille.</p>
+
+                                        {#<a href="#">Read More <i class="fa fa-chevron-right"></i></a>#}
+                                    </div><!-- /.box-content -->
+                                </div>
                             </div><!-- /.col-sm-4 -->
                         </div><!-- /.row -->
+
                     </div><!-- /.block -->
 
                     <div class="block background-white background-transparent-image fullwidth">
                         <div class="page-header">
-                            <h1>Les Promotions Plus Recents</h1>
-
-                            <p>List des evement qui se passe dans notre site<br>par nos prstataires. ne Ratez pas ca.</p>
+                            <h1>Nos Prestataires</h1>
+                            <p>les meilleurs services  &amp; un travaille propre et serieus<br>vous aller decouvrir ici .</p>
                         </div><!-- /.page-header -->
-                        <div class="cards-simple-wrapper">
+
+                        <div class="cards-wrapper">
                             <div class="row">
-                                {% for promotion in promotions |slice(0, 4)%}
-                                    <div class="col-sm-6 col-md-3">
-                                        {{ include('Partials/card-simple-bckground-img.html.twig' ,{ card_simple :{id:promotion.id,title:promotion.name, name:promotion.description,rout_serch:'promotion_show',rout_detail:'promotion_show',rout_bookmark:'promotion_show',rout_favorit:'promotion_show'} }) }}
-                                    </div><!-- /.col-* -->
-                                {% endfor %}
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="card" data-background-image="{{asset('img/tmp/product-7.jpg')}}">
+                                                <div class="card-label">
+                                                    <a href="listing-detail.html">Coffe</a>
+                                                </div><!-- /.card-label -->
+
+                                                <div class="card-content">
+                                                    <h2><a href="listing-detail.html">Brazilian Coffe Taste</a></h2>
+
+                                                    <div class="card-meta">
+                                                        <i class="fa fa-map-o"></i> 347/26 22th Avenue, NYC USA
+                                                    </div><!-- /.card-meta -->
+
+                                                    <div class="card-rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div><!-- /.card-rating -->
+
+                                                    <div class="card-actions">
+                                                        <a href="#" class="fa fa-bookmark-o"></a>
+                                                        <a href="listing-detail.html" class="fa fa-search"></a>
+                                                        <a href="#" class="fa fa-heart-o"></a>
+                                                    </div>
+
+                                                </div><!-- /.card-content -->
+                                            </div><!-- /.card -->
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.row -->
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="card" data-background-image="{{asset('img/tmp/product-4.jpg')}}">
+                                                <div class="card-label">
+                                                    <a href="listing-detail.html">Restaurant</a>
+                                                </div><!-- /.card-label -->
+
+                                                <div class="card-content">
+                                                    <h2><a href="listing-detail.html">Coffee &amp; Newspaper</a></h2>
+
+                                                    <div class="card-meta">
+                                                        <i class="fa fa-map-o"></i> 347/26 22th Avenue, NYC USA
+                                                    </div><!-- /.card-meta -->
+
+                                                    <div class="card-rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div><!-- /.card-rating -->
+
+                                                    <div class="card-actions">
+                                                        <a href="#" class="fa fa-bookmark-o"></a>
+                                                        <a href="listing-detail.html" class="fa fa-search"></a>
+                                                        <a href="#" class="fa fa-heart-o"></a>
+                                                    </div>
+                                                </div><!-- /.card-content -->
+                                            </div><!-- /.card -->
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="card" data-background-image="{{asset('img/tmp/product-2.jpg')}}">
+                                                <div class="card-label">
+                                                    <a href="listing-detail.html">Vacation</a>
+                                                </div><!-- /.card-label -->
+
+                                                <div class="card-content">
+                                                    <h2><a href="listing-detail.html">Homemade Coffee</a></h2>
+
+                                                    <div class="card-meta">
+                                                        <i class="fa fa-map-o"></i> 347/26 22th Avenue, NYC USA
+                                                    </div><!-- /.card-meta -->
+
+                                                    <div class="card-rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div><!-- /.card-rating -->
+
+                                                    <div class="card-actions">
+                                                        <a href="#" class="fa fa-bookmark-o marked"></a>
+                                                        <a href="listing-detail.html" class="fa fa-search"></a>
+                                                        <a href="#" class="fa fa-heart-o"></a>
+                                                    </div>
+                                                </div><!-- /.card-content -->
+                                            </div><!-- /.card -->
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.col-* -->
+
+                                <div class="col-sm-4">
+                                    <div class="card card-tall" data-background-image="{{asset('img/tmp/product-1.jpg')}}">
+                                        <div class="card-label">
+                                            <a href="listing-detail.html">Vacation</a>
+                                        </div><!-- /.card-label -->
+
+                                        <div class="card-content">
+                                            <h2><a href="listing-detail.html">Trip to Paris, France</a></h2>
+
+                                            <div class="card-meta">
+                                                <i class="fa fa-map-o"></i> 347/26 22th Avenue, NYC USA
+                                            </div><!-- /.card-meta -->
+
+                                            <div class="card-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div><!-- /.card-rating -->
+
+                                            <div class="card-actions">
+                                                <a href="#" class="fa fa-bookmark-o"></a>
+                                                <a href="listing-detail.html" class="fa fa-search"></a>
+                                                <a href="#" class="fa fa-heart-o marked"></a>
+                                            </div>
+                                        </div><!-- /.card-content -->
+                                    </div><!-- /.card -->
+                                </div><!-- /.col-* -->
                             </div><!-- /.row -->
-                        </div><!-- /.cards-simple-wrapper -->
+                        </div><!-- /.cards-wrapper -->
+
+                        <div class="block background-secondary fullwidth mt80 mb-80 pt60 pb60">
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="contact-info-wrapper">
+                                        <h2>Do You Have Any Questions?</h2>
+
+                                        <div class="contact-info">
+                <span class="contact-info-item">
+                    <i class="fa fa-at"></i>
+                    <span>{{ myEmailTwig }}</span>
+                </span><!-- /.contact-info-item -->
+
+                                            <span class="contact-info-item">
+                    <i class="fa fa-phone"></i>
+                    <span>{{ myTelTwig }}</span>
+                </span><!-- /.contact-info-item -->
+                                        </div><!-- /.contact-info-->
+                                    </div><!-- /.contact-info-wrapper -->
+                                </div><!-- /.col-* -->
+                            </div><!-- /.row -->
+                        </div>
                     </div>
+                </div><!-- /.container -->
 
-
-                </div><!-- /.content -->
-            </div><!-- /.container -->
+            </div><!-- /.content -->
         </div><!-- /.main-inner -->
     </div><!-- /.main -->
+
 {% endblock %}
