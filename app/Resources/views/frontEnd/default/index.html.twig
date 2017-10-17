@@ -163,132 +163,43 @@
 
                         <div class="cards-wrapper">
                             <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="card" data-background-image="{{asset('img/tmp/product-7.jpg')}}">
-                                                <div class="card-label">
-                                                    <a href="listing-detail.html">Coffe</a>
-                                                </div><!-- /.card-label -->
+                                {% for provider in providers |slice(0, 4) %}
+                                    {% if  loop.index < 5%}
+                                        {% if loop.first %}
+                                            {% set cardtall= 0 %}
+                                            <div class="col-sm-8">
+                                            <div class="row"><!--row8 debut de index2-->
+                                            {% set taille='12'%}
+                                        {% endif %}
+                                    {%if loop.index==2%}
+                                        {% set cardtall= 0 %}
+                                        </div><!-- /.row -->
+                                        <div class="row">
+                                        {% set taille='6'%}
+                                    {% endif %}
+                                        {% if loop.index==3%}
+                                            {% set cardtall= 0 %}
 
-                                                <div class="card-content">
-                                                    <h2><a href="listing-detail.html">Brazilian Coffe Taste</a></h2>
+                                            {% set taille='6'%}
+                                        {% endif %}
+                                        {% if loop.last%}
 
-                                                    <div class="card-meta">
-                                                        <i class="fa fa-map-o"></i> 347/26 22th Avenue, NYC USA
-                                                    </div><!-- /.card-meta -->
+                                            </div><!-- /.row -->
+                                            </div><!--/.col8-->
+                                            {% set taille ='4'%}
+                                            {% set cardtall= 4 %}
+                                        {% endif %}
 
-                                                    <div class="card-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div><!-- /.card-rating -->
+                                        <div class="col-sm-{{taille}}">
 
-                                                    <div class="card-actions">
-                                                        <a href="#" class="fa fa-bookmark-o"></a>
-                                                        <a href="listing-detail.html" class="fa fa-search"></a>
-                                                        <a href="#" class="fa fa-heart-o"></a>
-                                                    </div>
+                                            {{ include('Partials/card.html.twig', { card :{ id:provider.id, nom:provider.username, description:provider.email, titre:provider.name,
+                                                class:'loop.index', tall:cardtall, rout1:'provider_show', image:'img/logo.png',rout_serch:'provider_show',rout_detail:'provider_show',rout_bookmark:'provider_show',rout_favorit:'provider_show' } }) }}
 
-                                                </div><!-- /.card-content -->
-                                            </div><!-- /.card -->
                                         </div><!-- /.col-* -->
-                                    </div><!-- /.row -->
+                                    {% endif%}
 
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card" data-background-image="{{asset('img/tmp/product-4.jpg')}}">
-                                                <div class="card-label">
-                                                    <a href="listing-detail.html">Restaurant</a>
-                                                </div><!-- /.card-label -->
+                                {% endfor %}
 
-                                                <div class="card-content">
-                                                    <h2><a href="listing-detail.html">Coffee &amp; Newspaper</a></h2>
-
-                                                    <div class="card-meta">
-                                                        <i class="fa fa-map-o"></i> 347/26 22th Avenue, NYC USA
-                                                    </div><!-- /.card-meta -->
-
-                                                    <div class="card-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div><!-- /.card-rating -->
-
-                                                    <div class="card-actions">
-                                                        <a href="#" class="fa fa-bookmark-o"></a>
-                                                        <a href="listing-detail.html" class="fa fa-search"></a>
-                                                        <a href="#" class="fa fa-heart-o"></a>
-                                                    </div>
-                                                </div><!-- /.card-content -->
-                                            </div><!-- /.card -->
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="card" data-background-image="{{asset('img/tmp/product-2.jpg')}}">
-                                                <div class="card-label">
-                                                    <a href="listing-detail.html">Vacation</a>
-                                                </div><!-- /.card-label -->
-
-                                                <div class="card-content">
-                                                    <h2><a href="listing-detail.html">Homemade Coffee</a></h2>
-
-                                                    <div class="card-meta">
-                                                        <i class="fa fa-map-o"></i> 347/26 22th Avenue, NYC USA
-                                                    </div><!-- /.card-meta -->
-
-                                                    <div class="card-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div><!-- /.card-rating -->
-
-                                                    <div class="card-actions">
-                                                        <a href="#" class="fa fa-bookmark-o marked"></a>
-                                                        <a href="listing-detail.html" class="fa fa-search"></a>
-                                                        <a href="#" class="fa fa-heart-o"></a>
-                                                    </div>
-                                                </div><!-- /.card-content -->
-                                            </div><!-- /.card -->
-                                        </div><!-- /.col-* -->
-                                    </div><!-- /.row -->
-                                </div><!-- /.col-* -->
-
-                                <div class="col-sm-4">
-                                    <div class="card card-tall" data-background-image="{{asset('img/tmp/product-1.jpg')}}">
-                                        <div class="card-label">
-                                            <a href="listing-detail.html">Vacation</a>
-                                        </div><!-- /.card-label -->
-
-                                        <div class="card-content">
-                                            <h2><a href="listing-detail.html">Trip to Paris, France</a></h2>
-
-                                            <div class="card-meta">
-                                                <i class="fa fa-map-o"></i> 347/26 22th Avenue, NYC USA
-                                            </div><!-- /.card-meta -->
-
-                                            <div class="card-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div><!-- /.card-rating -->
-
-                                            <div class="card-actions">
-                                                <a href="#" class="fa fa-bookmark-o"></a>
-                                                <a href="listing-detail.html" class="fa fa-search"></a>
-                                                <a href="#" class="fa fa-heart-o marked"></a>
-                                            </div>
-                                        </div><!-- /.card-content -->
-                                    </div><!-- /.card -->
-                                </div><!-- /.col-* -->
                             </div><!-- /.row -->
                         </div><!-- /.cards-wrapper -->
 
