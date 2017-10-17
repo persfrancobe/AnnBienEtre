@@ -2,14 +2,14 @@
 <div class="cards-small">
     <div class="card-small">
         <div class="card-small-image">
-            <a href="{{asset (cardSmal.image)}}">
-                <img src="{{asset('img/tmp/product-2.jpg')}}" alt="{{cardSmal.name}}">
+            <a href="{{ path(cardSmal.rout,{'id':cardSmal.id}) }}">
+                <img src="{{asset (cardSmal.image)}}" alt="{{cardSmal.name}}">
             </a>
         </div><!-- /.card-small-image -->
 
         <div class="card-small-content">
-            <h3><a href="listing-detail.html">{{cardSmal.name}}</a></h3>
-            <h4><a href="listing-detail.html">{{cardSmal.description}}</a></h4>
+            <h3><a href="{{ path(cardSmal.rout,{'id':cardSmal.id}) }}">{{cardSmal.name}}</a></h3>
+            <h4><a href="{{ path(cardSmal.rout,{'id':cardSmal.id}) }}">{{cardSmal.description}}</a></h4>
 
             <div class="card-small-price">{{cardSmal.price}} €</div>
         </div><!-- /.card-small-content -->
