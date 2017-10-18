@@ -1,13 +1,15 @@
 {% extends "frontEnd/listing-layout.html.twig" %}
 {% block titre %}Tout Les Prestataires
 {% endblock %}
+{% block h1 %}Nos Prestataires{% endblock %}
+{% block h2 %}{{ providers_result|length }}Prestataires trouvé a votre recherche{% endblock %}
 {% block posts %}
-
-    {% if  providers is iterable %}
-        {% for provider in  providers %}
+    {% if  providers_result is iterable %}
+        {% for provider in  providers_result %}
             {{ include('Partials/big-post.html.twig',{post:{id:provider.id,name:provider.name,image:'img/logo.png',description:provider.email,rout:'provider_show'}}) }}
         {% endfor %}
     {% else %}
-        {{ include('Partials/big-post.html.twig',{post:{id:provider.id,name:provider.name,image:'img/logo.png',description:provider.email,rout:'provider_show'}}) }}
+        {{ include('Partials/big-post.html.twig',{post:{id:providers_result.id,name:providers_result.name,image:'img/logo.png',description:providers_result.email,rout:'provider_show'}}) }}
     {%endif%}
-{%endblock%}
+
+{%endblock%}{% block side %} {{include ('Partials/side.html.twig',{categories:service_categories,courses:courses,providers:providers})}}{% endblock %}

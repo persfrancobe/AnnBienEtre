@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Provider</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ provider.name }}</td>
+            </tr>
+            <tr>
+                <th>Internetsite</th>
+                <td>{{ provider.internetSite }}</td>
+            </tr>
+            <tr>
+                <th>Contactemail</th>
+                <td>{{ provider.contactEmail }}</td>
+            </tr>
+            <tr>
+                <th>Telnum</th>
+                <td>{{ provider.telNum }}</td>
+            </tr>
+            <tr>
+                <th>Tvanum</th>
+                <td>{{ provider.tvaNum }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ provider.description }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ provider.facebook }}</td>
+            </tr>
+            <tr>
+                <th>Youtube</th>
+                <td>{{ provider.youtube }}</td>
+            </tr>
+            <tr>
+                <th>Gmail</th>
+                <td>{{ provider.gmail }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ provider.twitter }}</td>
+            </tr>
+            <tr>
+                <th>Advisor</th>
+                <td>{{ provider.advisor }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ provider.id }}</td>
+            </tr>
+            <tr>
+                <th>Housnum</th>
+                <td>{{ provider.housNum }}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{ provider.street }}</td>
+            </tr>
+            <tr>
+                <th>Registration</th>
+                <td>{% if provider.registration %}{{ provider.registration|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Registrationconf</th>
+                <td>{% if provider.registrationConf %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Unsuccessfultestnum</th>
+                <td>{{ provider.unsuccessfulTestNum }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('prov_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('prov_edit', { 'id': provider.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

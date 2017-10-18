@@ -45,7 +45,7 @@
 
                                 {% for course in provider.courses %}
                                     <div class='row'>
-                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{image:'img/logo.png', name:course.name, description:course.description, price:course.price} }) }}
+                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{id:course.id,rout:'course_show',image:'img/logo.png', name:course.name, description:course.description, price:course.price} }) }}
                                     </div>
                                 {% endfor %}
 

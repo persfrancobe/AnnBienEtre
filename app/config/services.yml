@@ -34,3 +34,8 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
+    AppBundle\Services\:
+            resource: '../../src/AppBundle/Services'
+            public: true
+            arguments: ['@doctrine.orm.entity_manager']
+

@@ -1,26 +1,18 @@
 {% extends "frontEnd/frontend-layout.html.twig" %}
-
 {%block main %}
     <div class="main">
         <div class="main-inner">
             <div class="container">
                 <div class="row">
-
-
-
                     <div class="col-sm-8 col-lg-9">
                         <div class="content">
                             <div class="page-title">
                                 <h1>{% block h1 %}{% endblock %}</h1>
                                 <h2>{% block h2%}{% endblock %}</h2>
                             </div><!-- /.page-title -->
-
                             <div class="posts">
                             {% block posts %}{% endblock %}
-
                         </div><!-- /.posts -->
-
-
                         <div class="pager">
                             <ul>
                                 <li><a href="#">Prev</a></li>
@@ -30,15 +22,10 @@
                                 <li><a href="#">Next</a></li>
                             </ul>
                         </div><!-- /.pagination -->
-
-
                     </div><!-- /.content -->
                 </div><!-- /.col-* -->
-
                 <div class="col-sm-4 col-lg-3">
-
-                    {{include ('Partials/side.html.twig',{categories:service_categories,courses:courses,providers:providers})}}
-
+                    {% block side %}{% endblock %}
                 </div><!-- /.col-* -->
             </div><!-- /.row -->
         </div><!-- /.container -->

@@ -17,11 +17,15 @@
                                 </div><!-- /.container -->
                             </div><!-- /.hero-image-content -->
 
-                            <div class="hero-image-form-wrapper">
+
+
+                           <div class="hero-image-form-wrapper">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-sm-4 col-sm-offset-8 col-lg-4 col-lg-offset-7">
-                                            <form method="get" action="?">
+
+                                            {{ render(controller('AppBundle:FrontEnd/Provider:search'))}}
+                                            {#<form method="get" action="?">
                                                 <h2>Start Searching</h2>
 
                                                 <div class="hero-image-keyword form-group">
@@ -52,11 +56,17 @@
                                                 </div><!-- /.form-group -->
 
                                                 <button type="submit" class="btn btn-primary btn-block">Search</button>
-                                            </form>
+                                            </form>#}
+
+
                                         </div><!-- /.col-* -->
                                     </div><!-- /.row -->
                                 </div><!-- /.container -->
                             </div><!-- /.hero-image-form-wrapper -->
+
+
+
+
                         </div><!-- /.hero-image-inner -->
                     </div><!-- /.hero-image -->
 
