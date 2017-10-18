@@ -1,0 +1,52 @@
+{% extends 'frontEnd/frontend-layout.html.twig' %}
+
+{% block main %}
+    <h1>Image</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ image.id }}</td>
+            </tr>
+            <tr>
+                <th>Webpath</th>
+                <td><img src="{{ 'uploads/' }}{{ image.webPath }}"></td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ image.image }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ image.type }}</td>
+            </tr>
+            <tr>
+                <th>File</th>
+                <td>{{ image.file }}</td>
+            </tr>
+            <tr>
+                <th>Updateat</th>
+                <td>{% if image.updateAt %}{{ image.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Imgorder</th>
+                <td>{{ image.imgOrder }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('image_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('image_edit', { 'id': image.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -2,13 +2,19 @@
 
 namespace AppBundle\Entity;
 
+use AccesBundles\UploaderBundle\Annotation\UploadableField;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\HttpFoundation\File\File;
+use AccesBundles\UploaderBundle\Annotation\Uploadable;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Image
  *
  * @ORM\Table(name="images")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageRepository")
+ * @Uploadable()
  */
 class Image
 {
@@ -24,14 +30,40 @@ class Image
     /**
      * @var string
      *
-     * @ORM\Column(name="webPath", type="blob")
+     * @ORM\Column(name="webPath", type="string")
      */
     private $webPath;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string",nullable=true)
+     */
+    private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string",nullable=true)
+     */
+    private $type;
+    /**
+     * @UploadableField(filename="webPath",path="uploads")
+     *
+     */
+    private $file;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="updateAt",type="datetime",nullable=true)
+     *
+     */
+    private $updateAt;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="imgOrder", type="integer")
+     * @ORM\Column(name="imgOrder", type="integer",nullable=true)
      */
     private $imgOrder;
 
@@ -54,6 +86,75 @@ class Image
      * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="images")
      */
     private  $serviceCategory;
+
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param File $file|null
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    }
+
+
+
+    /**
+     * @return DateTime
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
+
+    /**
+     * @param DateTime $updateAt
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
+    }
+
+
 
     /**
      * @return mixed

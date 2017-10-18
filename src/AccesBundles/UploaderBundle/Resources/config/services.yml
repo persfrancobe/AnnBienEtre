@@ -1,0 +1,11 @@
+services:
+  upload.annotation_reader:
+    class: AccesBundles\UploaderBundle\Annotation\UploadAnnotationReader
+    arguments: ["@annotations.reader"]
+  upload.handler:
+    class: AccesBundles\UploaderBundle\Handler\UploadHandler
+  upload.subscriber:
+    class: AccesBundles\UploaderBundle\Listener\UploadSubscriber
+    arguments: ["@upload.annotation_reader","@upload.handler"]
+    tags:
+      - { name: doctrine.event_subscriber,connection: default }

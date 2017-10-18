@@ -68,13 +68,3 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-
-fos_user:
-    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
-    firewall_name: main
-    user_class: AppBundle\Entity\Users
-    from_email:
-        address: "%mailer_user%"
-        sender_name: "%mailer_user%"
-    use_username_form_type: false

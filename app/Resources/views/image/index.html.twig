@@ -1,0 +1,49 @@
+{% extends 'frontEnd/frontend-layout.html.twig' %}
+
+{% block main %}
+    <h1>Images list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Webpath</th>
+                <th>Image</th>
+                <th>Type</th>
+                <th>File</th>
+                <th>Updateat</th>
+                <th>Imgorder</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td><a href="{{ path('image_show', { 'id': image.id }) }}">{{ image.id }}</a></td>
+                <td>{{ image.webPath }}</td>
+                <td>{{ image.image }}</td>
+                <td>{{ image.type }}</td>
+                <img src="{{asset('img/logo.png') }}" alt=""> </img>
+                <td>{% if image.updateAt %}{{ image.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ image.imgOrder }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('image_show', { 'id': image.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('image_edit', { 'id': image.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('image_new') }}">Create a new image</a>
+        </li>
+    </ul>
+{% endblock %}
