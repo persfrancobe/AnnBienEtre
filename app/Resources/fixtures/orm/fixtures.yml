@@ -34,7 +34,7 @@ AppBundle\Entity\User:
         salt: '<text(5)>'
         userName: persfrancobe
         registrationConf: true
-        unsuccessfulTestNum: 0
+        unsuccessfulTestNum:
         city: '@city_*'
         locality: '@locality_*'
         postcode: '@postcode_*'

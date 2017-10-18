@@ -79,11 +79,9 @@ class Visitor extends User
     public function __construct(){
 
         parent:: __construct();
-        $this->user_type=User::TYPE_VISITOR;
         $this->abuses=new ArrayCollection();
         $this->comments=new ArrayCollection();
         $this->favorites=new ArrayCollection();
-        $this->addRole('role_visitor');
     }
 
     /**

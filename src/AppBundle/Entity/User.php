@@ -55,7 +55,7 @@ class User
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="registration", type="date")
+     * @ORM\Column(name="registration", type="date",nullable=true)
      */
     protected $registration;
 
@@ -63,14 +63,14 @@ class User
     /**
      * @var bool
      *
-     * @ORM\Column(name="registrationConf", type="boolean")
+     * @ORM\Column(name="registrationConf", type="boolean",nullable=true)
      */
     protected $registrationConf;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="unsuccessfulTestNum", type="integer")
+     * @ORM\Column(name="unsuccessfulTestNum", type="integer",nullable=true)
      */
     protected $unsuccessfulTestNum;
     /**
@@ -83,7 +83,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="username_canonical",type="string")
+     * @ORM\Column(name="username_canonical",type="string",nullable=true)
      */
     protected $usernameCanonical;
     /**
@@ -95,7 +95,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="email_canonical",type="string")
+     * @ORM\Column(name="email_canonical",type="string",nullable=true)
      */
     protected $emailCanonical;
 
@@ -108,19 +108,19 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="salt",type="string")
+     * @ORM\Column(name="salt",type="string",nullable=true)
      */
     protected $salt;
     /**
      * @var string
      *
-     * @ORM\Column(name="role",type="text")
+     * @ORM\Column(name="role",type="text",nullable=true)
      */
     protected $role;
     /**
      * @var boolean
      *
-     * @ORM\Column(name="banned",type="boolean")
+     * @ORM\Column(name="banned",type="boolean",nullable=true)
      */
     protected $banned;
     /**
@@ -133,21 +133,21 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="confirmation_token",type="string")
+     * @ORM\Column(name="confirmation_token",type="string",nullable=true)
      */
     protected $confirmationToken;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="last_login", type="date")
+     * @ORM\Column(name="last_login", type="date",nullable=true)
      */
     protected $lastLogin;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="password_requested_at", type="date")
+     * @ORM\Column(name="password_requested_at", type="date",nullable=true)
      */
     protected $passwordRequestedAt;
 
@@ -166,21 +166,15 @@ class User
      */
     protected  $postcode;
 
-    /**
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Block",mappedBy="user")
-     */
-    protected $blocks;
 
     /**
      * Constructor
      */
     public function __construct(){
-        parent:: __construct();
         $this->blocks=new ArrayCollection();
         $this->registration=new \DateTime();
-        $this->addRole('role_admin');
     }
+
 
     /**
      * @return string

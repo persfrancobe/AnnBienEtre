@@ -12,4 +12,5 @@
         {{ include('Partials/big-post.html.twig',{post:{id:providers_result.id,name:providers_result.name,image:'img/logo.png',description:providers_result.email,rout:'provider_show'}}) }}
     {%endif%}
 
-{%endblock%}{% block side %} {{include ('Partials/side.html.twig',{categories:service_categories,courses:courses,providers:providers})}}{% endblock %}
+{%endblock%}
+{% block side %} {{include ('Partials/side.html.twig',{categories:service_categories,courses:courses,providers:providers})}}{% endblock %}

@@ -12,3 +12,4 @@
         {{ include('Partials/big-post.html.twig',{post:{id:course.id, name:course.name,image:'img/logo.png',description:course.description,rout:'course_show'}}) }}
     {%endif%}
 {%endblock%}
+{% block side %} {{include ('Partials/side.html.twig',{categories:service_categories,courses:courses,providers:providers})}}{% endblock %}
