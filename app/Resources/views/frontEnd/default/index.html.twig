@@ -11,8 +11,11 @@
                                     <h1>Directory Template</h1>
 
                                     <p>Create your own directory website by using Superlist template <br> incorporating all features of modern directory website.</p>
-
-                                    <a href="listing-row.html" class="btn btn-primary btn-lg">View Listings</a>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        <a href="{{path('logout')}}" class="btn btn-primary btn-lg">Deconection</a>
+                                    {% else %}
+                                         <a href="{{path('login') }}" class="btn btn-primary btn-lg">Deconection</a>
+                                    {% endif %}
                                     <a href="listing-submit.html" class="btn btn-secondary btn-lg">Submit</a>
                                 </div><!-- /.container -->
                             </div><!-- /.hero-image-content -->

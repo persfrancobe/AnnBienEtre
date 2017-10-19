@@ -4,7 +4,9 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -15,8 +17,10 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="user_type", type="string")
  * @ORM\DiscriminatorMap({"admin"="User","provider" = "Provider", "visitor" = "Visitor"})
+ * @UniqueEntity(fields="email", message="Email already taken")
+ * @UniqueEntity(fields="username", message="Username already taken")
  */
-class User
+class User implements UserInterface
 {
 
     const TYPE_USER = "admin";
@@ -26,6 +30,19 @@ class User
     const ROLE_ADMIN = 'ROLE_ADMIN';
     const ROLE_PROVIDER = 'ROLE_PROVIDER';
     const ROLE_VISITOR = 'ROLE_VISITOR';
+
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct(){
+        $this->registration=new \DateTime();
+        $this->addRole(User::ROLE_ADMIN);
+    }
+
+
 
 
     /**
@@ -41,14 +58,14 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="housNum", type="string", length=255)
+     * @ORM\Column(name="street_num", type="string", length=255,nullable=true)
      */
-    protected $housNum;
+    protected $streetNum;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="street", type="string", length=255)
+     * @ORM\Column(name="street", type="string", length=255,nullable=true)
      */
     protected $street;
 
@@ -59,14 +76,6 @@ class User
      */
     protected $registration;
 
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="registrationConf", type="boolean",nullable=true)
-     */
-    protected $registrationConf;
-
     /**
      * @var int
      *
@@ -74,49 +83,14 @@ class User
      */
     protected $unsuccessfulTestNum;
     /**
-     * @var string
-     *
-     * @ORM\Column(name="username",type="string")
-     */
-    protected $username;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="username_canonical",type="string",nullable=true)
-     */
-    protected $usernameCanonical;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password",type="string")
-     */
-    protected $password;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email_canonical",type="string",nullable=true)
-     */
-    protected $emailCanonical;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email",type="string")
-     */
-    protected $email;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="salt",type="string",nullable=true)
-     */
     protected $salt;
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="role",type="text",nullable=true)
+     * @ORM\Column(name="roles",type="array",nullable=true)
      */
-    protected $role;
+    protected $roles;
     /**
      * @var boolean
      *
@@ -126,7 +100,7 @@ class User
     /**
      * @var boolean
      *
-     * @ORM\Column(name="enabled",type="boolean")
+     * @ORM\Column(name="enabled",type="boolean",nullable=true)
      */
     protected $enabled;
 
@@ -152,6 +126,33 @@ class User
     protected $passwordRequestedAt;
 
     /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     */
+    protected $username;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    protected $plainPassword;
+
+    /**
+     * The below length depends on the "algorithm" you use for encoding
+     * the password, but this works well with bcrypt.
+     *
+     * @ORM\Column(type="string", length=64)
+     */
+    protected $password;
+
+    /**
      * @ORM\ManyToOne(targetEntity="City", inversedBy="users")
      */
     protected  $city;
@@ -167,125 +168,137 @@ class User
     protected  $postcode;
 
 
-    /**
-     * Constructor
-     */
-    public function __construct(){
-        $this->blocks=new ArrayCollection();
-        $this->registration=new \DateTime();
-    }
 
-
-    /**
-     * @return string
-     */
-    public function getUsername(): string
+    public function getRoles()
     {
-        return $this->username;
+        // TODO: Implement getRoles() method.
     }
 
     /**
-     * @param string $username
+     * @param mixed $role
      */
-    public function setUsername(string $username)
+    public function addRole($role)
+    {
+        $this->roles[] = $role;
+    }
+
+    /**
+     * @param mixed $role
+     */
+    public function removeRole($role)
+    {
+        if ($key = array_search($role, $this->roles, true) !== false) {
+            array_splice($this->roles, $key, 1);
+        }
+    }
+
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username)
     {
         $this->username = $username;
     }
 
-    /**
-     * @return string
-     */
-    public function getUsernameCanonical(): string
+    public function getPassword()
     {
-        return $this->usernameCanonical;
+        // TODO: Implement getPassword() method.
+    }
+
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
     }
 
     /**
-     * @param string $usernameCanonical
+     * @return int
      */
-    public function setUsernameCanonical(string $usernameCanonical)
+    public function getId(): int
     {
-        $this->usernameCanonical = $usernameCanonical;
+        return $this->id;
     }
 
     /**
-     * @return string
+     * @param int $id
      */
-    public function getPassword(): string
+    public function setId(int $id)
     {
-        return $this->password;
-    }
-
-    /**
-     * @param string $password
-     */
-    public function setPassword(string $password)
-    {
-        $this->password = $password;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmailCanonical(): string
-    {
-        return $this->emailCanonical;
-    }
-
-    /**
-     * @param string $emailCanonical
-     */
-    public function setEmailCanonical(string $emailCanonical)
-    {
-        $this->emailCanonical = $emailCanonical;
+        $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getEmail(): string
+    public function getStreetNum(): string
     {
-        return $this->email;
+        return $this->streetNum;
     }
 
     /**
-     * @param string $email
+     * @param string $streetNum
      */
-    public function setEmail(string $email)
+    public function setStreetNum(string $streetNum)
     {
-        $this->email = $email;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSalt(): string
-    {
-        return $this->salt;
-    }
-
-    /**
-     * @param string $salt
-     */
-    public function setSalt(string $salt)
-    {
-        $this->salt = $salt;
+        $this->streetNum = $streetNum;
     }
 
     /**
      * @return string
      */
-    public function getRole(): string
+    public function getStreet(): string
     {
-        return $this->role;
+        return $this->street;
     }
 
     /**
-     * @param string $role
+     * @param string $street
      */
-    public function setRole(string $role)
+    public function setStreet(string $street)
     {
-        $this->role = $role;
+        $this->street = $street;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getRegistration(): \DateTime
+    {
+        return $this->registration;
+    }
+
+    /**
+     * @param \DateTime $registration
+     */
+    public function setRegistration(\DateTime $registration)
+    {
+        $this->registration = $registration;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUnsuccessfulTestNum(): int
+    {
+        return $this->unsuccessfulTestNum;
+    }
+
+    /**
+     * @param int $unsuccessfulTestNum
+     */
+    public function setUnsuccessfulTestNum(int $unsuccessfulTestNum)
+    {
+        $this->unsuccessfulTestNum = $unsuccessfulTestNum;
     }
 
     /**
@@ -368,68 +381,36 @@ class User
         $this->passwordRequestedAt = $passwordRequestedAt;
     }
 
-    
-
-    /**
-     * @param mixed $block
-     */
-    public function addBlock(Block $block)
-    {
-        $this->blocks->add($block);
-        // uncomment if you want to update other side
-        //$blocks->setUser($this);
-    }
-
-    /**
-     * @param mixed $block
-     */
-    public function removeBlock(Block $block)
-    {
-        $this->blocks->removeElement($block);
-        // uncomment if you want to update other side
-        //$blocks->setUser(null);
-    }
-
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getBlocks()
-    {
-        return $this->blocks;
-    }
-
-
     /**
      * @return mixed
      */
-    public function getPostcode()
+    public function getEmail()
     {
-        return $this->postcode;
+        return $this->email;
     }
 
     /**
-     * @param mixed $postcode
+     * @param mixed $email
      */
-    public function setPostcode(Postcode $postcode)
+    public function setEmail($email)
     {
-        $this->postcode = $postcode;
+        $this->email = $email;
     }
 
     /**
      * @return mixed
      */
-    public function getLocality()
+    public function getPlainPassword()
     {
-        return $this->locality;
+        return $this->plainPassword;
     }
 
     /**
-     * @param mixed $locality
+     * @param mixed $plainPassword
      */
-    public function setLocality(Locality $locality)
+    public function setPlainPassword($plainPassword)
     {
-        $this->locality = $locality;
+        $this->plainPassword = $plainPassword;
     }
 
     /**
@@ -443,138 +424,47 @@ class User
     /**
      * @param mixed $city
      */
-    public function setCity(City $city)
+    public function setCity($city)
     {
         $this->city = $city;
     }
 
     /**
-     * Get id
-     *
-     * @return int
+     * @return mixed
      */
-    public function getId()
+    public function getLocality()
     {
-        return $this->id;
+        return $this->locality;
     }
 
     /**
-     * Set housNum
-     *
-     * @param string $housNum
-     *
-     * @return User
+     * @param mixed $locality
      */
-    public function setHousNum($housNum)
+    public function setLocality($locality)
     {
-        $this->housNum = $housNum;
-
-        return $this;
+        $this->locality = $locality;
     }
 
     /**
-     * Get housNum
-     *
-     * @return string
+     * @return mixed
      */
-    public function getHousNum()
+    public function getPostcode()
     {
-        return $this->housNum;
+        return $this->postcode;
     }
 
     /**
-     * Set street
-     *
-     * @param string $street
-     *
-     * @return User
+     * @param mixed $postcode
      */
-    public function setStreet($street)
+    public function setPostcode($postcode)
     {
-        $this->street = $street;
-
-        return $this;
+        $this->postcode = $postcode;
     }
 
-    /**
-     * Get street
-     *
-     * @return string
-     */
-    public function getStreet()
+
+    public function setPassword($password)
     {
-        return $this->street;
-    }
-
-    /**
-     * Set registration
-     *
-     * @param \DateTime $registration
-     *
-     * @return User
-     */
-    public function setRegistration($registration)
-    {
-        $this->registration = $registration;
-
-        return $this;
-    }
-
-    /**
-     * Get registration
-     *
-     * @return \DateTime
-     */
-    public function getRegistration()
-    {
-        return $this->registration;
-    }
-    /**
-     * Set registrationConf
-     *
-     * @param boolean $registrationConf
-     *
-     * @return User
-     */
-    public function setRegistrationConf($registrationConf)
-    {
-        $this->registrationConf = $registrationConf;
-
-        return $this;
-    }
-
-    /**
-     * Get registrationConf
-     *
-     * @return bool
-     */
-    public function getRegistrationConf()
-    {
-        return $this->registrationConf;
-    }
-
-    /**
-     * Set unsuccessfulTestNum
-     *
-     * @param integer $unsuccessfulTestNum
-     *
-     * @return User
-     */
-    public function setUnsuccessfulTestNum($unsuccessfulTestNum)
-    {
-        $this->unsuccessfulTestNum = $unsuccessfulTestNum;
-
-        return $this;
-    }
-
-    /**
-     * Get unsuccessfulTestNum
-     *
-     * @return int
-     */
-    public function getUnsuccessfulTestNum()
-    {
-        return $this->unsuccessfulTestNum;
+        $this->password = $password;
     }
 }
 
