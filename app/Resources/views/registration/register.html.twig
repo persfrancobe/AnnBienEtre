@@ -7,26 +7,27 @@
                 <div class="row">
                     <div class="col-sm-4 col-sm-offset-4">
                         <div class="page-title">
-                            <h1>Register</h1>
+                            <h1>Inscription</h1>
                         </div><!-- /.page-title -->
+
                         {{ form_start(form) }}
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                {{ form_row(form.email) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                <label for="login-form-last-name">Nom D'utilisateur</label>
-                                {{ form_row(form.username) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                <label for="password">Mot de pass</label>
-                                {{ form_row(form.plainPassword.first) }}
-                            </div><!-- /.form-group -->
-                            <div class="form-group">
-                                <label for="login-form-password-retype">Confirmation</label>
-                                { form_row(form.plainPassword.second) }}
-                            </div><!-- /.form-group -->
-                            <button type="submit" class="btn btn-primary pull-right">Register</button>
+                        <div class="form-group">
+                            {{ form_label(form.username, "Nom D'utilisateur", {'label_attr': {'for': 'register-form-username','class':'form-label'}}) }}
+                            {{ form_widget(form.username,{'attr':{'class':'form-control','id':'username'}}) }}
+                        </div>
+                        <div class="form-group label">
+                            {{ form_label(form.email, "Email", {'label_attr': {'for': 'register-form-email','class':'form-label'}}) }}
+                            {{ form_widget(form.email,{'attr':{'class':'form-control','id':'email'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.plainPassword.first, "Mot de Passe", {'label_attr': {'for': 'register-form-password','class':'form-label'}}) }}
+                            {{ form_widget(form.plainPassword.first,{'attr':{'class':'form-control','id':'plainPassword-first'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.plainPassword.second, "Confirmation", {'label_attr': {'for': 'register-form-password-retype','class':'form-label'}}) }}
+                            {{ form_widget(form.plainPassword.second,{'attr':{'class':'form-control','id':'plainPassword-second'}}) }}
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">Register!</button>
                         {{ form_end(form) }}
                     </div><!-- /.col-sm-4 -->
                 </div><!-- /.row -->
@@ -35,3 +36,4 @@
     </div><!-- /.main-inner -->
 </div><!-- /.main -->
 {% endblock %}
+
