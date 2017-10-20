@@ -29,16 +29,10 @@ security:
                 login_path: login
                 check_path: login
 
-        secured_area:
-
             logout:
                 path:   /logout
                 target: /
                 invalidate_session: false
-                delete_cookies:
-                    a: { path: null, domain: null }
-                    b: { path: null, domain: null }
-
 
 
             form_login:
@@ -48,10 +42,10 @@ security:
     encoders:
         Symfony\Component\Security\Core\User\User:
             algorithm: bcrypt
-            cost: 12
         AppBundle\Entity\User: bcrypt
 
     access_control:
-         - { path: ^/admin/users, roles: ROLE_SUPER_ADMIN }
          - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 

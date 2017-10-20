@@ -6,8 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
-
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 /**
  * User
  *
@@ -20,7 +19,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
  */
-class User implements UserInterface
+class User implements AdvancedUserInterface, \Serializable
 {
 
     const TYPE_USER = "admin";
@@ -40,6 +39,7 @@ class User implements UserInterface
     public function __construct(){
         $this->registration=new \DateTime();
         $this->addRole(User::ROLE_ADMIN);
+        $this->isActive = true;
     }
 
 
@@ -61,6 +61,13 @@ class User implements UserInterface
      * @ORM\Column(name="street_num", type="string", length=255,nullable=true)
      */
     protected $streetNum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255,nullable=true)
+     */
+    protected $salt;
 
     /**
      * @var string
@@ -151,6 +158,10 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=64)
      */
     protected $password;
+    /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    protected $isActive;
 
     /**
      * @ORM\ManyToOne(targetEntity="City", inversedBy="users")
@@ -168,10 +179,55 @@ class User implements UserInterface
     protected  $postcode;
 
 
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->isActive;
+    }
+
+
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            $this->salt
+            ) = unserialize($serialized);
+    }
+
+
 
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+       return array('ROLE_USER');
     }
 
     /**
@@ -203,17 +259,17 @@ class User implements UserInterface
 
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->password;
     }
 
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return null;
     }
 
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->username;
     }
 
     public function eraseCredentials()
@@ -317,13 +373,6 @@ class User implements UserInterface
         $this->banned = $banned;
     }
 
-    /**
-     * @return bool
-     */
-    public function isEnabled(): bool
-    {
-        return $this->enabled;
-    }
 
     /**
      * @param bool $enabled
