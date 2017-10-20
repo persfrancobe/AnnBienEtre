@@ -8,15 +8,18 @@
                         <div class="hero-image-inner" style="background-image: url({{asset('img/tmp/slider-large-3.jpg')}}">
                             <div class="hero-image-content">
                                 <div class="container">
-                                    <h1>Directory Template</h1>
-
-                                    <p>Create your own directory website by using Superlist template <br> incorporating all features of modern directory website.</p>
                                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                        <a href="{{path('logout')}}" class="btn btn-primary btn-lg">Deconection</a>
+                                         <h1>Bonjour {{app.token.user.username}}</h1>
+                                         <p>Félicitation Vous etes Connecté maitenant<br> Vous pouvez modifier votre page personelle.</p>
+                                        <a href="{{logout_path()}}" class="btn btn-primary btn-lg">Deconection</a>
+                                        <a href="listing-submit.html" class="btn btn-secondary btn-lg">Votre page</a>
                                     {% else %}
-                                         <a href="{{path('login') }}" class="btn btn-primary btn-lg">Deconection</a>
+                                        <h1>Bonjour Bienvenu</h1>
+                                        <p>vous pouvez vous inscrire<br> pour avoir l'acces avotre page personelle.</p>
+                                         <a href="{{path('login') }}" class="btn btn-primary btn-lg">Conection</a>
+                                        <a href="{{ path('user_registration') }}" class="btn btn-secondary btn-lg">Submit</a>
                                     {% endif %}
-                                    <a href="listing-submit.html" class="btn btn-secondary btn-lg">Submit</a>
+
                                 </div><!-- /.container -->
                             </div><!-- /.hero-image-content -->
 
