@@ -35,7 +35,8 @@ class Search {
         }
         if ($city !== null) {
             $res =  $this->entityManager->getRepository('AppBundle:Provider')->findWithCity($city);
-        } else {
+        }
+        if($name == null && $category == null && $city == null) {
             $res =  $this->entityManager->getRepository('AppBundle:Provider')->myFindAll();
         }
 

@@ -35,8 +35,7 @@ class Image
     private $webPath;
     /**
      * @var string
-     *
-     * @ORM\Column(name="image", type="string",nullable=true)
+     * @ORM\Column(name="image", type="string",nullable=true,)
      */
     private $image;
 

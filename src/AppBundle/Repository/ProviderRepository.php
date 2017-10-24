@@ -41,19 +41,22 @@ class ProviderRepository extends \Doctrine\ORM\EntityRepository
     }
     public function findWithCategory($category) {
         $qb = $this->createQueryBuilder('p');
-        $qb ->leftJoin('p.serviceCategories', 'c')
+        $qb ->join('p.serviceCategories', 'c', 'WITH', 'c = :category')
+            //->select('p')
             ->addSelect('c')
-            ->where('c = :category')
+           // ->where('c = :category')
             ->setParameter('category', $category);
-        $query = $this->addJoins($qb);
-        return $query->getQuery()->getResult();
+        // $this->addJoins($qb);
+        $res = $qb->getQuery()->getResult();
+
+
+        return $res;
     }
     public function findWithName($name) {
         $qb = $this->createQueryBuilder('p');
         $qb->select('p')
-           // ->where($qb->expr()->like('p.username', $qb->expr()->literal('%' . $name . '%')))
-               ->where('p.name'==':city')
-            ->setParameter('city',$name)
+            ->where($qb->expr()->like('p.username', $qb->expr()->literal('%' . $name . '%')))
+            //->setParameter('name',$name)
             ->leftJoin('p.serviceCategories', 'cat')
             ->addSelect('cat');
         $query = $this->addJoins($qb);

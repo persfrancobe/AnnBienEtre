@@ -174,7 +174,6 @@
                         <div class="cards-wrapper">
                             <div class="row">
                                 {% for provider in providers |slice(0, 4) %}
-                                    {% if  loop.index < 5%}
                                         {% if loop.first %}
                                             {% set cardtall= 0 %}
                                             <div class="col-sm-8">
@@ -206,12 +205,12 @@
                                                 class:'loop.index', tall:cardtall, rout1:'provider_show', image:'img/logo.png',rout_serch:'provider_show',rout_detail:'provider_show',rout_bookmark:'provider_show',rout_favorit:'provider_show' } }) }}
 
                                         </div><!-- /.col-* -->
-                                    {% endif%}
 
                                 {% endfor %}
 
                             </div><!-- /.row -->
-                        </div><!-- /.cards-wrapper -->
+                        </di
+                            v><!-- /.cards-wrapper -->
 
                         <div class="block background-secondary fullwidth mt80 mb-80 pt60 pb60">
 
