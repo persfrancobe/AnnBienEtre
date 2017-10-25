@@ -43,7 +43,7 @@
 
                                 <div class="cards-simple-wrapper">
                                     <div class="row">
-                                        {% for promotion in serviceCategory.promotions %}
+                                        {% for promotion in serviceCategory.providers %}
                                             <div class="col-sm-6 col-md-3">
                                                 {{ include('Partials/card-simple-bckground-img.html.twig' ,{ card_simple :{id:promotion.id,image:'img/product-4.jpg',title:promotion.name, name:promotion.description,rout_detail:'promotion_show',rout_favorit:'promotion_show',rout_serch:'promotion_show',rout_bookmark:'promotion_show'} }) }}
                                             </div><!-- /.col-* -->
@@ -53,31 +53,7 @@
                             </div>
 
 
-                            <div class="block background-white fullwidth mt80">
 
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        {% for course in serviceCategory.courses |slice(0,2) %}
-
-                                            <div class="events">
-                                                {{ include('Partials:event.html.twig', { event :{ name:course.name, description:course.description, start:course.start} }) }}
-                                            </div><!-- /.events -->
-
-
-                                        {% endfor %}
-                                    </div><!-- /.col-* -->
-                                    <div class="col-sm-4">
-                                        {% for provider in serviceCategory.providers |slice(0, 2)%}
-                                            <div class="posts">
-                                                {{ include('Partials/post.html.twig' ,{ post :{id:provider.id,image:'imf/ogo.png',rout:'provider_show',title:provider.email, name:provider.name, description:provider.internetSite, date:'2/15/2141'} }) }}
-                                            </div><!-- /.posts -->
-                                        {% endfor %}
-                                    </div><!-- /.col-* -->
-
-                                    {#{ render(controller('BienEtreBundle:FrontEnd/Prestataires:recherche')) }#}
-
-                                </div><!-- /.row -->
-                            </div><!-- /.block -->
 
                         </div>
 

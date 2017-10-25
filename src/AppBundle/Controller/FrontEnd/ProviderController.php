@@ -5,6 +5,7 @@ namespace AppBundle\Controller\FrontEnd;
 use AppBundle\Entity\Provider;
 use AppBundle\Form\ProviderSearchType;
 use AppBundle\Form\ProviderType;
+use Knp\Component\Pager\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -25,11 +26,16 @@ class ProviderController extends Controller
      * @Route("s/", name="provider_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $providers_result = $em->getRepository('AppBundle:Provider')->myFindAll();
+        $providers = $em->getRepository('AppBundle:Provider')->myFindAll();
+        /**
+         * @var Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $providers_result=$paginator->paginate($providers,$request->query->getInt('page',1),5);
 
         return $this->render('frontEnd/providers/index.html.twig', array( 'providers_result' => $providers_result));
     }

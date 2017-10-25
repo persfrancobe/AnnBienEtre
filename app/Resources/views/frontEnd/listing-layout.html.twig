@@ -13,15 +13,7 @@
                             <div class="posts">
                             {% block posts %}{% endblock %}
                         </div><!-- /.posts -->
-                        <div class="pager">
-                            <ul>
-                                <li><a href="#">Prev</a></li>
-                                <li><a href="#">5</a></li>
-                                <li class="active"><a>6</a></li>
-                                <li><a href="#">7</a></li>
-                                <li><a href="#">Next</a></li>
-                            </ul>
-                        </div><!-- /.pagination -->
+                        <div class="pager">{% block pager %}{% endblock %} </div><!-- /.pagination -->
                     </div><!-- /.content -->
                 </div><!-- /.col-* -->
                 <div class="col-sm-4 col-lg-3">
