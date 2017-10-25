@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7cd05b0-8780-4a1a-ac30-d45abd6f3953" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/provider-wrapper-card.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SearchController.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/card.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/card.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/searchWidget.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/provider-search-widget.html.twig" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/DefaultController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategory.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategory.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/ProviderSearchType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/ProviderSearchType.php" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/ProviderRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/ProviderRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Services/Search.php" afterPath="$PROJECT_DIR$/src/AppBundle/Services/Search.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -86,33 +80,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig">
+      <file leaf-file-name="Search.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/Search.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProviderController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="23" selection-end-column="6" />
+            <state relative-caret-position="591">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
-                <element signature="e#49#79#0#PHP" expanded="true" />
+                <element signature="e#500#520#1#PHP" expanded="true" />
+                <element signature="e#700#720#1#PHP" expanded="true" />
+                <element signature="e#889#909#1#PHP" expanded="true" />
+                <element signature="e#1061#1081#1#PHP" expanded="true" />
+                <element signature="e#1214#1234#1#PHP" expanded="true" />
+                <element signature="e#1371#1391#1#PHP" expanded="true" />
+                <element signature="e#1524#1544#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProviderRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ProviderRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="88" column="49" lean-forward="false" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SearchController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+            <state relative-caret-position="578">
+              <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
               <folding>
                 <element signature="e#49#79#0#PHP" expanded="true" />
                 <element signature="e#616#660#0#PHP" expanded="true" />
@@ -122,52 +122,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProviderSearchType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/ProviderSearchType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="85" lean-forward="false" selection-start-line="20" selection-start-column="85" selection-end-line="20" selection-end-column="85" />
+            <state relative-caret-position="153">
+              <caret line="9" column="144" lean-forward="false" selection-start-line="9" selection-start-column="144" selection-end-line="9" selection-end-column="144" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="provider-search-widget.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/Partials/provider-search-widget.html.twig">
+      <file leaf-file-name="side.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="83" lean-forward="false" selection-start-line="0" selection-start-column="83" selection-end-line="0" selection-end-column="83" />
+            <state relative-caret-position="221">
+              <caret line="13" column="75" lean-forward="false" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/Search.php">
+      <file leaf-file-name="ProviderController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="816">
+              <caret line="56" column="74" lean-forward="false" selection-start-line="56" selection-start-column="74" selection-end-line="56" selection-end-column="74" />
+              <folding>
+                <element signature="e#883#903#1#PHP" expanded="true" />
+                <element signature="e#1306#1326#1#PHP" expanded="true" />
+                <element signature="e#1620#1640#1#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -255,19 +239,19 @@
         <option value="$PROJECT_DIR$/app/Resources/views/Partials/card.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/provider-wraper-card.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/DefaultController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Partials/searchWidget.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategory.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Repository/ProviderRepository.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Services/Search.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Partials/providerSearchWidget.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ProviderSearchType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Partials/provider-search-widget.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Services/Search.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SearchController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/ProviderRepository.php" />
       </list>
     </option>
   </component>
@@ -366,33 +350,7 @@
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="frontEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="courses" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="providers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Partials" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
@@ -419,27 +377,6 @@
               <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="FrontEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -516,7 +453,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213804000" />
+    <option name="totallyTimeSpent" value="217259000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -817,16 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/3af8c142/03061ff6-cd6f-461c-933b-73f816921817/symfony.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="username LIKE '%ersf%'">
-            <filter text="username LIKE '%ersf%'" />
-            <filter text="username LIKE '%mr%'" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/03061ff6-cd6f-461c-933b-73f816921817/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -879,14 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="54" lean-forward="false" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ServiceCategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -913,14 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ProviderRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-661">
-          <caret line="21" column="54" lean-forward="false" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -928,40 +839,6 @@
           <folding>
             <element signature="e#1408#1434#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/Search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="23" selection-end-column="6" />
-          <folding>
-            <element signature="e#49#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -989,15 +866,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/Search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#500#520#1#PHP" expanded="true" />
+            <element signature="e#700#720#1#PHP" expanded="true" />
+            <element signature="e#889#909#1#PHP" expanded="true" />
+            <element signature="e#1061#1081#1#PHP" expanded="true" />
+            <element signature="e#1214#1234#1#PHP" expanded="true" />
+            <element signature="e#1371#1391#1#PHP" expanded="true" />
+            <element signature="e#1524#1544#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="75" lean-forward="false" selection-start-line="13" selection-start-column="75" selection-end-line="13" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="56" column="74" lean-forward="false" selection-start-line="56" selection-start-column="74" selection-end-line="56" selection-end-column="74" />
+          <folding>
+            <element signature="e#883#903#1#PHP" expanded="true" />
+            <element signature="e#1306#1326#1#PHP" expanded="true" />
+            <element signature="e#1620#1640#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3af8c142/03061ff6-cd6f-461c-933b-73f816921817/symfony.users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="username LIKE '%ersf%'" />
+            <filter text="username LIKE '%mr%'" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SearchController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        <state relative-caret-position="578">
+          <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
           <folding>
             <element signature="e#49#79#0#PHP" expanded="true" />
             <element signature="e#616#660#0#PHP" expanded="true" />
             <element signature="e#1121#1157#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="144" lean-forward="false" selection-start-line="9" selection-start-column="144" selection-end-line="9" selection-end-column="144" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/ProviderRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="88" column="49" lean-forward="false" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>

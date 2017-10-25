@@ -11,7 +11,7 @@ namespace AppBundle\Repository;
 class ProviderRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function findProvCategCourPromoComment($id) {
+    public function myFindOne($id) {
         $qb = $this->createQueryBuilder('p');
         $qb->select('p')
             ->where('p.id = :id')
@@ -19,7 +19,7 @@ class ProviderRepository extends \Doctrine\ORM\EntityRepository
             ->leftJoin('p.serviceCategories', 'cat')
             ->addSelect('cat');
         $query = $this->addJoins($qb);
-        return $query->getQuery()->getOneOrNullResult();
+        return $query->getQuery()->getSingleResult();
     }
     public function myFindAll() {
         $qb = $this->createQueryBuilder('p');
@@ -42,21 +42,15 @@ class ProviderRepository extends \Doctrine\ORM\EntityRepository
     public function findWithCategory($category) {
         $qb = $this->createQueryBuilder('p');
         $qb ->join('p.serviceCategories', 'c', 'WITH', 'c = :category')
-            //->select('p')
             ->addSelect('c')
-           // ->where('c = :category')
             ->setParameter('category', $category);
-        // $this->addJoins($qb);
         $res = $qb->getQuery()->getResult();
-
-
         return $res;
     }
     public function findWithName($name) {
         $qb = $this->createQueryBuilder('p');
         $qb->select('p')
             ->where($qb->expr()->like('p.username', $qb->expr()->literal('%' . $name . '%')))
-            //->setParameter('name',$name)
             ->leftJoin('p.serviceCategories', 'cat')
             ->addSelect('cat');
         $query = $this->addJoins($qb);
@@ -84,15 +78,13 @@ class ProviderRepository extends \Doctrine\ORM\EntityRepository
         $query = $this->addJoins($qb);
         return $query->getQuery()->getResult();
     }
-    public function findWithCityCategory($category, $city) {
+    public function findWithCityCategory($city,$category) {
         $qb = $this->createQueryBuilder('p');
-        $qb->select('p')
-            ->Where('p.city = :city')
+        $qb->Where('p.city = :city')
             ->setParameter('city', $city)
-            ->leftJoin('p.serviceCategories', 'cat')
-            ->addSelect('cat')
-            ->andwhere('p.serviceCategories = :category')
-            ->setParameter('category', $category);
+            ->join('p.serviceCategories', 'c', 'WITH', 'c = :category')
+            ->addSelect('c')
+            ->setParameter('category',$category);
         $query = $this->addJoins($qb);
         return $query->getQuery()->getResult();
     }

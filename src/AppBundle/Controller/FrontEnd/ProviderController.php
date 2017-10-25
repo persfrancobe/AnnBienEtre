@@ -43,7 +43,7 @@ class ProviderController extends Controller
     public function showAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $provider=$em->getRepository('AppBundle:Provider')->findProvCategCourPromoComment($id);
+        $provider=$em->getRepository('AppBundle:Provider')->myFindOne($id);
         return $this->render('frontEnd/providers/show.html.twig', array(
             'provider' => $provider,
         ));
@@ -54,7 +54,7 @@ class ProviderController extends Controller
     public function providerWrapperCardAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $providers = $em->getRepository('AppBundle:Provider')->findAll();
+        $providers = $em->getRepository('AppBundle:Provider')->myFindAll();
         return $this->render('partials/provider-wrapper-card.html.twig', array('providers' => $providers));
     }
 
