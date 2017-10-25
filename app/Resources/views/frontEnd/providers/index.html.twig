@@ -14,4 +14,4 @@
     {%endif%}
 
 {%endblock%}
-{% block side %} {{include ('Partials/side.html.twig',{categories:service_categories,courses:courses,providers:providers})}}{% endblock %}
+{% block side %}  {{ render(controller('AppBundle:FrontEnd/Default:sidebar')) }}{% endblock %}

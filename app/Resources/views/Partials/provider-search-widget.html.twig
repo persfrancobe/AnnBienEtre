@@ -1,4 +1,4 @@
-{{ form_start(form, {'action': path('search_handeling'), 'method': 'POST'}) }}
+{{ form_start(form, {'action': path('search_provider_result'), 'method': 'GET'}) }}
     <div class="form-group">
         <label for="">Prestataire</label>
         {{ form_widget(form.name,{ 'attr':{"class":"form-control" ,"placeholder":"Nom Du Prestataire" } } ) }}
@@ -9,7 +9,7 @@
     </div><!-- /.form-group -->
     <div class="form-group">
         <label for="">Commune</label>
-        {{ form_widget(form.category,{ 'attr':{"class":"form-control" ,"title":"Categorie" } } ) }}
+        {{ form_widget(form.category,{ 'attr':{"class":"form-control" ,"title":"Categorie" },'a':{} } ) }}
 
     </div><!-- /.form-group -->
 

@@ -20,13 +20,4 @@ class ProviderSearchType extends AbstractType
             ->add('category',EntityType::class,array('class'=>'AppBundle\Entity\ServiceCategory','required'=>false));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_provider_serche';
-    }
-
-
 }

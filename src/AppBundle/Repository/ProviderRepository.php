@@ -19,7 +19,7 @@ class ProviderRepository extends \Doctrine\ORM\EntityRepository
             ->leftJoin('p.serviceCategories', 'cat')
             ->addSelect('cat');
         $query = $this->addJoins($qb);
-        return $query->getQuery()->getSingleResult();
+        return $query->getQuery()->getOneOrNullResult();
     }
     public function myFindAll() {
         $qb = $this->createQueryBuilder('p');

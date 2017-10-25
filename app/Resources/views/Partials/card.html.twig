@@ -1,4 +1,4 @@
-<div class="card {% if card.tall == 4 %}card-tall{% endif %}"data-background-image="{{asset (card.image)}}">
+<div class="card {% if  card.tall %}card-tall{% endif %}"data-background-image="{{asset (card.image)}}">
     <div class="card-label">
         <a href="{{path(card.rout_detail,{'id':card.id})}}">{{card.titre}}</a>
     </div><!-- /.card-label -->

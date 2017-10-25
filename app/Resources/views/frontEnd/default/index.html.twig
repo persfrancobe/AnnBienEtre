@@ -9,69 +9,23 @@
                             <div class="hero-image-content">
                                 <div class="container">
                                     <h1>Directory Template</h1>
-
                                     <p>Create your own directory website by using Superlist template <br> incorporating all features of modern directory website.</p>
-
                                     <a href="listing-row.html" class="btn btn-primary btn-lg">View Listings</a>
                                     <a href="listing-submit.html" class="btn btn-secondary btn-lg">Submit</a>
                                 </div><!-- /.container -->
                             </div><!-- /.hero-image-content -->
-
-
-
                            <div class="hero-image-form-wrapper">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-sm-4 col-sm-offset-8 col-lg-4 col-lg-offset-7">
-
-                                            {{ render(controller('AppBundle:FrontEnd/Provider:search'))}}
-                                            {#<form method="get" action="?">
-                                                <h2>Start Searching</h2>
-
-                                                <div class="hero-image-keyword form-group">
-                                                    <input type="text" class="form-control" placeholder="Keyword">
-                                                </div><!-- /.form-group -->
-
-                                                <div class="hero-image-location form-group">
-                                                    <select class="form-control" title="Location">
-                                                        <option>Bronx</option>
-                                                        <option>Brooklyn</option>
-                                                        <option>Manhattan</option>
-                                                        <option>Staten Island</option>
-                                                        <option>Queens</option>
-                                                    </select>
-                                                </div><!-- /.form-group -->
-
-                                                <div class="hero-image-category form-group">
-                                                    <select class="form-control" title="Category">
-                                                        <option value="">Automotive</option>
-                                                        <option value="">Jobs</option>
-                                                        <option value="">Nightlife</option>
-                                                        <option value="">Services</option>
-                                                    </select>
-                                                </div><!-- /.form-group -->
-
-                                                <div class="hero-image-price form-group">
-                                                    <input type="text" class="form-control" placeholder="Min. Price">
-                                                </div><!-- /.form-group -->
-
-                                                <button type="submit" class="btn btn-primary btn-block">Search</button>
-                                            </form>#}
-
-
+                                            {{ render(controller('AppBundle:FrontEnd/Search:searchProvider'))}}
                                         </div><!-- /.col-* -->
                                     </div><!-- /.row -->
                                 </div><!-- /.container -->
                             </div><!-- /.hero-image-form-wrapper -->
-
-
-
-
                         </div><!-- /.hero-image-inner -->
                     </div><!-- /.hero-image -->
-
                 </div>
-
                 <div class="container">
                      <div class="page-header">
                         <h1>Nos Categories De Services</h1>
@@ -89,8 +43,6 @@
                             {% endfor %}
                         </div><!-- /.row -->
                     </div><!-- /.cards-simple-wrapper -->
-
-
                     <div class="block background-white fullwidth mt80">
                         <div class="row">
                             <div class="col-sm-6">
@@ -110,11 +62,9 @@
                                             description:promotion.description,date:promotion.start}} %}
                                     {% endfor %}
                                 </div><!-- /.events -->
-
                             </div><!-- /.col-* -->
                         </div><!-- /.row -->
                     </div><!-- /.block -->
-
                     <div class="block background-black-light fullwidth">
                         <div class="row">
                             <div class="col-sm-4">
@@ -126,115 +76,37 @@
                                     <div class="box-content">
                                         <h2>E-mail Support</h2>
                                         <p>Nous sommes toujour la pour repondre a tout vos question .</p>
-
                                         {#<a href="#">Read More <i class="fa fa-chevron-right"></i></a>#}
                                     </div><!-- /.box-content -->
                                 </div>
                             </div><!-- /.col-sm-4 -->
-
                             <div class="col-sm-4">
                                 <div class="box">
                                     <div class="box-icon">
                                         <i class="fa fa-flask"></i>
                                     </div><!-- /.box-icon -->
-
                                     <div class="box-content">
                                         <h2>Toujours Prouvé</h2>
                                         <p>Nos developpeurs sont la pour vous construir une belle avenir.</p>
-
                                         {#<a href="#">Read More <i class="fa fa-chevron-right"></i></a>#}
                                     </div><!-- /.box-content -->
                                 </div>
                             </div><!-- /.col-sm-4 -->
-
                             <div class="col-sm-4">
                                 <div class="box">
                                     <div class="box-icon">
                                         <i class="fa fa-thumbs-o-up"></i>
                                     </div><!-- /.box-icon -->
-
                                     <div class="box-content">
                                         <h2>La meilleur qualite</h2>
                                         <p>Nous avons une bonne qualite de travaille.</p>
-
                                         {#<a href="#">Read More <i class="fa fa-chevron-right"></i></a>#}
                                     </div><!-- /.box-content -->
                                 </div>
                             </div><!-- /.col-sm-4 -->
                         </div><!-- /.row -->
-
                     </div><!-- /.block -->
-
-                    <div class="block background-white background-transparent-image fullwidth">
-                        <div class="page-header">
-                            <h1>Nos Prestataires</h1>
-                            <p>les meilleurs services  &amp; un travaille propre et serieus<br>vous aller decouvrir ici .</p>
-                        </div><!-- /.page-header -->
-
-                        <div class="cards-wrapper">
-                            <div class="row">
-                                {% for provider in providers |slice(0, 4) %}
-                                        {% if loop.first %}
-                                            {% set cardtall= 0 %}
-                                            <div class="col-sm-8">
-                                            <div class="row"><!--row8 debut de index2-->
-                                            {% set taille='12'%}
-                                        {% endif %}
-                                    {%if loop.index==2%}
-                                        {% set cardtall= 0 %}
-                                        </div><!-- /.row -->
-                                        <div class="row">
-                                        {% set taille='6'%}
-                                    {% endif %}
-                                        {% if loop.index==3%}
-                                            {% set cardtall= 0 %}
-
-                                            {% set taille='6'%}
-                                        {% endif %}
-                                        {% if loop.last%}
-
-                                            </div><!-- /.row -->
-                                            </div><!--/.col8-->
-                                            {% set taille ='4'%}
-                                            {% set cardtall= 4 %}
-                                        {% endif %}
-
-                                        <div class="col-sm-{{taille}}">
-
-                                            {{ include('Partials/card.html.twig', { card :{ id:provider.id, nom:provider.username, description:provider.email, titre:provider.name,
-                                                class:'loop.index', tall:cardtall, rout1:'provider_show', image:'img/logo.png',rout_serch:'provider_show',rout_detail:'provider_show',rout_bookmark:'provider_show',rout_favorit:'provider_show' } }) }}
-
-                                        </div><!-- /.col-* -->
-
-                                {% endfor %}
-
-                            </div><!-- /.row -->
-                        </di
-                            v><!-- /.cards-wrapper -->
-
-                        <div class="block background-secondary fullwidth mt80 mb-80 pt60 pb60">
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="contact-info-wrapper">
-                                        <h2>Do You Have Any Questions?</h2>
-
-                                        <div class="contact-info">
-                <span class="contact-info-item">
-                    <i class="fa fa-at"></i>
-                    <span>{{ myEmailTwig }}</span>
-                </span><!-- /.contact-info-item -->
-
-                                            <span class="contact-info-item">
-                    <i class="fa fa-phone"></i>
-                    <span>{{ myTelTwig }}</span>
-                </span><!-- /.contact-info-item -->
-                                        </div><!-- /.contact-info-->
-                                    </div><!-- /.contact-info-wrapper -->
-                                </div><!-- /.col-* -->
-                            </div><!-- /.row -->
-                        </div>
-                    </div>
+                    {{ render(controller('AppBundle:FrontEnd/Provider:providerWrapperCard')) }}
                 </div><!-- /.container -->
 
             </div><!-- /.content -->

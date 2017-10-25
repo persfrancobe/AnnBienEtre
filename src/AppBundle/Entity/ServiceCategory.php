@@ -78,7 +78,7 @@ class ServiceCategory
      */
     public function __toString()
     {
-        return $this->description;
+        return $this->name;
     }
 
     /**
