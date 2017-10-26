@@ -8,49 +8,12 @@
         <div class="main-inner">
             <div class="content">
                 <div></div>
-
-
                 <div class="container">
                     <div class="row detail-content">
                         <div class="col-sm-7">
                             {% include 'Partials/provider-gallery.html.twig' with {img:{0:{webPath:'img/tmp/gallery-1.jpg'},1:{webPath:'img/tmp/gallery-2.jpg'},2:{webPath:'img/tmp/gallery-3.jpg'},
                                 3:{webPath:'img/tmp/gallery-4.jpg'},4:{webPath:'img/tmp/gallery-5.jpg'}}} %}
-                            {{ include('Partials/video.html.twig') }}
-                            <div class="fullwidth mt80">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        {% for category in provider.serviceCategories %}
-                                            <div class="posts">
-                                                {{ include('Partials/post.html.twig' ,{ post :{id:category.id, image:'img/logo.png', title:category.name, name:category.name, description:category.description,rout:'servicecategory_show' ,date:'2/15/2141'} }) }}
-                                            </div><!-- /.posts -->
-                                        {% endfor %}
-                                    </div><!-- /.col-* -->
 
-
-                                </div><!-- /.row -->
-                            </div><!-- /.block -->
-
-                            {{ include('Partials/comments-affichage.html.twig',{comments:provider.comments}) }}
-
-
-
-                        </div><!-- /.col-sm-7 -->
-
-                        <div class="col-sm-5">
-
-                            {{ include('Partials/provider-detail-side-right.html.twig',{provider:provider}) }}
-                            <h2><span class="text-secondary">Les Stages</span></h2>
-
-                            <div class='p20 background-'>
-
-                                {% for course in provider.courses %}
-                                    <div class='row'>
-                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{id:course.id,rout:'course_show',image:'img/logo.png', name:course.name, description:course.description, price:course.price} }) }}
-                                    </div>
-                                {% endfor %}
-
-                            </div>
-                            {{ include('Partials/google-map.html.twig') }}
                             <h2>Enquire Form</h2>
 
                             <div class="detail-enquire-form background-white p20">
@@ -75,6 +38,62 @@
                                     <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-paper-plane"></i>Send Message</button>
                                 </form>
                             </div><!-- /.detail-enquire-form -->
+
+
+                            <div class="fullwidth mt80">
+                                <h2 class="text-secondary">Promotions</h2>
+                                <div class="row">
+                                    <div class="col-sm-6">
+
+                                        {% for promotion in provider.promotions|slice(0,4) %}
+
+                                            {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:promotion.id,image:'img/tmp/product-'~loop.index~'.jpg',
+                                                rout_detail:'promotion_show',title:promotion.description,name:promotion.name,rout_bookmark:'promotion_show',
+                                                rout_serch:'promotion_show',rout_favorit:'promotion_show'}} %}
+
+                                        {% endfor %}
+                                    </div><!-- /.col-* -->
+                                </div><!-- /.row -->
+                            </div><!-- /.block -->
+
+                            {{ include('Partials/comments-affichage.html.twig',{comments:provider.comments}) }}
+
+
+
+                        </div><!-- /.col-sm-7 -->
+
+                        <div class="col-sm-5">
+
+                            {{ include('Partials/provider-detail-side-right.html.twig',{provider:provider}) }}
+                            {{ include('Partials/google-map.html.twig') }}
+                            <h2><span class="text-secondary">Les Stages</span></h2>
+
+                            <div class='p20 background-'>
+
+                                {% for course in provider.courses %}
+                                    <div class='row'>
+                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{id:course.id,rout:'course_show',image:'img/logo.png', name:course.name, description:course.description, price:course.price} }) }}
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+
+
+                            <div class="widget">
+                                <h2 class="widgettitle">Categories</h2>
+
+                                <ul class="menu">
+
+                                    {% for category in provider.serviceCategories|slice(0,9)%}
+                                        <li><a href="{{path('servicecategory_show',{'id':category.id})}}">{{category.name}}</a></li>
+                                    {%endfor%}
+                                </ul><!-- /.menu -->
+                            </div><!-- /.widget -->
+
+
+
+
+
 
                         </div><!-- /.col-sm-5 -->
 
