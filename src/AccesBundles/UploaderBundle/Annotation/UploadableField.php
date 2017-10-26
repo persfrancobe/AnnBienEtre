@@ -27,6 +27,10 @@ class UploadableField
      */
        private $path;
 
+    /**
+     * @var string
+     */
+    private $webpath;
     public function __construct(array $option)
     {
         if(empty($option['filename'])){
@@ -35,8 +39,12 @@ class UploadableField
         if(empty($option['path'])){
             throw new \InvalidArgumentException("L'Annotation uploadablefield dois avoir un attribut 'path'");
         }
+        if(empty($option['webpath'])){
+            throw new \InvalidArgumentException("L'Annotation uploadablefield dois avoir un attribut 'webpath'");
+        }
         $this->filename= $option['filename'];
         $this->path= $option['path'];
+        $this->webpath= $option['webpath'];
     }
 
     /**
@@ -54,6 +62,15 @@ class UploadableField
     {
         return $this->path;
     }
+
+    /**
+     * @return string
+     */
+    public function getWebpath(): string
+    {
+        return $this->webpath;
+    }
+
 
 
 }

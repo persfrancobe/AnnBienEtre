@@ -21,9 +21,9 @@ class UploadHandler {
             $filename = $file->getClientOriginalName();
             $file->move($annotation->getPath(), $filename);
             $this->accessor->setValue($entity, $annotation->getFilename(), $filename);
+            $this->accessor->setValue($entity,$annotation->getWebpath(),$annotation->getPath() . DIRECTORY_SEPARATOR . $filename);
         }
     }
-
 
     public function setFileFromFilename($entity, $property, $annotation)
     {
@@ -47,12 +47,7 @@ class UploadHandler {
         }
     }
 
-    /**
-     * @param $entity
-     * @param $annotation
-     * @return null|File
-     */
-    public function getFileFromFilename ($entity, $annotation) {
+    private function getFileFromFilename ($entity, $annotation) {
         $filename = $this->accessor->getValue($entity, $annotation->getFilename());
         if (empty($filename)) {
             return null;
