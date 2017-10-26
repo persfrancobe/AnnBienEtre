@@ -39,3 +39,9 @@ services:
             public: true
             arguments: ['@doctrine.orm.entity_manager']
 
+    #my own faker function
+
+    data_fixtures.provider.foo:
+            class: AppBundle\DataFixtures\Faker\Provider\MyProvider
+            tags: [ { name: nelmio_alice.faker.provider } ]
+
