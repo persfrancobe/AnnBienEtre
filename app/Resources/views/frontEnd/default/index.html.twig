@@ -8,10 +8,20 @@
                         <div class="hero-image-inner" style="background-image: url({{asset('img/tmp/slider-large-3.jpg')}}">
                             <div class="hero-image-content">
                                 <div class="container">
-                                    <h1>Directory Template</h1>
-                                    <p>Create your own directory website by using Superlist template <br> incorporating all features of modern directory website.</p>
-                                    <a href="listing-row.html" class="btn btn-primary btn-lg">View Listings</a>
-                                    <a href="listing-submit.html" class="btn btn-secondary btn-lg">Submit</a>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                         <h1>Bonjour {{app.token.user.username}}</h1>
+                                         <p>Félicitation Vous etes Connecté maitenant<br> Vous pouvez modifier votre page personelle.</p>
+                                        <a href="{{logout_path()}}" class="btn btn-primary btn-lg">Deconection</a>
+                                        <a href="listing-submit.html" class="btn btn-secondary btn-lg">Votre page</a>
+                                    {% else %}
+                                        <h1>Bonjour Bienvenu</h1>
+                                        <p>vous pouvez vous connecter ou inscrire<br> en tant que internaut ou prestataire ici en bas.</p>
+                                         <a href="{{path('login') }}" class="btn btn-primary btn-lg">Conecter</a>
+                                         <a href="{{path('visitor_registration') }}" class="btn btn-primary btn-lg">Internaut</a>
+                                         <a href="{{path('provider_registration') }}" class="btn btn-primary btn-lg">Prestataire</a>
+
+                                    {% endif %}
+
                                 </div><!-- /.container -->
                             </div><!-- /.hero-image-content -->
                            <div class="hero-image-form-wrapper">

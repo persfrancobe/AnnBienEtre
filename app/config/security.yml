@@ -1,0 +1,51 @@
+security:
+    providers:
+        in_memory:
+            memory: ~
+        our_db_provider:
+            entity:
+               class: AppBundle:User
+               property: username
+
+
+    role_hierarchy:
+        ROLE_VISITOR:     ROLE_USER
+        ROLE_PROVIDER:    [ROLE_USER, ROLE_VISITOR]
+        ROLE_ADMIN:       [ROLE_USER, ROLE_PROVIDER, ROLE_VISITOR]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern:    ^/
+            http_basic: ~
+            provider: our_db_provider
+            anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+
+            logout:
+                path:   /logout
+                target: /
+                invalidate_session: false
+
+
+            form_login:
+                csrf_token_generator: security.csrf.token_manager
+
+
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+        AppBundle\Entity\User: bcrypt
+
+    access_control:
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+

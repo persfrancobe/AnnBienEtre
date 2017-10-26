@@ -82,6 +82,7 @@ class Visitor extends User
         $this->abuses=new ArrayCollection();
         $this->comments=new ArrayCollection();
         $this->favorites=new ArrayCollection();
+        $this->addRole(User::ROLE_VISITOR);
     }
 
     /**

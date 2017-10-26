@@ -1,0 +1,35 @@
+{% extends 'frontEnd/frontend-layout.html.twig' %}
+{% block main %}
+    <div class="main">
+    <div class="main-inner">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <div class="page-title">
+                            <h1>Login</h1>
+                        </div><!-- /.page-title -->
+                        {% if error %}
+                            <div class="file-error-message">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        <form method="post" action="{{ path('login') }}">
+                            <div class="form-group">
+                                <label for="username">Nom D'utilisateur</label>
+                                <input type="text" class="form-control" name="_username" id="username" value="{{ last_username }}">
+                            </div><!-- /.form-group -->
+                            <div class="form-group">
+                                <label for="password">Mot de Pass</label>
+                                <input type="password" class="form-control" name="_password" id="password">
+                            </div><!-- /.form-group -->
+                            <input type="hidden" name="_csrf_token"value="{{ csrf_token('authenticate') }}">
+                            {# If you want to control the URL the user is redirected to on success (more details below)
+                            <input type="hidden" name="_target_path" value="/account" />#}
+                            <button type="submit" class="btn btn-primary pull-right">Login</button>
+                        </form>
+                    </div><!-- /.col-sm-4 -->
+                </div><!-- /.row -->
+            </div><!-- /.content -->
+        </div><!-- /.container -->
+    </div><!-- /.main-inner -->
+</div><!-- /.main -->
+{% endblock %}
