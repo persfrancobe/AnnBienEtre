@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
+use AppBundle\Entity\Image;
 
 /**
  * Newsletter
@@ -30,9 +31,9 @@ class Newsletter
     private $title;
 
     /**
-     * @var string
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image")
+     * @ORM\Column(unique=false)
      *
-     * @ORM\Column(name="pdf", type="blob")
      */
     private $pdf;
 
@@ -81,21 +82,17 @@ class Newsletter
     /**
      * Set pdf
      *
-     * @param string $pdf
-     *
-     * @return Newsletter
      */
-    public function setPdf($pdf)
+    public function setPdf(Image $pdf)
     {
         $this->pdf = $pdf;
 
-        return $this;
     }
 
     /**
      * Get pdf
+     *@return Image
      *
-     * @return string
      */
     public function getPdf()
     {

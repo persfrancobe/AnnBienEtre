@@ -40,5 +40,5 @@ monolog:
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
 hautelook_alice:
-    fixtures_path: 'app/Resources/fixtures/orm'
+    fixtures_path: 'src/AppBundle/DataFixtures/ORM'
 

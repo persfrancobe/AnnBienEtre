@@ -38,6 +38,7 @@ class Visitor extends User
     /**
      * @var Image
      * @ORM\OneToOne(targetEntity="Image")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $image;
 

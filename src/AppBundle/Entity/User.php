@@ -161,6 +161,10 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Column(name="is_active", type="boolean")
      */
     protected $isActive;
+    /**
+     * @ORM\Column(name="registration_config",type="boolean")
+     */
+    protected $registrationConfig;
 
     /**
      * @ORM\ManyToOne(targetEntity="City", inversedBy="users")
@@ -514,5 +518,39 @@ class User implements AdvancedUserInterface, \Serializable
     {
         $this->password = $password;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRegistrationConfig()
+    {
+        return $this->registrationConfig;
+    }
+
+    /**
+     * @param mixed $registrationConfig
+     */
+    public function setRegistrationConfig($registrationConfig)
+    {
+        $this->registrationConfig = $registrationConfig;
+    }
+
+
 }
 

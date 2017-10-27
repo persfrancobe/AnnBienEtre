@@ -66,25 +66,14 @@ class Image
      */
     private $imgOrder;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Course", inversedBy="images")
-     */
-    private  $course;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Promotion", inversedBy="images")
+     * @return string
      */
-    private  $promotion;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Provider", inversedBy="images")
-     */
-    private  $provider;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="images")
-     */
-    private  $serviceCategory;
+    public function __toString()
+    {
+        return $this->webPath;
+    }
 
 
     /**
@@ -152,77 +141,6 @@ class Image
     {
         $this->updateAt = $updateAt;
     }
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getServiceCategory()
-    {
-        return $this->serviceCategory;
-    }
-
-    /**
-     * @param mixed $serviceCategory
-     */
-    public function setServiceCategory(ServiceCategory $serviceCategory)
-    {
-        $this->serviceCategory = $serviceCategory;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProvider()
-    {
-        return $this->provider;
-    }
-
-    /**
-     * @param mixed $provider
-     */
-    public function setProvider(Provider $provider)
-    {
-        $this->provider = $provider;
-    }
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getPromotion()
-    {
-        return $this->promotion;
-    }
-
-    /**
-     * @param mixed $promotion
-     */
-    public function setPromotion(Promotion $promotion)
-    {
-        $this->promotion = $promotion;
-    }
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getCourse()
-    {
-        return $this->course;
-    }
-
-    /**
-     * @param mixed $course
-     */
-    public function setCourse(Course $course)
-    {
-        $this->course = $course;
-    }
-
 
 
     /**

@@ -93,6 +93,13 @@ class Provider extends User
      */
     private $advisor;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstName", type="string", length=255)
+     */
+    private $firstName;
+
 
     /**
      * @var ArrayCollection
@@ -153,6 +160,24 @@ class Provider extends User
         $this->favorites=new ArrayCollection();
         $this->addRole(User::ROLE_PROVIDER);
     }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName(string $firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+
 
     /**
      * @param mixed $note

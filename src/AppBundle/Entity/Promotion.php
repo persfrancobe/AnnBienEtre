@@ -37,12 +37,6 @@ class Promotion
      */
     private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pdf", type="blob")
-     */
-    private $pdf;
 
     /**
      * @var \DateTime
@@ -219,31 +213,6 @@ class Promotion
     {
         return $this->description;
     }
-
-    /**
-     * Set pdf
-     *
-     * @param string $pdf
-     *
-     * @return Promotion
-     */
-    public function setPdf($pdf)
-    {
-        $this->pdf = $pdf;
-
-        return $this;
-    }
-
-    /**
-     * Get pdf
-     *
-     * @return string
-     */
-    public function getPdf()
-    {
-        return $this->pdf;
-    }
-
     /**
      * Set start
      *

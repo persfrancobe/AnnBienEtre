@@ -21,7 +21,6 @@ class DefaultController extends Controller
         $courses = $em->getRepository('AppBundle:Course')->findAll();
         $service_categories = $em->getRepository('AppBundle:ServiceCategory')->findAll();
 
-
         return $this->render('frontEnd/default/index.html.twig', array( 'providers' => $providers, 'promotions' => $promotions,
             'courses' => $courses, 'service_categories' => $service_categories));
     }
