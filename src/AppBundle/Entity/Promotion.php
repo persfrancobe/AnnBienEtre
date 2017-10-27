@@ -68,11 +68,13 @@ class Promotion
 
     /**
      * @ORM\ManyToOne(targetEntity="Provider", inversedBy="promotions")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected  $provider;
 
     /**
      * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="promotions")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected  $serviceCategory;
 

@@ -38,11 +38,13 @@ class Postcode
 
     /**
      * @ORM\ManyToOne(targetEntity="Locality", inversedBy="postcodes")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $locality;
 
     /**
      * @ORM\ManyToOne(targetEntity="City", inversedBy="postcodes")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $city;
 

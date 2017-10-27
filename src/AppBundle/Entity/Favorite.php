@@ -31,11 +31,13 @@ class Favorite
 
     /**
      * @ORM\ManyToOne(targetEntity="Provider", inversedBy="favorites")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected  $provider;
 
     /**
      * @ORM\ManyToOne(targetEntity="Visitor", inversedBy="favorites")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected  $visitor;
 

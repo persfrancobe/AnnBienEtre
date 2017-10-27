@@ -38,11 +38,13 @@ class Note
 
     /**
      * @ORM\ManyToOne(targetEntity="Provider", inversedBy="notes")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $provider;
 
     /**
      * @ORM\ManyToOne(targetEntity="Visitor", inversedBy="notes")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $visitor;
 

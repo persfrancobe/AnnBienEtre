@@ -168,16 +168,19 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @ORM\ManyToOne(targetEntity="City", inversedBy="users")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected  $city;
 
     /**
      * @ORM\ManyToOne(targetEntity="Locality", inversedBy="users")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected  $locality;
 
     /**
      * @ORM\ManyToOne(targetEntity="Postcode", inversedBy="users")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected  $postcode;
 

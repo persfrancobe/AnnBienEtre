@@ -81,11 +81,13 @@ class Course
 
     /**
      * @ORM\ManyToOne(targetEntity="Provider", inversedBy="courses")
+     *@ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $provider;
 
     /**
      * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="courses")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $serviceCategory;
 

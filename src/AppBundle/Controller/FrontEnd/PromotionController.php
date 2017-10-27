@@ -3,9 +3,11 @@
 namespace AppBundle\Controller\FrontEnd;
 
 use AppBundle\Entity\Promotion;
+use Knp\Component\Pager\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Promotion controller.
@@ -20,20 +22,18 @@ class PromotionController extends Controller
      * @Route("s/", name="promotion_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $providers = $em->getRepository('AppBundle:Provider')->findAll();
-        $promotions = $em->getRepository('AppBundle:Promotion')->findAll();
-        $courses = $em->getRepository('AppBundle:Course')->findAll();
-        $cities = $em->getRepository('AppBundle:City')->findAll();
-        $service_categories = $em->getRepository('AppBundle:ServiceCategory')->findAll();
-        /* $slider = $em->getRepository('AppBundle:Images')->findBy(array('type' => 'slider'));*/
+        $promotion = $em->getRepository('AppBundle:Promotion')->MyFindAll();
+        /**
+         * @var Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $promotions=$paginator->paginate($promotion,$request->query->getInt('page',1),5);
 
-
-        return $this->render('frontEnd/promotions/index.html.twig', array('cities' => $cities, 'providers' => $providers, 'promotions' => $promotions,
-            'courses' => $courses, 'service_categories' => $service_categories/*, 'sliders' => $slider*/));
+        return $this->render('frontEnd/promotions/index.html.twig', array( 'promotions' => $promotions));
     }
 
     /**

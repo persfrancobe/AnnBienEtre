@@ -38,11 +38,13 @@ class Abuse
 
     /**
      * @ORM\ManyToOne(targetEntity="Visitor", inversedBy="abuses")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $visitor;
 
     /**
      * @ORM\ManyToOne(targetEntity="Comment", inversedBy="abuses")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $comment;
 

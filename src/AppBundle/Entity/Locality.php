@@ -44,6 +44,7 @@ class Locality
 
     /**
      * @ORM\ManyToOne(targetEntity="City", inversedBy="localities")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     protected  $city;
 

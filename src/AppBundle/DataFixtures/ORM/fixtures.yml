@@ -1,18 +1,3 @@
-AppBundle\Entity\Image:
-    image_{1..50}:
-        webPath: <webPath()>
-        image: <image()>
-        type: <tld()>
-        file: <webPath()>
-        updateAt: <dateTime('now')>
-        imgOrder: <randomDigitNotNull()>
-
-AppBundle\Entity\Newsletter:
-    news_{1..50}:
-        title: <name()>
-        pdf: '@image_*'
-        publication: <dateTime()>
-
 AppBundle\Entity\City:
     city_{1..50}:
         city: <fr_BE:cityName()>
@@ -48,29 +33,13 @@ AppBundle\Entity\User:
         passwordRequestedAt: <dateTime()>
         plainPassword: kalantaris
 
-AppBundle\Entity\Visitor:
-    visitor_{1..50}:
-        name: <fr_BE:lastName()>
-        firstName: <fr_BE:firstName()>
-        newsletter: true
-        email: <fr_BE:emailUnique()>
-        password: <password()>
-        streetNum: <buildingNumber()>
-        street: <fir_BE:streetName()>
-        registration: <dateTime(now)>
-        enabled: true
-        userName: <userNameUnique()>
-        registrationConfig: true
-        unsuccessfulTestNum: 0
-        banned: false
-        confirmationToken: <sentence()>
-        lastLogin: <dateTime()>
-        passwordRequestedAt: <dateTime()>
-        plainPassword: <password()>
-        city: '@city_*'
-        locality: '@locality_*'
-        postcode: '@postcode_*'
-        image: '@image_*'
+AppBundle\Entity\ServiceCategory:
+    service.category_{1..10}:
+        name: <categoryName()>
+        description: <realText(200,2)>
+        inAction: true
+        validated: true
+        providers: '2x @provider_*'
 
 AppBundle\Entity\Provider:
     provider_{1..50}:
@@ -103,7 +72,73 @@ AppBundle\Entity\Provider:
         city: '@city_*'
         locality: '@locality_*'
         postcode: '@postcode_*'
-        images: ['@image_*']
+
+AppBundle\Entity\Course:
+    course_{1..50}:
+        name: <name()>
+        info: <sentence()>
+        description: <realText(200,2)>
+        price: <numberBetween(1,1999)>
+        start: <dateTime()>
+        end: <dateTime()>
+        displayOf: <dateTime()>
+        displayUp: <dateTime()>
+        provider: '@provider_*'
+        serviceCategory: '@service.category_*'
+
+AppBundle\Entity\Promotion:
+    promotion_{1..50}:
+        name: <fr_BE:firstName()>
+        description: <realText(200,2)>
+        start: <dateTime()>
+        end: <dateTime()>
+        displayOf: <dateTime()>
+        displayUp: <dateTime()>
+        provider: '@provider_*'
+        serviceCategory: '@service.category_*'
+
+AppBundle\Entity\Image:
+    image_{1..50}:
+        webPath: <webPath()>
+        image: <image()>
+        type: <tld()>
+        file: <webPath()>
+        updateAt: <dateTime('now')>
+        imgOrder: <randomDigitNotNull()>
+        provider: '@provider_*'
+        serviceCategory: '@service.category_*'
+        promotion: '@promotion_*'
+        course: '@course_*'
+
+AppBundle\Entity\Visitor:
+    visitor_{1..50}:
+        name: <fr_BE:lastName()>
+        firstName: <fr_BE:firstName()>
+        newsletter: true
+        email: <fr_BE:emailUnique()>
+        password: <password()>
+        streetNum: <buildingNumber()>
+        street: <fir_BE:streetName()>
+        registration: <dateTime(now)>
+        enabled: true
+        userName: <userNameUnique()>
+        registrationConfig: true
+        unsuccessfulTestNum: 0
+        banned: false
+        confirmationToken: <sentence()>
+        lastLogin: <dateTime()>
+        passwordRequestedAt: <dateTime()>
+        plainPassword: <password()>
+        city: '@city_*'
+        locality: '@locality_*'
+        postcode: '@postcode_*'
+        image: '@image_*'
+
+AppBundle\Entity\Newsletter:
+    newsletter_{1..50}:
+        title: <name()>
+        image: '@image_*'
+        publication: <dateTime()>
 
 AppBundle\Entity\Block:
     block_{1..11}:
@@ -146,37 +181,3 @@ AppBundle\Entity\Favorite:
         visitor: '@visitor_*'
         provider: '@provider_*'
 
-AppBundle\Entity\ServiceCategory:
-    service.category_{1..10}:
-        name: <categoryName()>
-        description: <realText(200,2)>
-        inAction: true
-        validated: true
-        providers:  ['@provider_*']
-        images: ['@image_*']
-
-AppBundle\Entity\Course:
-    course_{1..50}:
-        name: <name()>
-        info: <sentence()>
-        description: <realText(200,2)>
-        price: <numberBetween(1,1999)>
-        start: <dateTime()>
-        end: <dateTime()>
-        displayOf: <dateTime()>
-        displayUp: <dateTime()>
-        provider: '@provider_*'
-        serviceCategory: '@service.category_*'
-        images: ['@image_*']
-
-AppBundle\Entity\Promotion:
-    promotion_{1..50}:
-        name: <fr_BE:firstName()>
-        description: <realText(200,2)>
-        start: <dateTime()>
-        end: <dateTime()>
-        displayOf: <dateTime()>
-        displayUp: <dateTime()>
-        provider: '@provider_*'
-        serviceCategory: '@service.category_*'
-        images: ['@image_*']

@@ -57,10 +57,10 @@ class ProviderController extends Controller
 
 
 
-    public function providerWrapperCardAction()
-    {
+    public function providerWrapperCardAction(){
         $em = $this->getDoctrine()->getManager();
-        $providers = $em->getRepository('AppBundle:Provider')->myFindAll();
+        $providers = $em->getRepository('AppBundle:Provider')->MyFindAll();
+
         return $this->render('partials/provider-wrapper-card.html.twig', array('providers' => $providers));
     }
 

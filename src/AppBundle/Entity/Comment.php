@@ -59,6 +59,7 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="Provider", inversedBy="comments")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
 
     private  $provider;
@@ -66,6 +67,7 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="Visitor", inversedBy="comments")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $visitor;
 

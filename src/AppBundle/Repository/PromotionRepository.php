@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class PromotionRepository extends \Doctrine\ORM\EntityRepository
 {
+        public function MyFindAll(){
+            $qb=$this->createQueryBuilder('p')
+                ->leftJoin('p.images','i')
+                ->leftJoin('p.provider','pr')
+                ->leftJoin('p.serviceCategory','s')
+                ->addSelect('i','pr','s');
+            return $qb->getQuery()->getResult();
+
+        }
 }

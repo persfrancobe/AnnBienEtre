@@ -52,7 +52,7 @@ class ServiceCategory
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Provider", inversedBy="serviceCategories")
+     * @ORM\ManyToMany(targetEntity="Provider",inversedBy="serviceCategories")
      */
     private $providers;
 

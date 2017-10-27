@@ -31,11 +31,10 @@ class Newsletter
     private $title;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image")
-     * @ORM\Column(unique=false)
-     *
+     * @ORM\ManyToOne(targetEntity="Image")
      */
-    private $pdf;
+    private $image;
+
 
     /**
      * @var \DateTime
@@ -43,6 +42,22 @@ class Newsletter
      * @ORM\Column(name="publication", type="date")
      */
     private $publication;
+
+    /**
+     * @return Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param Image $image
+     */
+    public function setImage(Image $image)
+    {
+        $this->image = $image;
+    }
 
 
     /**
@@ -79,25 +94,6 @@ class Newsletter
         return $this->title;
     }
 
-    /**
-     * Set pdf
-     *
-     */
-    public function setPdf(Image $pdf)
-    {
-        $this->pdf = $pdf;
-
-    }
-
-    /**
-     * Get pdf
-     *@return Image
-     *
-     */
-    public function getPdf()
-    {
-        return $this->pdf;
-    }
 
     /**
      * Set publication

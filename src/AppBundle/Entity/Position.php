@@ -31,11 +31,13 @@ class Position
 
     /**
      * @ORM\ManyToOne(targetEntity="Visitor", inversedBy="positions")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $visitor;
 
     /**
      * @ORM\ManyToOne(targetEntity="Block", inversedBy="positions")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $block;
 

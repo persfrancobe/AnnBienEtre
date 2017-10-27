@@ -3,12 +3,15 @@
 {% block h1 %}Nos Promotions{% endblock %}
 {% block h2 %}{{promotions|length }} Promotion Trouvé a votre Recherche{% endblock %}
 {% block posts %}
+
+
     {% if  promotions is iterable%}
-        {%for promotion in  promotions%}
-            {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:'img/logo.png',description:promotion.description,rout:'promotion_show'}}) }}
+        {%for promotion in  promotions%}{{ dump(promotion.images.first) }}
+            {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:'',description:promotion.description,rout:'promotion_show'}}) }}
         {%endfor%}
     {%else%}
         {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:'img/logo.png',description:promotion.description,rout:'promotion_show'}}) }}
     {%endif%}
 {%endblock%}
-{% block side %} {{include ('Partials/side.html.twig',{categories:service_categories,courses:courses,providers:providers})}}{% endblock %}
+{% block pager %}{{ knp_pagination_render(promotions) }}{% endblock %}
+{% block side %}  {{ render(controller('AppBundle:FrontEnd/Default:sidebar')) }}{% endblock %}
