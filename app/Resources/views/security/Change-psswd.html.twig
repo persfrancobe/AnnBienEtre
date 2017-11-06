@@ -1,0 +1,38 @@
+{% extends 'frontEnd/frontend-layout.html.twig' %}
+{% block main %}
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div class="page-title">
+                                <h1>Change Password</h1>
+                            </div><!-- /.page-title -->
+
+                            {{ form_start(form) }}
+                                <div class="form-group">
+                                    <label for="login-form-password">Password</label>
+                                    {{ form_widget(form.oldPassword,{'attr':{'class':'form-control'}}) }}
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group">
+                                    <label for="login-form-password-retype">Retype password</label>
+                                    {{ form_widget(form.newPassword.first,{'attr':{'class':'form-control'}}) }}
+                                </div><!-- /.form-group -->
+
+                                <div class="form-group">
+                                    <label for="login-form-password-retype">Retype password</label>
+                                    {{ form_widget(form.newPassword.second,{'attr':{'class':'form-control'}}) }}
+                                </div><!-- /.form-group -->
+
+                                <button type="submit" class="btn btn-primary pull-right">Change</button>
+                            {{ form_end(form) }}
+                        </div><!-- /.col-sm-4 -->
+                    </div><!-- /.row -->
+
+                </div><!-- /.content -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+{% endblock %}

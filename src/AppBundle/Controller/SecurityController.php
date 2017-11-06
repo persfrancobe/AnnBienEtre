@@ -10,6 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use AppBundle\Form\ChangePasswordType;
+use AppBundle\Form\Model\ChangePassword;
 
 
 class SecurityController extends Controller
@@ -140,5 +142,26 @@ class SecurityController extends Controller
 
         return $this->render('hello.html.twig');
 
+    }
+
+    /**
+     *@Route("/changePasswd", name="change_password")
+     */
+    public function changePasswdAction(Request $request)
+    {
+        $changePasswordModel = new ChangePassword();
+        $form = $this->createForm(ChangePasswordType::class, $changePasswordModel);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // perform some action,
+            // such as encoding with MessageDigestPasswordEncoder and persist
+            return $this->render('hello.html.twig');
+        }
+
+        return $this->render(':security:Change-psswd.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }
