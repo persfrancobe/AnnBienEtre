@@ -11,7 +11,7 @@
                             <div class="widget">
                                 <div class="user-photo">
                                     {{ form_start(edit_form) }}
-                                        <img src="{{asset(visitor.image.webPath)}}" alt="User Photo">
+                                        <img src="{% if visitor.image %}{{asset(visitor.image.webPath)}}{% else %} {% endif %}" alt="User Photo">
                                         {{ form_widget(edit_form.image, { 'attr': {'class': ''} }) }}
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->

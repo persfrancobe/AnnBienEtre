@@ -145,7 +145,6 @@ class User implements AdvancedUserInterface, \Serializable
     protected $username;
 
     /**
-     * @Assert\NotBlank()
      * @Assert\Length(max=4096)
      */
     protected $plainPassword;
