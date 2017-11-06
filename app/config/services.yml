@@ -45,3 +45,10 @@ services:
             class: AppBundle\DataFixtures\Faker\Provider\MyProvider
             tags: [ { name: nelmio_alice.faker.provider } ]
 
+
+    app.doctrine.hash_password_listener:
+        class: AppBundle\Doctrine\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
+

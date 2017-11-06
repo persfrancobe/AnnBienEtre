@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Visitor</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ visitor.name }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ visitor.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Newsletter</th>
+                <td>{% if visitor.newsletter %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ visitor.id }}</td>
+            </tr>
+            <tr>
+                <th>Streetnum</th>
+                <td>{{ visitor.streetNum }}</td>
+            </tr>
+            <tr>
+                <th>Salt</th>
+                <td>{{ visitor.salt }}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{ visitor.street }}</td>
+            </tr>
+            <tr>
+                <th>Registration</th>
+                <td>{% if visitor.registration %}{{ visitor.registration|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Unsuccessfultestnum</th>
+                <td>{{ visitor.unsuccessfulTestNum }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{% if visitor.roles %}{{ visitor.roles|join(', ') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Banned</th>
+                <td>{% if visitor.banned %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if visitor.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Confirmationtoken</th>
+                <td>{{ visitor.confirmationToken }}</td>
+            </tr>
+            <tr>
+                <th>Lastlogin</th>
+                <td>{% if visitor.lastLogin %}{{ visitor.lastLogin|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Passwordrequestedat</th>
+                <td>{% if visitor.passwordRequestedAt %}{{ visitor.passwordRequestedAt|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ visitor.email }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ visitor.username }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ visitor.password }}</td>
+            </tr>
+            <tr>
+                <th>Isactive</th>
+                <td>{% if visitor.isActive %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Registrationconfig</th>
+                <td>{% if visitor.registrationConfig %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('visitor_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('visitor_edit', { 'id': visitor.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

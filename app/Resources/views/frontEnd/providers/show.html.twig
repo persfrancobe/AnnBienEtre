@@ -11,8 +11,7 @@
                 <div class="container">
                     <div class="row detail-content">
                         <div class="col-sm-7">
-                            {% include 'Partials/provider-gallery.html.twig' with {img:{0:{webPath:'img/tmp/gallery-1.jpg'},1:{webPath:'img/tmp/gallery-2.jpg'},2:{webPath:'img/tmp/gallery-3.jpg'},
-                                3:{webPath:'img/tmp/gallery-4.jpg'},4:{webPath:'img/tmp/gallery-5.jpg'}}} %}
+                            {% include 'Partials/provider-gallery.html.twig' with {img:provider.images} %}
 
                             <h2>Enquire Form</h2>
 
@@ -47,7 +46,7 @@
 
                                         {% for promotion in provider.promotions|slice(0,4) %}
 
-                                            {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:promotion.id,image:'img/tmp/product-'~loop.index~'.jpg',
+                                            {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:promotion.id,image:promotion.images,
                                                 rout_detail:'promotion_show',title:promotion.description,name:promotion.name,rout_bookmark:'promotion_show',
                                                 rout_serch:'promotion_show',rout_favorit:'promotion_show'}} %}
 
@@ -72,7 +71,7 @@
 
                                 {% for course in provider.courses %}
                                     <div class='row'>
-                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{id:course.id,rout:'course_show',image:'img/logo.png', name:course.name, description:course.description, price:course.price} }) }}
+                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{id:course.id,rout:'course_show',image:course.images, name:course.name, description:course.description, price:course.price} }) }}
                                     </div>
                                 {% endfor %}
 

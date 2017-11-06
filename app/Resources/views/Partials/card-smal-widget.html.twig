@@ -3,7 +3,9 @@
     <div class="card-small">
         <div class="card-small-image">
             <a href="{{ path(cardSmal.rout,{'id':cardSmal.id}) }}">
-                <img src="{{asset (cardSmal.image)}}" alt="{{cardSmal.name}}">
+                {% if cardSmal.image.first %}
+                <img src="{{asset (cardSmal.image.first.webPath)}}" alt="{{cardSmal.image.first.image}}">
+                {% endif %}
             </a>
         </div><!-- /.card-small-image -->
 

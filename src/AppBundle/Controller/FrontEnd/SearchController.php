@@ -3,12 +3,13 @@
 namespace AppBundle\Controller\FrontEnd;
 
 use AppBundle\Entity\Provider;
+use AppBundle\Form\CategorySearchType;
 use AppBundle\Form\ProviderSearchType;
-use AppBundle\Form\ProviderType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Knp\Component\Pager\Paginator;
 
 /**
  * Provider controller.
@@ -32,9 +33,44 @@ class SearchController extends Controller
     public function searchProviderResultAction(Request $request) {
 
         $data=$request->query->get('provider_search');
-        $providers_result=$this->get('AppBundle\Services\Search')->providersSearch($data['name'],$data['category'],$data['city']);
+        $prov=$this->get('AppBundle\Services\Search')->providersSearch($data['name'],$data['category'],$data['city']);
 
-        return $this->render('frontEnd/providers/index.html.twig', array('providers_result' => $providers_result));
+        /**
+         * @var Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $providers_result=$paginator->paginate($prov,$request->query->getInt('page',1),5);
+
+        return $this->render('frontEnd/providers/index.html.twig', array( 'providers_result' => $providers_result));
+
+    }
+
+    public function searchCategoryAction()
+    {
+        $form=$this->createForm(CategorySearchType::class);
+        return $this->render(':Partials:category-search.html.twig',array('form'=>$form->createView()));
+    }
+
+    /**
+     * category search result
+     * @Method("GET")
+     * @Route("/categoryResult", name="search_category_result")
+     */
+    public function searchCategoryResultAction(Request $request) {
+
+        $data=$request->query->get('category_search');
+        $sercat=$this->get('AppBundle\Services\Search')->categorySearch($data['name'],$data['provider']);
+
+        /* $slider = $em->getRepository('AppBundle:Images')->findBy(array('type' => 'slider'));*/
+
+        /**
+         * @var Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $service_categories=$paginator->paginate($sercat,$request->query->getInt('page',1),12);
+
+
+        return $this->render('frontEnd/servicecategories/index.html.twig', array('service_categories' => $service_categories));
 
     }
 }

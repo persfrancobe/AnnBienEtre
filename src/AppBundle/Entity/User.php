@@ -162,7 +162,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     protected $isActive;
     /**
-     * @ORM\Column(name="registration_config",type="boolean")
+     * @ORM\Column(name="registration_config",type="boolean",nullable=true)
      */
     protected $registrationConfig;
 
@@ -300,9 +300,9 @@ class User implements AdvancedUserInterface, \Serializable
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStreetNum(): string
+    public function getStreetNum()
     {
         return $this->streetNum;
     }
@@ -318,7 +318,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @return string
      */
-    public function getStreet(): string
+    public function getStreet()
     {
         return $this->street;
     }
@@ -350,7 +350,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @return int
      */
-    public function getUnsuccessfulTestNum(): int
+    public function getUnsuccessfulTestNum()
     {
         return $this->unsuccessfulTestNum;
     }

@@ -1,6 +1,8 @@
 <div class="post">
     <div class="post-image">
-        <img src="{{asset(post.image)}}" alt="">
+        {% if post.image.first %}
+        <img src="{{asset(post.image.first.webPath)}}" alt="{{ post.image.first.image }}">
+        {% endif %}
         <a class="read-more" href="{{path(post.rout,{'id':post.id})}}">Voir</a>
     </div><!-- /.post-image -->
 

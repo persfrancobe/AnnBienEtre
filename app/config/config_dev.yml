@@ -42,3 +42,7 @@ monolog:
 hautelook_alice:
     fixtures_path: 'src/AppBundle/DataFixtures/ORM'
 
+
+
+
+

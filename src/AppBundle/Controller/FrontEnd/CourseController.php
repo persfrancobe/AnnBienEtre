@@ -6,6 +6,8 @@ use AppBundle\Entity\Course;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Knp\Component\Pager\Paginator;
 
 /**
  * Course controller.
@@ -20,20 +22,16 @@ class CourseController extends Controller
      * @Route("s/", name="course_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $providers = $em->getRepository('AppBundle:Provider')->findAll();
-        $promotions = $em->getRepository('AppBundle:Promotion')->findAll();
-        $courses = $em->getRepository('AppBundle:Course')->findAll();
-        $cities = $em->getRepository('AppBundle:City')->findAll();
-        $service_categories = $em->getRepository('AppBundle:ServiceCategory')->findAll();
-        /* $slider = $em->getRepository('AppBundle:Images')->findBy(array('type' => 'slider'));*/
-
-
-        return $this->render('frontEnd/courses/index.html.twig', array('cities' => $cities, 'providers' => $providers, 'promotions' => $promotions,
-            'courses' => $courses, 'service_categories' => $service_categories/*, 'sliders' => $slider*/));
+        $crs = $em->getRepository('AppBundle:Course')->MyfindAll();
+        /**
+         * @var Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $courses=$paginator->paginate($crs,$request->query->getInt('page',1),5);
+        return $this->render('frontEnd/courses/index.html.twig', array('courses' => $courses));
     }
 
     /**

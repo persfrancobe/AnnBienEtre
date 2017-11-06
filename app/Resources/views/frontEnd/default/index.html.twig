@@ -12,7 +12,7 @@
                                          <h1>Bonjour {{app.token.user.username}}</h1>
                                          <p>Félicitation Vous etes Connecté maitenant<br> Vous pouvez modifier votre page personelle.</p>
                                         <a href="{{logout_path()}}" class="btn btn-primary btn-lg">Deconection</a>
-                                        <a href="listing-submit.html" class="btn btn-secondary btn-lg">Votre page</a>
+                                        <a href="" class="btn btn-secondary btn-lg">Votre page</a>
                                     {% else %}
                                         <h1>Bonjour Bienvenu</h1>
                                         <p>vous pouvez vous connecter ou inscrire<br> en tant que internaut ou prestataire ici en bas.</p>
@@ -46,7 +46,7 @@
                         <div class="row">
                             {% for category in service_categories|slice(2,8) %}
                             <div class="col-sm-6 col-md-3">
-                                {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,image:'img/tmp/product-'~loop.index~'.jpg',
+                                {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,image:category.images,
                                     rout_detail:'servicecategory_show',title:category.description,name:category.name,rout_bookmark:'servicecategory_show',
                                     rout_serch:'servicecategory_show',rout_favorit:'servicecategory_show'}} %}
                             </div><!-- /.col-* -->
@@ -58,7 +58,7 @@
                             <div class="col-sm-6">
                                     {% for course in courses|slice(0,3) %}
                                         {% include ':Partials:post.html.twig' with {post:{id:course.id,name:course.name,date:course.start,
-                                            description:course.description,rout:'course_show',image:'img/tmp/product-'~(loop.index+2)~'.jpg',title:course.price}} %}
+                                            description:course.description,rout:'course_show',image:course.images,title:course.price}} %}
                                     {% endfor %}
                             </div><!-- /.col-* -->
 

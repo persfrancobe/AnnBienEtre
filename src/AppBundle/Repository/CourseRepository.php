@@ -10,4 +10,18 @@ namespace AppBundle\Repository;
  */
 class CourseRepository extends \Doctrine\ORM\EntityRepository
 {
+    private function addJoins(\Doctrine\ORM\QueryBuilder $qb) {
+        $qb->leftJoin('c.provider', 'p')
+            ->addSelect('p')
+            ->leftJoin('c.serviceCategory', 'sc')
+            ->addSelect('sc')
+            ->leftJoin('c.images', 'i')
+            ->addSelect('i');
+        return $qb;
+    }
+    public function myFindAll() {
+        $qb = $this->createQueryBuilder('c');
+        $query = $this->addJoins($qb);
+        return $query->getQuery()->getResult();
+    }
 }

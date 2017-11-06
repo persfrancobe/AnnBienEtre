@@ -6,6 +6,8 @@ use AppBundle\Entity\ServiceCategory;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Knp\Component\Pager\Paginator;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Servicecategory controller.
@@ -20,12 +22,18 @@ class ServiceCategoryController extends Controller
      * @Route("ies/", name="servicecategory_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $service_categories = $em->getRepository('AppBundle:ServiceCategory')->findAll();
+        $sercat = $em->getRepository('AppBundle:ServiceCategory')->myFindAll();
         /* $slider = $em->getRepository('AppBundle:Images')->findBy(array('type' => 'slider'));*/
+
+        /**
+         * @var Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $service_categories=$paginator->paginate($sercat,$request->query->getInt('page',1),12);
 
 
         return $this->render('frontEnd/servicecategories/index.html.twig', array('service_categories' => $service_categories));

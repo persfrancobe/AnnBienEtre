@@ -1,15 +1,16 @@
 {% extends "frontEnd/listing-layout.html.twig" %}
 {% block title %}Tout Les Stages{% endblock %}
 {% block h1 %}Nos Stages{% endblock %}
-{% block h2 %}{{promotions|length }} Stages Trouvé a votre Recherche{% endblock %}
+{% block h2 %}{{courses|length }} Stages Trouvé a votre Recherche{% endblock %}
 {% block posts %}
 
     {% if  courses is iterable%}
         {%for course in  courses%}
-            {{ include('Partials/big-post.html.twig',{post:{id:course.id, name:course.name,image:'img/logo.png',description:course.description,rout:'course_show'}}) }}
+            {{ include('Partials/big-post.html.twig',{post:{id:course.id, name:course.name,image:course.images,description:course.description,rout:'course_show'}}) }}
         {%endfor%}
     {%else%}
-        {{ include('Partials/big-post.html.twig',{post:{id:course.id, name:course.name,image:'img/logo.png',description:course.description,rout:'course_show'}}) }}
+        {{ include('Partials/big-post.html.twig',{post:{id:course.id, name:course.name,image:course.images,description:course.description,rout:'course_show'}}) }}
     {%endif%}
 {%endblock%}
-{% block side %} {{include ('Partials/side.html.twig',{categories:service_categories,courses:courses,providers:providers})}}{% endblock %}
+{% block pager %}{{ knp_pagination_render(courses) }}{% endblock %}
+{% block side %}  {{ render(controller('AppBundle:FrontEnd/Default:sidebar')) }}{% endblock %}

@@ -11,16 +11,51 @@ namespace AppBundle\Repository;
 class ServiceCategoryRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findOneJointCourses($id){
+        $qb=$this->createQueryBuilder('sc')
+            ->where('sc.id=:id')
+            ->setParameter(':id',$id)
+            ->leftJoin('sc.providers','p')
+            ->addSelect('p');
+        $query=$this->addJoin($qb);
+        return $query->getQuery()->getSingleResult();
+
+    }
+    public function myFindAll(){
+        $qb=$this->createQueryBuilder('sc')
+            ->leftJoin('sc.providers','p')
+            ->addSelect('p');
+        $query=$this->addJoin($qb);
+        return $query->getQuery()->getResult();
+    }
+    public function findWithName($name){
         $qb=$this->createQueryBuilder('sc');
-        $query=$qb->where('sc.id=:id')
-                    ->setParameter(':id',$id)
-                    ->leftJoin('sc.providers','p')
-                    ->leftJoin('p.promotions','pp')
-                    ->leftJoin('p.images','i')
-                    ->leftJoin('p.courses','pc')
-                    ->addSelect('p','pp','pc','i')
-                    ->getQuery();
-        return $query->getResult();
+           $qb ->where($qb->expr()->like('sc.name', $qb->expr()->literal('%' . $name . '%')))
+               ->leftJoin('sc.providers','p')
+               ->addSelect('p');
+           $query=$this->addJoin($qb);
+           return $query->getQuery()->getResult();
+    }
+    public function findWithProvider($provider){
+        $qb=$this->createQueryBuilder('sc');
+        $qb->join('sc.providers', 'p', 'WITH', 'p = :provider')
+            ->setParameter('provider',$provider);
+        $query=$this->addJoin($qb);
+        return $query->getQuery()->getResult();
+    }
+    public function findWithNameProvider($name,$provider){
+        $qb=$this->createQueryBuilder('sc');
+        $qb->where($qb->expr()->like('sc.name',$qb->expr()->literal('%'.$name.'%')))
+            ->leftJoin('sc.providers','p','WITH','p = :provider')
+            ->setParameter('provider',$provider);
+        $query=$this->addJoin($qb);
+        return $query->getQuery()->getResult();
+    }
+    public function addJoin(\Doctrine\ORM\QueryBuilder $qb){
+        $qb->leftJoin('sc.promotions','pm')
+            ->leftJoin('sc.images','i')
+            ->leftJoin('sc.courses','c')
+            ->addSelect('pm','c','i');
+        return $qb;
 
     }
 }

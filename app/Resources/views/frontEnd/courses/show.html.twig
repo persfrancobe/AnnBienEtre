@@ -10,7 +10,9 @@
                         <h1>{{ course.name }}</h1>
                     </div><!-- /.page-title -->
                     <div class="posts post-detail">
-                        <img src="{{ asset('img/tmp/blog-1.jpg') }}" alt="A Clockwork Origin"/>
+                        {% if course.images.first %}
+                        <img src="{{ asset(course.images.first.webPath) }}" alt="{{ course.images.first.image }}"/>
+                        {% endif %}
                         <div class="post-meta clearfix">
                             <div class="post-meta-author">Par <a href="{{ path('provider_show',{'id':course.provider.id}) }}">{{ course.provider.name }}</a></div><!-- /.post-meta-author -->
                             <div class="post-meta-date">{{ course.start|date('d/m/Y') }}</div><!-- /.post-meta-date -->

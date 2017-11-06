@@ -161,6 +161,12 @@ class Provider extends User
         $this->addRole(User::ROLE_PROVIDER);
     }
 
+    public function __toString()
+    {
+        return parent::getUsername();
+    }
+
+
     /**
      * @return string
      */

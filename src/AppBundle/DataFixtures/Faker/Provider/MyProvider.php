@@ -8,7 +8,7 @@ class MyProvider extends \Faker\Provider\fr_BE\Person
     {
         $web=array();
         for ($i=1;$i<15;$i++) {
-            $web[$i] = 'uploads\product-' . $i . 'jpg';
+            $web[$i] = 'uploads\product-' . $i . '.jpg';
         }
         return static::randomElement($web);
     }
@@ -33,9 +33,9 @@ class MyProvider extends \Faker\Provider\fr_BE\Person
     public static function EmailUnique(){
         return static::randomElement(static::$lastName).rand(1,999999).'@gmail.com';
     }
-    protected static $category=array('Massage','Pedicure','Manicure','Yoga','Gym','Fitness','RelaxingRoom','MassageThailand','Hamam','Jacouzz','picine');
+    protected static $category=array('Massage','Pedicure','Manicure','Yoga','Acupuncture','Fitness','RelaxingRoom','MassageThailand','Hamam','Jacouzz','piscine');
     public static function categoryName(){
-        return static::randomElement(static::$category);
+        return static::randomElement(static::$category).rand(1,999999);
     }
 
 }

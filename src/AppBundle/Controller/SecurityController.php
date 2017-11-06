@@ -104,4 +104,41 @@ class SecurityController extends Controller
             array('form' => $form->createView())
         );
     }
+
+
+    /**
+     * @Route("/send")
+     */
+    public function mailConfirmationAction(\Swift_Mailer $mailer){
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('bleuuboyy@gmail.com')
+            ->setTo('persfrancobe@gmail.com')
+            ->setBody(
+                $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                    'security/email-registration-confirm.html.twig',
+                    array('name' => '$name')
+                ),
+                'text/html'
+            )
+            /*
+             * If you also want to include a plaintext version of the message
+            ->addPart(
+                $this->renderView(
+                    'Emails/registration.txt.twig',
+                    array('name' => $name)
+                ),
+                'text/plain'
+            )
+            */
+        ;
+
+        $mailer->send($message);
+
+        // or, you can also fetch the mailer service this way
+        // $this->get('mailer')->send($message);
+
+        return $this->render('hello.html.twig');
+
+    }
 }

@@ -6,8 +6,8 @@
 
 
     {% if  promotions is iterable%}
-        {%for promotion in  promotions%}{{ dump(promotion.images.first) }}
-            {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:'',description:promotion.description,rout:'promotion_show'}}) }}
+        {%for promotion in  promotions%}
+            {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:promotion.images,description:promotion.description,rout:'promotion_show'}}) }}
         {%endfor%}
     {%else%}
         {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:'img/logo.png',description:promotion.description,rout:'promotion_show'}}) }}

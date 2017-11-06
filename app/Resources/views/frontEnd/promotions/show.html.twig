@@ -10,7 +10,9 @@
                         <h1>{{ promotion.name }}</h1>
                     </div><!-- /.page-title -->
                     <div class="posts post-detail">
-                        <img src="{{ asset('img/tmp/blog-1.jpg') }}" alt="A Clockwork Origin"/>
+                        {% if promotion.images.first %}
+                        <img src="{{ asset(promotion.images.first.webPath) }}" alt="A Clockwork Origin"/>
+                        {% endif %}
                         <div class="post-meta clearfix">
                             <div class="post-meta-author">Par <a href="{{ path('provider_show',{'id':promotion.provider.id}) }}">{{ promotion.provider.name }}</a></div><!-- /.post-meta-author -->
                             <div class="post-meta-date">{{ promotion.start|date('d/m/Y') }}</div><!-- /.post-meta-date -->

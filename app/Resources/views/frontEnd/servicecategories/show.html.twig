@@ -6,7 +6,7 @@
         <div class="main-inner">
             <div class="content">
                 <div class="mt-80 mb80">
-                    <div class="detail-banner" style="background-image: url('{{asset ('img/logo.png')}}');">
+                    <div class="detail-banner" style="background-image:{% if serviceCategory.images.first %} url('{{asset (serviceCategory.images.first.webPath)}}');{% else %} {% endif %}">
                         <div class="container">
                             <div class="detail-banner-left">
 
@@ -45,7 +45,7 @@
                                     <div class="row">
                                         {% for provider in serviceCategory.providers %}
                                             <div class="col-sm-6 col-md-3">
-                                                {{ include('Partials/card-simple-bckground-img.html.twig' ,{ card_simple :{id:provider.id,image:'img/product-4.jpg',title:provider.name, name:provider.description,rout_detail:'provider_show',rout_favorit:'provider_show',rout_serch:'provider_show',rout_bookmark:'provider_show'} }) }}
+                                                {{ include('Partials/card-simple-bckground-img.html.twig' ,{ card_simple :{id:provider.id,image:provider.images,title:provider.name, name:provider.username,rout_detail:'provider_show',rout_favorit:'provider_show',rout_serch:'provider_show',rout_bookmark:'provider_show'} }) }}
                                             </div><!-- /.col-* -->
                                         {% endfor %}
                                     </div><!-- /.row -->

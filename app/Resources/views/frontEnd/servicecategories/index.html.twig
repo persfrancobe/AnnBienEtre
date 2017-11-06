@@ -13,55 +13,7 @@
 
                     </div>
 
-
-
-                    <form class="filter" method="post" action="?">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Keyword" class="form-control">
-                                </div> <!-- /.form-group -->
-                            </div><!-- /.col-* -->
-
-                            <div class="col-sm-12 col-md-4">
-                                <div class="form-group">
-                                    <select class="form-control" title="Select Location">
-                                        <option>Bronx</option>
-                                        <option>Brooklyn</option>
-                                        <option>Manhattan</option>
-                                        <option>Staten Island</option>
-                                        <option>Queens</option>
-                                    </select>
-                                </div><!-- /.form-group -->
-                            </div><!-- /.col-* -->
-
-                            <div class="col-sm-12 col-md-4">
-                                <div class="form-group">
-                                    <select class="form-control" title="Select Category">
-                                        <option value="">Automotive</option>
-                                        <option value="">Jobs</option>
-                                        <option value="">Nightlife</option>
-                                        <option value="">Services</option>
-                                    </select>
-                                </div><!-- /.form-group -->
-                            </div><!-- /.col-* -->
-                        </div><!-- /.row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="filter-actions">
-                                    <a href="#"><i class="fa fa-close"></i> Reset Filter</a>
-                                    <a href="#"><i class="fa fa-save"></i> Save Search</a>
-                                </div><!-- /.filter-actions -->
-                            </div><!-- /.col-* -->
-
-                            <div class="col-sm-4">
-                                <button type="submit" class="btn btn-primary">Redefine Search Result</button>
-                            </div><!-- /.col-* -->
-                        </div><!-- /.row -->
-                    </form>
+                    {{ render(controller('AppBundle:FrontEnd/Search:searchCategory'))}}
 
 
                     <h2 class="page-title">
@@ -89,8 +41,8 @@
                         <div class="row">
                             {% for category in service_categories%}
                                 <div class="col-sm-6 col-md-3">
-                                    {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,image:'img/tmp/product-4.jpg',
-                                        rout_detail:'servicecategory_show',title:category.description,name:category.name,rout_bookmark:'servicecategory_show',
+                                    {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,image:category.images,
+                                        rout_detail:'servicecategory_show',title:category.name,name:category.name,rout_bookmark:'servicecategory_show',
                                         rout_serch:'servicecategory_show',rout_favorit:'servicecategory_show'}} %}
                                 </div><!-- /.col-* -->
                             {% endfor %}
@@ -99,13 +51,7 @@
 
 
                     <div class="pager">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li><a href="#">5</a></li>
-                            <li class="active"><a>6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
+                        {{ knp_pagination_render(service_categories) }}
                     </div><!-- /.pagination -->
 
 

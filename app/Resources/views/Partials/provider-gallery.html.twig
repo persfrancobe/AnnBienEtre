@@ -1,10 +1,12 @@
 <div class="detail-gallery">
-
+    {% if img.first %}
     <div class="detail-gallery-preview">
-        <a href="{{asset(img[0].webPath)}}">
-            <img src="{{asset(img[0].webPath)}}">
+
+        <a href="{{asset(img.first.webPath)}}">
+            <img src="{{asset(img.first.webPath)}}">
         </a>
     </div>
+
     {% if img|length >1 %} 
         <ul class="detail-gallery-index">
             {% for image in img %}
@@ -17,5 +19,6 @@
             {% endfor %}
         </ul>
     {% endif%}
+    {% endif %}
 
 </div><!-- /.detail-gallery -->

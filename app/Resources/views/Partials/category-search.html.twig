@@ -1,0 +1,36 @@
+{{ form_start(form,{'action': path('search_category_result'), 'method': 'GET','attr':{'class':'filter'}}) }}
+<div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                {{ form_widget(form['name'],{'attr':{'class':'form-control','placeholder':'Nom de Category'}}) }}
+            </div> <!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+                {{ form_widget(form['provider'],{'attr':{'class':'form-control'}}) }}
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-12 col-md-4">
+            <div class="form-group">
+
+            </div><!-- /.form-group -->
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="filter-actions">
+                <a href="{{ path('servicecategory_index') }}"><i class="fa fa-close"></i> Reset Filter</a>
+            </div><!-- /.filter-actions -->
+        </div><!-- /.col-* -->
+
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary">Redefine Search Result</button>
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+{{ form_end(form) }}
+

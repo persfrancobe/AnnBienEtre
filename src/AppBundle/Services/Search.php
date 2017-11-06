@@ -38,4 +38,20 @@ class Search {
 
         return $res;
     }
+    public function categorySearch($name,$provider){
+        $res=null;
+        switch (''){
+            case !$name:
+                $res=$this->entityManager->getRepository('AppBundle:ServiceCategory')->findWithName($name);
+                break;
+            case !$provider:
+                $res=$this->entityManager->getRepository('AppBundle:ServiceCategory')->findWithProvider($provider);
+                break;
+            case !$name&&!$provider:
+                $res=$this->entityManager->getRepository('AppBundle:ServiceCategory')->findWithNameProvider($name,$provider);
+            default:
+                $res=$this->entityManager->getRepository('AppBundle:ServiceCategory')->myFindAll();
+        }
+        return $res;
+    }
 }
