@@ -24,7 +24,6 @@ class ProfileVisitorController extends Controller
     public function editAction(Request $request)
     {
         $visitor=$this->get('security.token_storage')->getToken()->getUser();
-        $deleteForm = $this->createDeleteForm($visitor);
         $editForm = $this->createForm('AppBundle\Form\VisitorProfileType', $visitor);
         $editForm->handleRequest($request);
 
@@ -37,43 +36,8 @@ class ProfileVisitorController extends Controller
         return $this->render('profile/visitor/edit.html.twig', array(
             'visitor' => $visitor,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
-    /**
-     * Deletes a visitor entity.
-     *
-     * @Route("/{id}", name="visitor_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, Visitor $visitor)
-    {
-        $form = $this->createDeleteForm($visitor);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($visitor);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('visitor_index');
-    }
-
-    /**
-     * Creates a form to delete a visitor entity.
-     *
-     * @param Visitor $visitor The visitor entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Visitor $visitor)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('visitor_delete', array('id' => $visitor->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-            ;
-    }
 }

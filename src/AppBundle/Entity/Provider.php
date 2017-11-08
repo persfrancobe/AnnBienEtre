@@ -123,7 +123,7 @@ class Provider extends User
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="provider")
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="provider",cascade={"persist"})
      */
     private $images;
 

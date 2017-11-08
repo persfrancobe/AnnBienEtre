@@ -2,11 +2,14 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Provider;
+use AppBundle\Entity\User;
 use AppBundle\Entity\Visitor;
 use AppBundle\Form\ProviderRegisterType;
 use AppBundle\Form\VisitorRegisterType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Process\Exception\LogicException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -26,11 +29,35 @@ class SecurityController extends Controller
 
         // last username entered by the user
         $lastUsername = $authUtils->getLastUsername();
-
         return $this->render('security/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
         ));
+    }
+
+    /**
+     * @Route("/login/active/{id}/{key}", name="login_active")
+     * @Method("GET")
+     */
+    public function loginActiveAction(Request $request, AuthenticationUtils $authUtils,$key,User $user)
+    {
+        if(null!==$user->getConfirmationToken()&&$user->isEnabled()){
+              if($user->getConfirmationToken()===$key){
+
+                  $error = $authUtils->getLastAuthenticationError();
+                  $lastUsername = $authUtils->getLastUsername();
+
+                  return $this->render('security/login.html.twig', array(
+                      'last_username' => $lastUsername,
+                      'error'         => $error,
+                  ));
+              }
+        }else{
+            throw new LogicException('votre compte est deja active');
+
+        }
+
+    return;
     }
     /**
      * @Route("/logout",name="logout")
@@ -52,11 +79,6 @@ class SecurityController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($visitor, $visitor->getPlainPassword());
-            $visitor->setPassword($password);
-
-            // 4) save the User!
             $em = $this->getDoctrine()->getManager();
             $em->persist($visitor);
             $em->flush();
@@ -87,8 +109,8 @@ class SecurityController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($provider, $provider->getPlainPassword());
-            $provider->setPassword($password);
+            //$password = $passwordEncoder->encodePassword($provider, $provider->getPlainPassword());
+            //$provider->setPassword($password);
 
             // 4) save the User!
             $em = $this->getDoctrine()->getManager();
@@ -107,57 +129,28 @@ class SecurityController extends Controller
         );
     }
 
-
     /**
-     * @Route("/send")
+     *@Route("/profile/changePasswd", name="change_password")
      */
-    public function mailConfirmationAction(\Swift_Mailer $mailer){
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('bleuuboyy@gmail.com')
-            ->setTo('persfrancobe@gmail.com')
-            ->setBody(
-                $this->renderView(
-                // app/Resources/views/Emails/registration.html.twig
-                    'security/email-registration-confirm.html.twig',
-                    array('name' => '$name')
-                ),
-                'text/html'
-            )
-            /*
-             * If you also want to include a plaintext version of the message
-            ->addPart(
-                $this->renderView(
-                    'Emails/registration.txt.twig',
-                    array('name' => $name)
-                ),
-                'text/plain'
-            )
-            */
-        ;
-
-        $mailer->send($message);
-
-        // or, you can also fetch the mailer service this way
-        // $this->get('mailer')->send($message);
-
-        return $this->render('hello.html.twig');
-
-    }
-
-    /**
-     *@Route("/changePasswd", name="change_password")
-     */
-    public function changePasswdAction(Request $request)
+    public function changePasswdAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $changePasswordModel = new ChangePassword();
         $form = $this->createForm(ChangePasswordType::class, $changePasswordModel);
+        /*@var User*/
+        $user=$this->get('security.token_storage')->getToken()->getUser();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // perform some action,
-            // such as encoding with MessageDigestPasswordEncoder and persist
-            return $this->render('hello.html.twig');
+
+            $plainpass=$form['newPassword']->getData();
+            $user->setPlainPassword($plainpass);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+
+            return $this->render(':security:password-change-succes.html.twig');
         }
 
         return $this->render(':security:Change-psswd.html.twig', array(

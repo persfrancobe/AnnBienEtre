@@ -64,7 +64,7 @@ class ServiceCategory
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Promotion", mappedBy="serviceCategory")
+     * @ORM\OneToMany(targetEntity="Promotion", mappedBy="serviceCategory",cascade={"persist"})
      */
     private $promotions;
     /**

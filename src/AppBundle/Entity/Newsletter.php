@@ -31,7 +31,7 @@ class Newsletter
     private $title;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Image")
+     * @ORM\ManyToOne(targetEntity="Image",cascade={"persist"})
      */
     private $image;
 

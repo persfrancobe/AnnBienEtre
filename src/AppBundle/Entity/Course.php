@@ -93,7 +93,7 @@ class Course
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="course")
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="course",cascade={"persist"})
      */
     private $images;
 

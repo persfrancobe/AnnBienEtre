@@ -46,6 +46,7 @@ class Search {
                 break;
             case !$provider:
                 $res=$this->entityManager->getRepository('AppBundle:ServiceCategory')->findWithProvider($provider);
+
                 break;
             case !$name&&!$provider:
                 $res=$this->entityManager->getRepository('AppBundle:ServiceCategory')->findWithNameProvider($name,$provider);

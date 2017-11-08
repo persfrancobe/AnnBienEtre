@@ -68,7 +68,7 @@ class Image
 
     /**
      * @ORM\ManyToOne(targetEntity="Course", inversedBy="images")
-     * @ORM\JoinColumn(onDelete="SET NULL")
+     * @ORM\JoinColumn(onDelete="cascade")
      */
     private  $course;
 
@@ -95,6 +95,9 @@ class Image
      */
     public function __toString()
     {
+        if(is_null($this->webPath)){
+            return '';
+        }
         return $this->webPath;
     }
 

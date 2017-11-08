@@ -37,7 +37,7 @@ class Visitor extends User
     private $newsletter;
     /**
      * @var Image
-     * @ORM\OneToOne(targetEntity="Image")
+     * @ORM\OneToOne(targetEntity="Image",cascade={"persist"})
      * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private $image;

@@ -80,7 +80,7 @@ class Promotion
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="promotion")
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="promotion",cascade={"persist"})
      */
     private $images;
 

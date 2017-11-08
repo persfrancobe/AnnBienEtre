@@ -35,20 +35,22 @@ services:
     #         $someArgument: 'some_value'
 
     AppBundle\Services\:
-            resource: '../../src/AppBundle/Services'
-            public: true
-            arguments: ['@doctrine.orm.entity_manager']
+        resource: '../../src/AppBundle/Services'
+        public: true
+        arguments: ['@doctrine.orm.entity_manager']
 
     #my own faker function
 
-    data_fixtures.provider.foo:
-            class: AppBundle\DataFixtures\Faker\Provider\MyProvider
-            tags: [ { name: nelmio_alice.faker.provider } ]
+    AppBundle\DataFixtures\Faker\Provider\MyProvider:
+         tags: [ { name: nelmio_alice.faker.provider } ]
 
 
-    app.doctrine.hash_password_listener:
-        class: AppBundle\Doctrine\HashPasswordListener
+    AppBundle\Doctrine\HashPasswordListener:
         autowire: true
         tags:
             - { name: doctrine.event_subscriber }
+
+    AppBundle\Services\Mailer:
+        arguments: ['@swiftmailer.mailer']
+
 

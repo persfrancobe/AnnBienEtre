@@ -146,6 +146,7 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @Assert\Length(max=4096)
+     * @ORM\Column(type="string",length=255,nullable=true)
      */
     protected $plainPassword;
 
@@ -279,7 +280,7 @@ class User implements AdvancedUserInterface, \Serializable
 
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
+        $this->plainPassword=null;
     }
 
     /**

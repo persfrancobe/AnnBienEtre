@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Image;
 use function PHPSTORM_META\type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,7 +24,7 @@ class VisitorProfileType extends AbstractType
             ->add('city')
             ->add('locality')
             ->add('postcode')
-            ->add('image','AppBundle\Form\ImageType');
+            ->add('image',ImageType::class,array('required'=>false));
     }
 
     /**

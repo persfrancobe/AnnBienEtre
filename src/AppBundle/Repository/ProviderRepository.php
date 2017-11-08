@@ -121,5 +121,18 @@ class ProviderRepository extends \Doctrine\ORM\EntityRepository
             ->where('u.locked = false');
         return $qb->getQuery()->getResult();
     }
+    public function providerRating(){
+        $qb=$this->createQueryBuilder('p');
+        $qb->leftJoin('p.notes','n')
+            ->select($qb->expr()->avg('n.note').' AS avg')
+            ->addSelect('avg')
+            ->addSelect($qb->expr()->count('n.note').' AS cnt')
+            ->addSelect('cnt')
+            ->groupBy('p')
+            ->orderBy('avg','DESC')
+            ->addOrderBy('cnt','DESC');
+        return $qb->getQuery()->getResult();
+
+    }
 
 }

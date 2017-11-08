@@ -11,20 +11,19 @@
                             </div><!-- /.page-title -->
 
                             {{ form_start(form) }}
-                                <div class="form-group">
-                                    <label for="login-form-password">Password</label>
-                                    {{ form_widget(form.oldPassword,{'attr':{'class':'form-control'}}) }}
-                                </div><!-- /.form-group -->
+                            <div class="form-group">
+                                {{ form_label(form.oldPassword) }}
+                                {{ form_widget(form.oldPassword,{'attr':{'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.newPassword.first) }}
+                                {{ form_widget(form.newPassword.first,{'attr':{'class':'form-control'}}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.newPassword.second) }}
+                                {{ form_widget(form.newPassword.second,{'attr':{'class':'form-control'}}) }}
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="login-form-password-retype">Retype password</label>
-                                    {{ form_widget(form.newPassword.first,{'attr':{'class':'form-control'}}) }}
-                                </div><!-- /.form-group -->
-
-                                <div class="form-group">
-                                    <label for="login-form-password-retype">Retype password</label>
-                                    {{ form_widget(form.newPassword.second,{'attr':{'class':'form-control'}}) }}
-                                </div><!-- /.form-group -->
 
                                 <button type="submit" class="btn btn-primary pull-right">Change</button>
                             {{ form_end(form) }}

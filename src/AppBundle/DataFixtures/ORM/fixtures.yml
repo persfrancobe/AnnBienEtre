@@ -155,7 +155,7 @@ AppBundle\Entity\Comment:
     comment_{1..50}:
         title: <name()>
         encoding: <dateTime()>
-        rating: <numberBetween(1,11)>
+        rating: <numberBetween(1,10)>
         content:  <text(211)>
         provider: '@provider_*'
         visitor: '@visitor_*'
