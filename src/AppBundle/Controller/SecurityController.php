@@ -6,6 +6,7 @@ use AppBundle\Entity\User;
 use AppBundle\Entity\Visitor;
 use AppBundle\Form\ProviderRegisterType;
 use AppBundle\Form\VisitorRegisterType;
+use AppBundle\Services\Mailer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -36,28 +37,12 @@ class SecurityController extends Controller
     }
 
     /**
-     * @Route("/login/active/{id}/{key}", name="login_active")
+     * @Route("active/{key}", name="active")
      * @Method("GET")
      */
     public function loginActiveAction(Request $request, AuthenticationUtils $authUtils,$key,User $user)
     {
-        if(null!==$user->getConfirmationToken()&&$user->isEnabled()){
-              if($user->getConfirmationToken()===$key){
 
-                  $error = $authUtils->getLastAuthenticationError();
-                  $lastUsername = $authUtils->getLastUsername();
-
-                  return $this->render('security/login.html.twig', array(
-                      'last_username' => $lastUsername,
-                      'error'         => $error,
-                  ));
-              }
-        }else{
-            throw new LogicException('votre compte est deja active');
-
-        }
-
-    return;
     }
     /**
      * @Route("/logout",name="logout")
@@ -69,7 +54,7 @@ class SecurityController extends Controller
     /**
      * @Route("/register/visitor", name="visitor_registration")
      */
-    public function visitorRegisterAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function visitorRegisterAction(Request $request)
     {
         // 1) build the form
         $visitor = new Visitor();
@@ -79,14 +64,17 @@ class SecurityController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $emailValid=$this->get('AppBundle\Services\EmailValid');
+            $emailValid->token($visitor);
             $em = $this->getDoctrine()->getManager();
             $em->persist($visitor);
             $em->flush();
 
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
+            $emailValid->sendMailConfirm($visitor);
 
-            return $this->redirectToRoute('login');
+            return $this->render('security/activation.html.twig');
         }
 
         return $this->render(
@@ -98,7 +86,7 @@ class SecurityController extends Controller
     /**
      * @Route("/register/provider", name="provider_registration")
      */
-    public function providerRegisterAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function providerRegisterAction(Request $request, UserPasswordEncoderInterface $passwordEncoder,\Swift_Mailer $mailer)
     {
         // 1) build the form
         $provider = new Provider();
@@ -108,11 +96,6 @@ class SecurityController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // 3) Encode the password (you could also do this via Doctrine listener)
-            //$password = $passwordEncoder->encodePassword($provider, $provider->getPlainPassword());
-            //$provider->setPassword($password);
-
-            // 4) save the User!
             $em = $this->getDoctrine()->getManager();
             $em->persist($provider);
             $em->flush();

@@ -1,0 +1,128 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SendMail
+ *
+ * @ORM\Table(name="send_mail")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SendMailRepository")
+ */
+class SendMail
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="invoiceConfirmation", type="boolean", nullable=true)
+     */
+    private $invoiceConfirmation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ConfirmationTime", type="datetime", nullable=true)
+     */
+    private $confirmationTime;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="SendConfirmation", type="boolean", nullable=true)
+     */
+    private $sendConfirmation;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set invoiceConfirmation
+     *
+     * @param boolean $invoiceConfirmation
+     *
+     * @return SendMail
+     */
+    public function setInvoiceConfirmation($invoiceConfirmation)
+    {
+        $this->invoiceConfirmation = $invoiceConfirmation;
+
+        return $this;
+    }
+
+    /**
+     * Get invoiceConfirmation
+     *
+     * @return bool
+     */
+    public function getInvoiceConfirmation()
+    {
+        return $this->invoiceConfirmation;
+    }
+
+    /**
+     * Set confirmationTime
+     *
+     * @param \DateTime $confirmationTime
+     *
+     * @return SendMail
+     */
+    public function setConfirmationTime($confirmationTime)
+    {
+        $this->confirmationTime = $confirmationTime;
+
+        return $this;
+    }
+
+    /**
+     * Get confirmationTime
+     *
+     * @return \DateTime
+     */
+    public function getConfirmationTime()
+    {
+        return $this->confirmationTime;
+    }
+
+    /**
+     * Set sendConfirmation
+     *
+     * @param boolean $sendConfirmation
+     *
+     * @return SendMail
+     */
+    public function setSendConfirmation($sendConfirmation)
+    {
+        $this->sendConfirmation = $sendConfirmation;
+
+        return $this;
+    }
+
+    /**
+     * Get sendConfirmation
+     *
+     * @return bool
+     */
+    public function getSendConfirmation()
+    {
+        return $this->sendConfirmation;
+    }
+}
+

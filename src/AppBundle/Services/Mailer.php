@@ -18,7 +18,7 @@ class Mailer
 
     public function sendMessage($to, $subject, $body)
     {
-        $mail = \Swift_Message::newInstance();
+            $mail = \Swift_Message::newInstance();
 
         $mail
             ->setFrom($this->from,$this->name)

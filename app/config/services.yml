@@ -37,7 +37,6 @@ services:
     AppBundle\Services\:
         resource: '../../src/AppBundle/Services'
         public: true
-        arguments: ['@doctrine.orm.entity_manager']
 
     #my own faker function
 
@@ -49,8 +48,4 @@ services:
         autowire: true
         tags:
             - { name: doctrine.event_subscriber }
-
-    AppBundle\Services\Mailer:
-        arguments: ['@swiftmailer.mailer']
-
 
