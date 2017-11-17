@@ -18,8 +18,8 @@
                                         <h1>Salut Bienvenu</h1>
                                         <p>vous pouvez vous connecter ou inscrire<br> en tant que internaut ou prestataire ici en bas.</p>
                                          <a href="{{path('login') }}" class="btn btn-primary btn-lg">Connecter</a>
-                                         <a href="{{path('visitor_registration') }}" class="btn btn-primary btn-lg">Internaut</a>
-                                         <a href="{{path('provider_registration') }}" class="btn btn-primary btn-lg">Prestataire</a>
+                                         <a href="{{path('registration',{'type':'visitor'}) }}" class="btn btn-primary btn-lg">Internaut</a>
+                                         <a href="{{path('registration',{'type':'provider'}) }}" class="btn btn-primary btn-lg">Prestataire</a>
 
                                     {% endif %}
 

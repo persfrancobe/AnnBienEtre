@@ -399,7 +399,7 @@ class User implements AdvancedUserInterface, \Serializable
     /**
      * @param string $confirmationToken
      */
-    public function setConfirmationToken(string $confirmationToken)
+    public function setConfirmationToken($confirmationToken)
     {
         $this->confirmationToken = $confirmationToken;
     }
