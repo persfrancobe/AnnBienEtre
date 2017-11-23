@@ -52,9 +52,8 @@ class ServiceCategoryRepository extends \Doctrine\ORM\EntityRepository
     }
     public function addJoin(\Doctrine\ORM\QueryBuilder $qb){
         $qb->leftJoin('sc.promotions','pm')
-            ->leftJoin('sc.images','i')
             ->leftJoin('sc.courses','c')
-            ->addSelect('pm','c','i');
+            ->addSelect('pm','c');
         return $qb;
 
     }

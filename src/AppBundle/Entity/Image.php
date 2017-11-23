@@ -40,12 +40,6 @@ class Image
     private $image;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string",nullable=true)
-     */
-    private $type;
-    /**
      * @UploadableField(filename="image",path="uploads",webpath="webPath")
      *
      */
@@ -66,29 +60,12 @@ class Image
      */
     private $imgOrder;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Course", inversedBy="images")
-     * @ORM\JoinColumn(onDelete="cascade")
-     */
-    private  $course;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Promotion", inversedBy="images")
-     * @ORM\JoinColumn(onDelete="SET NULL")
-     */
-    private  $promotion;
 
     /**
      * @ORM\ManyToOne(targetEntity="Provider", inversedBy="images")
-     * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $provider;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="images")
-     * @ORM\JoinColumn(onDelete="SET NULL")
-     */
-    private  $serviceCategory;
 
     /**
      * @return string
@@ -118,23 +95,7 @@ class Image
         $this->image = $image;
     }
 
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
+     /**
      * @return File|null
      */
     public function getFile()
@@ -168,24 +129,6 @@ class Image
         $this->updateAt = $updateAt;
     }
 
-
-
-    /**
-     * @return mixed
-     */
-    public function getServiceCategory()
-    {
-        return $this->serviceCategory;
-    }
-
-    /**
-     * @param mixed $serviceCategory
-     */
-    public function setServiceCategory(ServiceCategory $serviceCategory)
-    {
-        $this->serviceCategory = $serviceCategory;
-    }
-
     /**
      * @return mixed
      */
@@ -200,42 +143,6 @@ class Image
     public function setProvider(Provider $provider)
     {
         $this->provider = $provider;
-    }
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getPromotion()
-    {
-        return $this->promotion;
-    }
-
-    /**
-     * @param mixed $promotion
-     */
-    public function setPromotion(Promotion $promotion)
-    {
-        $this->promotion = $promotion;
-    }
-
-
-
-    /**
-     * @return mixed
-     */
-    public function getCourse()
-    {
-        return $this->course;
-    }
-
-    /**
-     * @param mixed $course
-     */
-    public function setCourse(Course $course)
-    {
-        $this->course = $course;
     }
 
 

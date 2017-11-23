@@ -32,8 +32,8 @@
                 {% endif %}
                 <div class="col-sm-{{taille}}">
 
-                    {{ include('Partials/card.html.twig', { card :{ id:provider.id, nom:provider.username, description:provider.email, titre:provider.name,
-                        class:'loop.index', tall:cardtall, rout1:'provider_show', image:provider.images,rout_serch:'provider_show',rout_detail:'provider_show',rout_bookmark:'provider_show',rout_favorit:'provider_show' } }) }}
+                    {{ include('Partials/card.html.twig', { card :{slug:provider.slug, id:provider.id, nom:provider.username, description:provider.email, titre:provider.name,
+                        class:'loop.index', tall:cardtall, rout1:'provider_show', image:provider.avatar,rout_serch:'provider_show',rout_detail:'provider_show',rout_bookmark:'provider_show',rout_favorit:'provider_show' } }) }}
 
                 </div><!-- /.col-* -->
 

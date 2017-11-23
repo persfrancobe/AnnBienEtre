@@ -43,13 +43,11 @@ class ProviderController extends Controller
     /**
      * Finds and displays a provider entity.
      *
-     * @Route("/{id}", name="provider_show")
+     * @Route("/{slug}", name="provider_show")
      * @Method("GET")
      */
-    public function showAction($id)
+    public function showAction(Provider $provider)
     {
-        $em=$this->getDoctrine()->getManager();
-        $provider=$em->getRepository('AppBundle:Provider')->myFindOne($id);
         return $this->render('frontEnd/providers/show.html.twig', array(
             'provider' => $provider,
         ));

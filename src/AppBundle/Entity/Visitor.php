@@ -35,12 +35,6 @@ class Visitor extends User
      * @ORM\Column(name="Newsletter", type="boolean")
      */
     private $newsletter;
-    /**
-     * @var Image
-     * @ORM\OneToOne(targetEntity="Image",cascade={"persist"})
-     * @ORM\JoinColumn(onDelete="SET NULL")
-     */
-    private $image;
 
     /**
      * @var ArrayCollection
@@ -232,24 +226,6 @@ class Visitor extends User
     {
         return $this->abuses;
     }
-
-
-    /**
-     * @return Image
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * @param Image $image
-     */
-    public function setImage(Image $image)
-    {
-        $this->image = $image;
-    }
-
 
     /**
      * Set name

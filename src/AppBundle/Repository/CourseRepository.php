@@ -14,9 +14,7 @@ class CourseRepository extends \Doctrine\ORM\EntityRepository
         $qb->leftJoin('c.provider', 'p')
             ->addSelect('p')
             ->leftJoin('c.serviceCategory', 'sc')
-            ->addSelect('sc')
-            ->leftJoin('c.images', 'i')
-            ->addSelect('i');
+            ->addSelect('sc');
         return $qb;
     }
     public function myFindAll() {

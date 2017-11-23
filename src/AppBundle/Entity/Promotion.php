@@ -87,17 +87,16 @@ class Promotion
     protected  $serviceCategory;
 
     /**
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="promotion",cascade={"persist"})
+     * @var Image
+     * @ORM\ManyToOne(targetEntity="Image",cascade={"persist"})
      */
-    private $images;
+    private $image;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->images=new ArrayCollection();
         $this->start=new DateTime();
         $this->end=new DateTime();
         $this->displayUp=new DateTime();
@@ -121,31 +120,19 @@ class Promotion
     }
 
     /**
-     * @return ArrayCollection
+     * @return Image
      */
-    public function getImages()
+    public function getImage(): Image
     {
-        return $this->images;
+        return $this->image;
     }
 
     /**
-     * @param mixed $image
+     * @param Image $image
      */
-    public function addImage(Image $image)
+    public function setImage(Image $image): void
     {
-        $this->images->add($image);
-        // uncomment if you want to update other side
-        //$images->setPromotion($this);
-    }
-
-    /**
-     * @param mixed $image
-     */
-    public function removeImage(Image $image)
-    {
-        $this->images->removeElement($image);
-        // uncomment if you want to update other side
-        //$images->setPromotion(null);
+        $this->image = $image;
     }
 
 

@@ -120,10 +120,10 @@ class SecurityController extends Controller
             $em->flush();
 
 
-            return $this->render(':frontEnd:security:password-change-succes.html.twig');
+            return $this->render('frontEnd/security/password-change-succes.html.twig');
         }
 
-        return $this->render(':frontEnd:security:Change-psswd.html.twig', array(
+        return $this->render('frontEnd/security/change-psswd.html.twig', array(
             'form' => $form->createView(),
         ));
     }

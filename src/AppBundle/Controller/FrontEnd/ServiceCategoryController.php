@@ -42,7 +42,7 @@ class ServiceCategoryController extends Controller
     /**
      * Finds and displays a serviceCategory entity.
      *
-     * @Route("y/{id}", name="servicecategory_show")
+     * @Route("y/{slug}", name="servicecategory_show")
      * @Method("GET")
      */
     public function showAction(ServiceCategory $serviceCategory)

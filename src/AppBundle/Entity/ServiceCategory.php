@@ -66,10 +66,10 @@ class ServiceCategory
     private $providers;
 
     /**
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="serviceCategory")
+     * @var Image
+     * @ORM\OneToOne(targetEntity="Image",cascade={"persist","remove"})
      */
-    private $images;
+    private $image;
 
     /**
      * @var ArrayCollection
@@ -96,7 +96,6 @@ class ServiceCategory
     public function __construct()
     {
         $this->promotions=new ArrayCollection();
-        $this->images=new ArrayCollection();
         $this->providers=new ArrayCollection();
         $this->courses=new ArrayCollection();
     }
@@ -159,35 +158,20 @@ class ServiceCategory
         return $this->promotions;
     }
 
-
-
     /**
-     * @param mixed $image
+     * @return Image
      */
-    public function addImage(Image $image)
+    public function getImage(): Image
     {
-        $this->images->add($image);
-        // uncomment if you want to update other side
-        //$images->setServiceCategory($this);
+        return $this->image;
     }
 
     /**
-     * @param mixed $image
+     * @param Image $image
      */
-    public function removeImage(Image $image)
+    public function setImage(Image $image): void
     {
-        $this->images->removeElement($image);
-        // uncomment if you want to update other side
-        //$images->setServiceCategory(null);
-    }
-
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getImages()
-    {
-        return $this->images;
+        $this->image = $image;
     }
 
 

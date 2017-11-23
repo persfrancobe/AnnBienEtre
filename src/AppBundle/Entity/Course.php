@@ -96,12 +96,11 @@ class Course
      * @ORM\JoinColumn(onDelete="SET NULL")
      */
     private  $serviceCategory;
-
     /**
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="course",cascade={"persist"})
+     * @var Image
+     * @ORM\ManyToOne(targetEntity="Image",cascade={"persist"})
      */
-    private $images;
+    private $image;
 
 
     /**
@@ -132,35 +131,22 @@ class Course
         $this->serviceCategory = $serviceCategory;
     }
 
-
     /**
-     * @param mixed $image
+     * @param Image $image
      */
-    public function addImage(Image $image)
+    public function setImage(Image $image): void
     {
-        $this->images->add($image);
-        // uncomment if you want to update other side
-        //$images->setCourse($this);
+        $this->image = $image;
     }
 
     /**
-     * @param mixed $image
+     * @return Image
      */
-    public function removeImage(Image $image)
+    public function getImage(): Image
     {
-        $this->images->removeElement($image);
-        // uncomment if you want to update other side
-        //$images->setCourse(null);
+        return $this->image;
     }
 
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getImages()
-    {
-        return $this->images;
-    }
 
     /**
      * @return mixed

@@ -7,11 +7,11 @@
 
     {% if  providers_result is iterable %}
         {% for provider in  providers_result %}
-            {{ include('Partials/big-post.html.twig',{post:{id:provider.id,name:provider.username,image:provider.images,description:provider.email,rout:'provider_show'}}) }}
+            {{ include('Partials/big-post.html.twig',{post:{slug:provider.slug,id:provider.id,name:provider.username,image:provider.avatar,description:provider.email,rout:'provider_show'}}) }}
         {% endfor %}
 
     {% else %}
-        {{ include('Partials/big-post.html.twig',{post:{id:providers_result.id,name:providers_result.name,image:provider.images,description:providers_result.email,rout:'provider_show'}}) }}
+        {{ include('Partials/big-post.html.twig',{post:{slug:provider.slug,id:providers_result.id,name:providers_result.name,image:provider.avatar,description:providers_result.email,rout:'provider_show'}}) }}
     {%endif%}
 
 {%endblock%}

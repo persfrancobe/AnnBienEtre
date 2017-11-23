@@ -10,13 +10,13 @@
                         <h1>{{ promotion.name }}</h1>
                     </div><!-- /.page-title -->
                     <div class="posts post-detail">
-                        {% if promotion.images.first %}
-                        <img src="{{ asset(promotion.images.first.webPath) }}" alt="A Clockwork Origin"/>
+                        {% if promotion.image %}
+                        <img src="{{ asset(promotion.image.webPath) }}" alt="A Clockwork Origin"/>
                         {% endif %}
                         <div class="post-meta clearfix">
-                            <div class="post-meta-author">Par <a href="{{ path('provider_show',{'id':promotion.provider.id}) }}">{{ promotion.provider.name }}</a></div><!-- /.post-meta-author -->
+                            <div class="post-meta-author">Par <a href="{{ path('provider_show',{'slug':promotion.provider.slug}) }}">{{ promotion.provider.name }}</a></div><!-- /.post-meta-author -->
                             <div class="post-meta-date">{{ promotion.start|date('d/m/Y') }}</div><!-- /.post-meta-date -->
-                            <div class="post-meta-categories"><i class="fa fa-tags"></i> <a href="{{ path('servicecategory_show',{'id':promotion.serviceCategory.id}) }}">{{ promotion.serviceCategory.name }}</a></div><!-- /.post-meta-categories -->
+                            <div class="post-meta-categories"><i class="fa fa-tags"></i> <a href="{{ path('servicecategory_show',{'slug':promotion.serviceCategory.slug}) }}">{{ promotion.serviceCategory.name }}</a></div><!-- /.post-meta-categories -->
                         </div><!-- /.post-meta -->
 
                         <div class="post-content">

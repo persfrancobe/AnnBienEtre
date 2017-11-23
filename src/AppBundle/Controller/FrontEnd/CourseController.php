@@ -37,7 +37,7 @@ class CourseController extends Controller
     /**
      * Finds and displays a course entity.
      *
-     * @Route("/{id}", name="course_show")
+     * @Route("/{slug}", name="course_show")
      * @Method("GET")
      */
     public function showAction(Course $course)

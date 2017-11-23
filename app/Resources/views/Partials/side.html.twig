@@ -2,7 +2,7 @@
     <div class="widget">
         <h2 class="widgettitle">Les Stages</h2>
         {%for course in courses |slice(0,5)%}
-            {{include ('Partials/card-smal-widget.html.twig',{cardSmal:{id:course.id,rout:'course_show',name:course.name,description:course.description,price:course.price,image:course.images  }})}}
+            {{include ('Partials/card-smal-widget.html.twig',{cardSmal:{slug:course.slug,rout:'course_show',name:course.name,description:course.description,price:course.price,image:course.image }})}}
         {%endfor%}
 
     </div><!-- /.widget -->
@@ -23,7 +23,7 @@
         <ul class="menu">
 
             {% for category in service_categories|slice(0,9)%}
-                <li><a href="{{path('servicecategory_show',{'id':category.id})}}">{{category.name}}</a></li>
+                <li><a href="{{path('servicecategory_show',{'slug':category.slug})}}">{{category.name}}</a></li>
                 {%endfor%}
         </ul><!-- /.menu -->
     </div><!-- /.widget -->

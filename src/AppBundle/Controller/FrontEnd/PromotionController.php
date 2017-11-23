@@ -39,7 +39,7 @@ class PromotionController extends Controller
     /**
      * Finds and displays a promotion entity.
      *
-     * @Route("/{id}", name="promotion_show")
+     * @Route("/{slug}", name="promotion_show")
      * @Method("GET")
      */
     public function showAction(Promotion $promotion)

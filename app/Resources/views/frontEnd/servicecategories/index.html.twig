@@ -41,9 +41,9 @@
                         <div class="row">
                             {% for category in service_categories%}
                                 <div class="col-sm-6 col-md-3">
-                                    {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,image:category.images,
+                                    {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{slug:category.slug,id:category.id,image:category.image,
                                         rout_detail:'servicecategory_show',title:category.name,name:category.name,rout_bookmark:'servicecategory_show',
-                                        rout_serch:'servicecategory_show',rout_favorit:'servicecategory_show'}} %}
+                                        rout_search:'servicecategory_show',rout_favorit:'servicecategory_show'}} %}
                                 </div><!-- /.col-* -->
                             {% endfor %}
                         </div><!-- /.row -->

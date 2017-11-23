@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -15,26 +16,25 @@ class ProviderProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name')
-            ->add('internetSite')
+            ->add('internetSite',TextType::class,array('required'=>false))
             ->add('username')
-            ->add('contactEmail')
+            ->add('contactEmail',TextType::class,array('required'=>false))
             ->add('telNum')
             ->add('tvaNum')
             ->add('description')
-            ->add('facebook')
-            ->add('youtube')
-            ->add('gmail')
-            ->add('twitter')
-            ->add('advisor')
+            ->add('facebook',TextType::class,array('required'=>false))
+            ->add('youtube',TextType::class,array('required'=>false))
+            ->add('gmail',TextType::class,array('required'=>false))
+            ->add('twitter',TextType::class,array('required'=>false))
+            ->add('advisor',TextType::class,array('required'=>false))
             ->add('firstName')
             ->add('streetNum')
             ->add('street')
             ->add('email')
-            ->add('serviceCategories')
             ->add('city')
             ->add('locality')
             ->add('postcode')
-            ->add('images',new ImageType(),array('required'=>false));
+            ->add('avatar',ImageType::class,array('required'=>false));
 
     }
     

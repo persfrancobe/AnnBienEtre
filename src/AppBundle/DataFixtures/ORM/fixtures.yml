@@ -28,6 +28,7 @@ AppBundle\Entity\User:
         city: '@city_*'
         locality: '@locality_*'
         postcode: '@postcode_*'
+        avatar: '@image_*'
         confirmationToken: jhgjhgjghliguyhghjgjkhgkyu
         lastLogin: <dateTime()>
         passwordRequestedAt: <dateTime()>
@@ -40,6 +41,7 @@ AppBundle\Entity\ServiceCategory:
         inAction: true
         validated: true
         providers: '2x @provider_*'
+        image: '@image_*'
 
 AppBundle\Entity\Provider:
     provider_{1..50}:
@@ -72,6 +74,7 @@ AppBundle\Entity\Provider:
         city: '@city_*'
         locality: '@locality_*'
         postcode: '@postcode_*'
+        avatar: '@image_*'
 
 AppBundle\Entity\Course:
     course_{1..50}:
@@ -84,7 +87,8 @@ AppBundle\Entity\Course:
         displayOf: <dateTime()>
         displayUp: <dateTime()>
         provider: '@provider_*'
-        serviceCategory: '@service.category_*'
+        serviceCategory : '@service.category_*'
+        image: '@image_*'
 
 AppBundle\Entity\Promotion:
     promotion_{1..50}:
@@ -96,19 +100,16 @@ AppBundle\Entity\Promotion:
         displayUp: <dateTime()>
         provider: '@provider_*'
         serviceCategory: '@service.category_*'
+        image: '@image_*'
 
 AppBundle\Entity\Image:
     image_{1..50}:
         webPath: <webPath()>
         image: <image()>
-        type: <tld()>
         file: <webPath()>
         updateAt: <dateTime('now')>
         imgOrder: <randomDigitNotNull()>
         provider: '@provider_*'
-        serviceCategory: '@service.category_*'
-        promotion: '@promotion_*'
-        course: '@course_*'
 
 AppBundle\Entity\Visitor:
     visitor_{1..50}:
@@ -132,7 +133,7 @@ AppBundle\Entity\Visitor:
         city: '@city_*'
         locality: '@locality_*'
         postcode: '@postcode_*'
-        image: '@image_*'
+        avatar: '@image_*'
 
 AppBundle\Entity\Newsletter:
     newsletter_{1..50}:

@@ -47,9 +47,9 @@
                         <div class="row">
                             {% for category in service_categories|slice(2,8) %}
                             <div class="col-sm-6 col-md-3">
-                                {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,image:category.images,
+                                {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:category.id,slug:category.slug,image:category.image,
                                     rout_detail:'servicecategory_show',title:category.description,name:category.name,rout_bookmark:'servicecategory_show',
-                                    rout_serch:'servicecategory_show',rout_favorit:'servicecategory_show'}} %}
+                                    rout_search:'servicecategory_show',rout_favorit:'servicecategory_show'}} %}
                             </div><!-- /.col-* -->
                             {% endfor %}
                         </div><!-- /.row -->
@@ -58,14 +58,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                     {% for course in courses|slice(0,3) %}
-                                        {% include ':Partials:post.html.twig' with {post:{id:course.id,name:course.name,date:course.start,
-                                            description:course.description,rout:'course_show',image:course.images,title:course.price}} %}
+                                        {% include ':Partials:post.html.twig' with {post:{slug:course.slug,name:course.name,date:course.start,
+                                            description:course.description,rout:'course_show',image:course.image,title:course.price}} %}
                                     {% endfor %}
                             </div><!-- /.col-* -->
 
                             <div class="col-sm-6">
                                     {% for promotion in promotions|slice(1,4) %}
-                                        {% include ':Partials:event.html.twig' with {event:{id:promotion.id,name:promotion.name,rout:'promotion_show',
+                                        {% include ':Partials:event.html.twig' with {event:{slug:promotion.slug,name:promotion.name,rout:'promotion_show',
                                             description:promotion.description,date:promotion.start}} %}
                                     {% endfor %}
                             </div><!-- /.col-* -->

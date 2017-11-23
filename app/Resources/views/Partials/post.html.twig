@@ -1,9 +1,9 @@
 <div class="post">
     <div class="post-image">
-        {% if post.image.first %}
-        <img src="{{asset(post.image.first.webPath)}}" alt="{{ post.image.first.image }}">
+        {% if post.image %}
+        <img src="{{asset(post.image.webPath)}}" alt="{{ post.image.image }}">
         {% endif %}
-        <a class="read-more" href="{{path(post.rout,{'id':post.id})}}">Voir</a>
+        <a class="read-more" href="{{path(post.rout,{'slug':post.slug})}}">Voir</a>
     </div><!-- /.post-image -->
 
     <div class="post-content">

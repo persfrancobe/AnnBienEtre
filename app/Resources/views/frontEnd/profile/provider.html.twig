@@ -9,8 +9,8 @@
                             <div class="widget">
                                 <div class="user-photo">
                                     {{ form_start(edit_form) }}
-                                    <img src="{% if provider.images.first %}{{asset(provider.images.first.webPath)}}{% else %} {% endif %}" alt="User Photo">
-                                         {{ form_widget(edit_form.images, { 'attr': {'class': 'form-control'} }) }}
+                                    <img src="{% if provider.avatar %}{{asset(provider.avatar.webPath)}}{% else %} {% endif %}" alt="User Photo">
+                                    {{ form_widget(edit_form.avatar, { 'attr': {'class': ''} }) }}
                                 </div><!-- /.user-photo -->
                             </div><!-- /.widget -->
 
@@ -18,7 +18,7 @@
                             <div class="widget">
 
                                 <ul class="menu-advanced">
-                                    <li><a href="listing-submit.html"><i class="fa fa-pencil"></i> Submit Listing</a></li>
+                                    <li><a href="listing-submit.html"><i class="fa fa-pencil"></i>Categories</a></li>
 
                                     <li class="active"><a href="{{ path('profile_provider') }}"><i class="fa fa-user"></i> Edit Profile</a></li>
                                     <li><a href="{{path('change_password')}}"><i class="fa fa-key"></i> Password</a></li>
@@ -70,11 +70,7 @@
                             </div>
 
                             <div class="background-white p20 mb30">
-                                <h3 class="page-title">
-                                    Social Connections
-
-                                    <a href="#" class="btn btn-primary btn-xs pull-right">Save</a>
-                                </h3>
+                                <h3 class="page-title">Social Connections</h3>
 
                                 <div class="form-horizontal">
                                     <div class="form-group">
@@ -167,11 +163,9 @@
                             <div class="background-white p20 mb30">
                                 <h3 class="page-title">Description </h3>
                                 {{ form_widget(edit_form.description, { 'attr': {'class': 'form-control','type':'textarea','rows':7} }) }}
-                                <input type="submit" class="btn btn-primary pull-right">
-                                {{ form_end(edit_form) }}
 
-                            </div>
-
+                            </div> <input type="submit" class="btn btn-primary pull-right">
+                            {{ form_end(edit_form) }}
                         </div><!-- /.content -->
                     </div><!-- /.col-* -->
                 </div><!-- /.row -->

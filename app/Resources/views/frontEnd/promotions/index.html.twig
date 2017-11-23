@@ -7,10 +7,10 @@
 
     {% if  promotions is iterable%}
         {%for promotion in  promotions%}
-            {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:promotion.images,description:promotion.description,rout:'promotion_show'}}) }}
+            {{ include('Partials/big-post.html.twig',{post:{slug:promotion.slug,id:promotion.id, name:promotion.name,image:promotion.image,description:promotion.description,rout:'promotion_show'}}) }}
         {%endfor%}
     {%else%}
-        {{ include('Partials/big-post.html.twig',{post:{id:promotion.id, name:promotion.name,image:'img/logo.png',description:promotion.description,rout:'promotion_show'}}) }}
+        {{ include('Partials/big-post.html.twig',{post:{slug:promotion.slug,id:promotion.id, name:promotion.name,image:promotion.image,description:promotion.description,rout:'promotion_show'}}) }}
     {%endif%}
 {%endblock%}
 {% block pager %}{{ knp_pagination_render(promotions) }}{% endblock %}

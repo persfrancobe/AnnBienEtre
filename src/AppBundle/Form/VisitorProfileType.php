@@ -24,7 +24,7 @@ class VisitorProfileType extends AbstractType
             ->add('city')
             ->add('locality')
             ->add('postcode')
-            ->add('image',ImageType::class,array('required'=>false));
+            ->add('avatar',ImageType::class,array('required'=>false));
     }
 
     /**

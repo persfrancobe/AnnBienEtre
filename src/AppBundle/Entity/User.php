@@ -184,6 +184,12 @@ class User implements AdvancedUserInterface, \Serializable
      */
     protected  $postcode;
 
+    /**
+     * @var Image
+     * @ORM\OneToOne(targetEntity="Image",cascade={"persist","remove","refresh"})
+     */
+    private $avatar;
+
 
     public function isAccountNonExpired()
     {
@@ -282,6 +288,23 @@ class User implements AdvancedUserInterface, \Serializable
     {
         $this->plainPassword=null;
     }
+
+    /**
+     * @return Image
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param Image $avatar
+     */
+    public function setAvatar(Image $avatar)
+    {
+        $this->avatar = $avatar;
+    }
+
 
     /**
      * @return int

@@ -1,12 +1,12 @@
 <div class="event">
-    <a href="{{path(event.rout,{'id':event.id})}}">
+    <a href="{{path(event.rout,{'slug':event.slug})}}">
         <div class="event-date">
             <span class="day">{{event.date|date("d")}}</span>
             <span class="month">{{event.date|date("F","Europe/paris")|slice(0,3)|upper}}</span>
         </div><!-- /.event-date -->
     </a>
     <div class="event-content">
-        <a href="{{path(event.rout,{'id':event.id})}}">
+        <a href="{{path(event.rout,{'slug':event.slug})}}">
             <h2>{{event.name}}</h2>
         </a>
         <p>{{event.description}}</p>

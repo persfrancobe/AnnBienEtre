@@ -10,13 +10,13 @@
                         <h1>{{ course.name }}</h1>
                     </div><!-- /.page-title -->
                     <div class="posts post-detail">
-                        {% if course.images.first %}
-                        <img src="{{ asset(course.images.first.webPath) }}" alt="{{ course.images.first.image }}"/>
+                        {% if course.image %}
+                        <img src="{{ asset(course.image.webPath) }}" alt="{{ course.image.image }}"/>
                         {% endif %}
                         <div class="post-meta clearfix">
-                            <div class="post-meta-author">Par <a href="{{ path('provider_show',{'id':course.provider.id}) }}">{{ course.provider.name }}</a></div><!-- /.post-meta-author -->
+                            <div class="post-meta-author">Par <a href="{{ path('provider_show',{'slug':course.provider.slug}) }}">{{ course.provider.name }}</a></div><!-- /.post-meta-author -->
                             <div class="post-meta-date">{{ course.start|date('d/m/Y') }}</div><!-- /.post-meta-date -->
-                            <div class="post-meta-categories"><i class="fa fa-tags"></i> <a href="{{ path('servicecategory_show',{'id':course.serviceCategory.id}) }}">{{ course.serviceCategory.name }}</a></div><!-- /.post-meta-categories -->
+                            <div class="post-meta-categories"><i class="fa fa-tags"></i> <a href="{{ path('servicecategory_show',{'slug':course.serviceCategory.slug}) }}">{{ course.serviceCategory.name }}</a></div><!-- /.post-meta-categories -->
                         </div><!-- /.post-meta -->
 
                         <div class="post-content">

@@ -1,7 +1,7 @@
-<div class="card-simple" data-background-image="{% if card_simple.image.first %}{{ card_simple.image.first.webPath }}{% else %} {% endif %}">
+<div class="card-simple" data-background-image="{% if card_simple.image %}{{ card_simple.image.webPath }}{% else %} {% endif %}">
     <div class="card-simple-background">
         <div class="card-simple-content">
-            <h2><a href="{{path(card_simple.rout_detail,{'id':card_simple.id})}}">{{card_simple.title}}</a></h2>
+            <h2><a href="{{path(card_simple.rout_detail,{'slug':card_simple.slug})}}">{{card_simple.title}}</a></h2>
             <div class="card-simple-rating">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -11,9 +11,9 @@
             </div><!-- /.card-rating -->
 
             <div class="card-simple-actions ">
-                <a href="{{path(card_simple.rout_bookmark,{'id':card_simple.id})}}" class="fa fa-bookmark-o"></a>
-                <a href="{{path(card_simple.rout_serch,{'id':card_simple.id})}}" class="fa fa-search"></a>
-                <a href="{{path(card_simple.rout_favorit,{'id':card_simple.id})}}" class="fa fa-heart-o"></a>
+                <a href="{{path(card_simple.rout_bookmark,{'slug':card_simple.slug})}}" class="fa fa-bookmark-o"></a>
+                <a href="{{path(card_simple.rout_search,{'slug':card_simple.slug})}}" class="fa fa-search"></a>
+                <a href="{{path(card_simple.rout_favorit,{'slug':card_simple.slug})}}" class="fa fa-heart-o"></a>
             </div><!-- /.card-simple-actions -->
         </div><!-- /.card-simple-content -->
 

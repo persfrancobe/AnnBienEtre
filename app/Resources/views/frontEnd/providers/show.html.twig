@@ -46,9 +46,9 @@
 
                                         {% for promotion in provider.promotions|slice(0,4) %}
 
-                                            {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{id:promotion.id,image:promotion.images,
+                                            {% include 'Partials/card-simple-bckground-img.html.twig' with {card_simple:{slug:promotion.slug,id:promotion.id,image:promotion.image,
                                                 rout_detail:'promotion_show',title:promotion.description,name:promotion.name,rout_bookmark:'promotion_show',
-                                                rout_serch:'promotion_show',rout_favorit:'promotion_show'}} %}
+                                                rout_search:'promotion_show',rout_favorit:'promotion_show'}} %}
 
                                         {% endfor %}
                                     </div><!-- /.col-* -->
@@ -71,7 +71,7 @@
 
                                 {% for course in provider.courses %}
                                     <div class='row'>
-                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{id:course.id,rout:'course_show',image:course.images, name:course.name, description:course.description, price:course.price} }) }}
+                                        {{ include('Partials/card-smal-widget.html.twig', { cardSmal :{slug:course.slug,id:course.id,rout:'course_show',image:course.image, name:course.name, description:course.description, price:course.price} }) }}
                                     </div>
                                 {% endfor %}
 
@@ -84,7 +84,7 @@
                                 <ul class="menu">
 
                                     {% for category in provider.serviceCategories|slice(0,9)%}
-                                        <li><a href="{{path('servicecategory_show',{'id':category.id})}}">{{category.name}}</a></li>
+                                        <li><a href="{{path('servicecategory_show',{'slug':category.slug})}}">{{category.name}}</a></li>
                                     {%endfor%}
                                 </ul><!-- /.menu -->
                             </div><!-- /.widget -->
