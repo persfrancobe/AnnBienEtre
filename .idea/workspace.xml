@@ -3,46 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d7cd05b0-8780-4a1a-ac30-d45abd6f3953" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/big-post.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/big-post.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/card-simple-bckground-img.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/card-simple-bckground-img.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/card-smal-widget.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/card-smal-widget.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/card.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/card.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/event.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/event.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/post.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/post.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Partials/side.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/courses/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/courses/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/courses/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/courses/show.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/profile/provider.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/profile/provider.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/profile/visitor.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/profile/visitor.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/promotions/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/promotions/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/promotions/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/promotions/show.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/detail-side-right.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/detail-side-right.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/wrapper-card.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/wrapper-card.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/security/Change-psswd.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/security/change-psswd.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/servicecategories/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/servicecategories/index.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/servicecategories/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/servicecategories/show.html.twig" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/hello.html.twig" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/CourseController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/CourseController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/PromotionController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/PromotionController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProviderController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/frontEnd/security/activation.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/frontEnd/security/activation.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SecurityController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SecurityController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ServiceCategoryController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ServiceCategoryController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Course.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Course.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Image.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Image.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Promotion.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Promotion.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Provider.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Provider.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategory.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategory.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Visitor.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Visitor.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/ProviderProfileType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/ProviderProfileType.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Form/VisitorProfileType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/VisitorProfileType.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/CourseRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/CourseRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/PromotionRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/PromotionRepository.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/ServiceCategoryRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/ServiceCategoryRepository.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -94,21 +58,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="provider.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/profile/provider.html.twig">
+      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SecurityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="92" lean-forward="false" selection-start-line="20" selection-start-column="92" selection-end-line="20" selection-end-column="92" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServiceCategory.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-253">
-              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+            <state relative-caret-position="506">
+              <caret line="120" column="34" lean-forward="false" selection-start-line="120" selection-start-column="34" selection-end-line="120" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -176,8 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Resources/views/provider/new.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/provider/show.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/provider/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AccesBundles/UploaderBundle/Resources/config/services.yml" />
@@ -202,7 +154,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/CourseRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/PromotionRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SecurityController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/CourseController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/courses/show.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/courses/index.html.twig" />
@@ -212,7 +163,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ServiceCategoryController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/Partials/post.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Partials/card-simple-bckground-img.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/PromotionController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/Partials/event.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Partials/card.html.twig" />
@@ -227,6 +177,10 @@
         <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/providers/show.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ProviderProfileType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/profile/provider.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SecurityController.php" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/views/frontEnd/security/activation.html.twig" />
       </list>
     </option>
   </component>
@@ -300,6 +254,12 @@
             <path>
               <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
               <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -313,7 +273,15 @@
               <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="AnnBienEtre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AnnBienEtre" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FrontEnd" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -334,19 +302,19 @@
     <property name="SearchEverywhereHistoryKey" value="User&#9;null&#9;null&#10;streamBuf&#9;null&#9;null&#10;searchT&#9;FILE&#9;file://C:/wamp64/www/AnnBienEtre/app/Resources/views/Partials/providerSearchWidget.html.twig&#10;ser&#9;FILE&#9;file://C:/wamp64/www/AnnBienEtre/src/AppBundle/Entity/ServiceCategory.php&#10;sear&#9;FILE&#9;file://C:/wamp64/www/AnnBienEtre/src/AppBundle/Services/Search.php" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\AnnBienEtre\src\AppBundle" />
-      <recent name="C:\wamp64\www\AnnBienEtre\src\AppBundle\Controller\FrontEnd" />
-      <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views\frontEnd" />
-      <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views\profile" />
-      <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views\backEnd" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views\profile\visitor" />
       <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views" />
       <recent name="C:\wamp64\www\AnnBienEtre\web\Resources\public" />
       <recent name="C:\wamp64\www\AnnBienEtre\src\AppBundle\Controller\FrontEnd" />
       <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views\frontEnd\servicecategories" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\AnnBienEtre\src\AppBundle" />
+      <recent name="C:\wamp64\www\AnnBienEtre\src\AppBundle\Controller\FrontEnd" />
+      <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views\frontEnd" />
+      <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views\profile" />
+      <recent name="C:\wamp64\www\AnnBienEtre\app\Resources\views\backEnd" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -398,12 +366,12 @@
       <workItem from="1510885621135" duration="95000" />
       <workItem from="1510885760415" duration="5822000" />
       <workItem from="1511012167654" duration="35311000" />
-      <workItem from="1511399235913" duration="13274000" />
+      <workItem from="1511399235913" duration="16068000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="485171000" />
+    <option name="totallyTimeSpent" value="487965000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -416,9 +384,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2275" sideWeight="0.49543676" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23393317" sideWeight="0.49543676" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32258064" sideWeight="0.5051414" order="7" side_tool="true" content_ui="tabs" />
@@ -501,47 +468,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Handler/UploadHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding>
-            <element signature="e#36#73#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Listener/UploadSubscriber.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="55" column="9" lean-forward="false" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ImageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="48" column="63" lean-forward="false" selection-start-line="48" selection-start-column="63" selection-end-line="48" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SearchController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="50" column="40" lean-forward="false" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Visitor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -640,16 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="122" column="52" lean-forward="false" selection-start-line="122" selection-start-column="52" selection-end-line="122" selection-end-column="52" />
-          <folding>
-            <element signature="e#4140#4182#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Course.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -711,16 +627,6 @@
         <state relative-caret-position="391">
           <caret line="23" column="63" lean-forward="false" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-599">
-          <caret line="51" column="44" lean-forward="false" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
-          <folding>
-            <element signature="e#3393#3437#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -910,18 +816,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/profile/provider.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="92" lean-forward="false" selection-start-line="20" selection-start-column="92" selection-end-line="20" selection-end-column="92" />
+        <state relative-caret-position="308">
+          <caret line="33" column="18" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ServiceCategory.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="70" lean-forward="false" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/profile/provider.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-457">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/EmailValid.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/frontEnd/security/activation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding>
+            <element signature="e#12#46#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="48" column="31" lean-forward="false" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/FrontEnd/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="120" column="34" lean-forward="false" selection-start-line="120" selection-start-column="34" selection-end-line="120" selection-end-column="34" />
           <folding />
         </state>
       </provider>

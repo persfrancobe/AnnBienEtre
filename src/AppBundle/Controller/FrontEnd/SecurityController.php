@@ -77,16 +77,10 @@ class SecurityController extends Controller
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
-            if (null == $user->getConfirmationToken()) {
-                $user->setConfirmationToken(md5(uniqid(rand(), true)));
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($user);
-                $em->flush();
-            }
-
-            // ... do any other work - like sending them an email, etc
-            // maybe set a "flash" success message for the user
+            $user->setConfirmationToken(md5(uniqid(rand(), true)));
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
             $emailValid=$this->get('AppBundle\Services\EmailValid');
             $emailValid->sendMailConfirm($user);
 
@@ -115,12 +109,16 @@ class SecurityController extends Controller
 
             $plainpass=$form['newPassword']->getData();
             $user->setPlainPassword($plainpass);
+            $user->setEnabled(false);
+            $user->setConfirmationToken(md5(uniqid(rand(), true)));
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
+            $emailValid=$this->get('AppBundle\Services\EmailValid');
+            $emailValid->sendMailConfirm($user);
 
-            return $this->render('frontEnd/security/password-change-succes.html.twig');
+            return $this->render(':frontEnd/security:activation.html.twig');
         }
 
         return $this->render('frontEnd/security/change-psswd.html.twig', array(

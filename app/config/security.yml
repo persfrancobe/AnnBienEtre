@@ -43,6 +43,10 @@ security:
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/providers, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/promotions, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/courses, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/categories, roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
          - { path: ^/profile, roles: IS_AUTHENTICATED_FULLY }
 
