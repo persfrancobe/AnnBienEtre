@@ -24,7 +24,7 @@ class EmailValid
         $user->setConfirmationToken($key);
         $link = "http://127.0.0.1:8000/active/" . $key;
 
-        $body = $this->ei->render('security/email-registration-confirm.html.twig', array('link' => $link));
+        $body = $this->ei->render('frontEnd/security/email-registration-confirm.html.twig', array('link' => $link));
 
         $this->mailer->sendMessage($to, $this->subject, $body);
 

@@ -1,0 +1,181 @@
+{% extends 'frontEnd/frontend-layout.html.twig' %}
+{% block main %}
+    <div class="main">
+        <div class="main-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-lg-3">
+                        <div class="sidebar">
+                            <div class="widget">
+                                <div class="user-photo">
+                                    {{ form_start(edit_form) }}
+                                    <img src="{% if provider.images.first %}{{asset(provider.images.first.webPath)}}{% else %} {% endif %}" alt="User Photo">
+                                         {{ form_widget(edit_form.images, { 'attr': {'class': 'form-control'} }) }}
+                                </div><!-- /.user-photo -->
+                            </div><!-- /.widget -->
+
+
+                            <div class="widget">
+
+                                <ul class="menu-advanced">
+                                    <li><a href="listing-submit.html"><i class="fa fa-pencil"></i> Submit Listing</a></li>
+
+                                    <li class="active"><a href="{{ path('profile_provider') }}"><i class="fa fa-user"></i> Edit Profile</a></li>
+                                    <li><a href="{{path('change_password')}}"><i class="fa fa-key"></i> Password</a></li>
+                                    <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                </ul>
+                            </div><!-- /.widget -->
+
+                        </div><!-- /.sidebar -->
+                    </div><!-- /.col-* -->
+
+                    <div class="col-sm-8 col-lg-9">
+                        <div class="content">
+                            <div class="page-title">
+                                <h1>Edit Profile</h1>
+                            </div><!-- /.page-title -->
+
+                            <div class="background-white p20 mb30">
+                                <h3 class="page-title">Contact Information</h3>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="edit_form">Nom</label>
+                                        {{ form_widget(edit_form.name, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>Prenom</label>
+                                        {{ form_widget(edit_form.firstName, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>E-mail</label>
+                                        {{ form_widget(edit_form.email, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>NomD'utilisateur</label>
+                                        {{ form_widget(edit_form.username, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group col-sm-6">
+                                        <label>Telephon</label>
+                                        {{ form_widget(edit_form.telNum, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group col-sm-6">
+                                        <label>Numeros De Tva</label>
+                                        {{ form_widget(edit_form.tvaNum, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.row -->
+                            </div>
+
+                            <div class="background-white p20 mb30">
+                                <h3 class="page-title">
+                                    Social Connections
+
+                                    <a href="#" class="btn btn-primary btn-xs pull-right">Save</a>
+                                </h3>
+
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Votre Site</label>
+
+                                        <div class="col-sm-9">
+                                            {{ form_widget(edit_form.internetSite, { 'attr': {'class': 'form-control'} }) }}
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Email De Contact</label>
+
+                                        <div class="col-sm-9">
+                                            {{ form_widget(edit_form.contactEmail, { 'attr': {'class': 'form-control'} }) }}
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Facebook</label>
+
+                                        <div class="col-sm-9">
+                                            {{ form_widget(edit_form.facebook, { 'attr': {'class': 'form-control'} }) }}
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Twitter</label>
+
+                                        <div class="col-sm-9">
+                                            {{ form_widget(edit_form.twitter, { 'attr': {'class': 'form-control'} }) }}
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Gmail</label>
+
+                                        <div class="col-sm-9">
+                                            {{ form_widget(edit_form.gmail, { 'attr': {'class': 'form-control'} }) }}
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Youtube</label>
+
+                                        <div class="col-sm-9">
+                                            {{ form_widget(edit_form.youtube, { 'attr': {'class': 'form-control'} }) }}
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Advisor</label>
+
+                                        <div class="col-sm-9">
+                                            {{ form_widget(edit_form.advisor, { 'attr': {'class': 'form-control'} }) }}
+                                        </div><!-- /.col-* -->
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.form-inline -->
+                            </div><!-- /.background-white -->
+
+                            <div class="background-white p20 mb30">
+                                <h3 class="page-title">Address</h3>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label>Localitie</label>
+                                        {{ form_widget(edit_form.locality, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>Commune</label>
+                                        {{ form_widget(edit_form.city, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-6">
+                                        <label>Rue</label>
+                                        {{ form_widget(edit_form.street, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-3">
+                                        <label>Numeros De Plaque</label>
+                                        {{ form_widget(edit_form.streetNum, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group col-sm-3">
+                                        <label>Code Postal</label>
+                                        {{ form_widget(edit_form.postcode, { 'attr': {'class': 'form-control'} }) }}
+                                    </div><!-- /.form-group -->
+
+                                </div><!-- /.row -->
+                            </div>
+
+                            <div class="background-white p20 mb30">
+                                <h3 class="page-title">Description </h3>
+                                {{ form_widget(edit_form.description, { 'attr': {'class': 'form-control','type':'textarea','rows':7} }) }}
+                                <input type="submit" class="btn btn-primary pull-right">
+                                {{ form_end(edit_form) }}
+
+                            </div>
+
+                        </div><!-- /.content -->
+                    </div><!-- /.col-* -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+{% endblock %}

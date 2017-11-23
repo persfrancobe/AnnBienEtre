@@ -1,10 +1,10 @@
 <?php
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\FrontEnd;
 
 use AppBundle\Entity\Provider;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Visitor;
-use AppBundle\Form\ProviderRegisterType;
+use AppBundle\Form\RegisterType;
 use AppBundle\Form\VisitorRegisterType;
 use AppBundle\Services\Mailer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -30,7 +30,7 @@ class SecurityController extends Controller
 
         // last username entered by the user
         $lastUsername = $authUtils->getLastUsername();
-        return $this->render('security/login.html.twig', array(
+        return $this->render('frontEnd/security/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
         ));
@@ -69,12 +69,10 @@ class SecurityController extends Controller
         // 1) build the form
         if($type=='visitor'){
             $user = new Visitor();
-            $form = $this->createForm(VisitorRegisterType::class, $user);
         }else{
             $user = new Provider();
-            $form = $this->createForm(ProviderRegisterType::class, $user);
         }
-
+        $form = $this->createForm(RegisterType::class, $user);
 
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
@@ -92,11 +90,11 @@ class SecurityController extends Controller
             $emailValid=$this->get('AppBundle\Services\EmailValid');
             $emailValid->sendMailConfirm($user);
 
-            return $this->render('security/activation.html.twig');
+            return $this->render(':frontEnd/security:activation.html.twig');
         }
 
         return $this->render(
-            'security/register.html.twig',
+            'frontEnd/security/register.html.twig',
             array('form' => $form->createView())
         );
     }
@@ -104,7 +102,7 @@ class SecurityController extends Controller
     /**
      *@Route("/profile/changePasswd", name="change_password")
      */
-    public function changePasswdAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function changePasswdAction(Request $request)
     {
         $changePasswordModel = new ChangePassword();
         $form = $this->createForm(ChangePasswordType::class, $changePasswordModel);
@@ -122,10 +120,10 @@ class SecurityController extends Controller
             $em->flush();
 
 
-            return $this->render(':security:password-change-succes.html.twig');
+            return $this->render(':frontEnd:security:password-change-succes.html.twig');
         }
 
-        return $this->render(':security:Change-psswd.html.twig', array(
+        return $this->render(':frontEnd:security:Change-psswd.html.twig', array(
             'form' => $form->createView(),
         ));
     }

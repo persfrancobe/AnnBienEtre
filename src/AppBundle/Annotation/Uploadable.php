@@ -1,6 +1,6 @@
 <?php
 
-namespace AccesBundles\UploaderBundle\Annotation;
+namespace AppBundle\Annotation;
 use Doctrine\Common\Annotations\Annotation\Target;
 
 /**

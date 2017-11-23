@@ -12,8 +12,8 @@
                                          <h1>Salut {{app.token.user.username}}</h1>
                                          <p>Félicitation Vous etes Connecté maitenant<br> Vous pouvez modifier votre page personelle.</p>
                                         <a href="{{logout_path()}}" class="btn btn-primary btn-lg">Deconnection</a>
-                                        <a href="{% if is_granted('ROLE_VISITOR') %}{{ path('profile_visitor_edit') }}{% elseif is_granted('ROLE_PROVIDER') %}
-                                            {{ path('profile_provider_edit') }}{% endif %}" class="btn btn-secondary btn-lg">Votre page</a>
+                                        <a href="{% if is_granted('ROLE_VISITOR') %}{{ path('profile_visitor') }}{% elseif is_granted('ROLE_PROVIDER') %}
+                                            {{ path('profile_provider') }}{% endif %}" class="btn btn-secondary btn-lg">Votre page</a>
                                     {% else %}
                                         <h1>Salut Bienvenu</h1>
                                         <p>vous pouvez vous connecter ou inscrire<br> en tant que internaut ou prestataire ici en bas.</p>

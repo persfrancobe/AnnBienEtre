@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * ServiceCategory
@@ -49,6 +50,14 @@ class ServiceCategory
      * @ORM\Column(name="validated", type="boolean")
      */
     private $validated;
+
+    /**
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug",type="string")
+     */
+    private $slug;
+
 
     /**
      * @var ArrayCollection
@@ -319,5 +328,22 @@ class ServiceCategory
     {
         return $this->validated;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
 }
 

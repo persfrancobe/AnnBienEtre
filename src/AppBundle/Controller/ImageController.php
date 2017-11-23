@@ -46,7 +46,7 @@ class ImageController extends Controller
         $form = $this->createForm('AppBundle\Form\ImageType', $image);
         $form->handleRequest($request);
 
-        $this->get('upload.annotation_reader')->getUploadableFields($image);
+        $this->get('AppBundle\Annotation\UploadAnnotationReader')->getUploadableFields($image);
 
 
         if ($form->isSubmitted() && $form->isValid()) {

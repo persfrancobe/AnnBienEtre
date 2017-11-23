@@ -2,11 +2,11 @@
 
 namespace AppBundle\Entity;
 
-use AccesBundles\UploaderBundle\Annotation\UploadableField;
+use AppBundle\Annotation\UploadableField;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\HttpFoundation\File\File;
-use AccesBundles\UploaderBundle\Annotation\Uploadable;
+use AppBundle\Annotation\Uploadable;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

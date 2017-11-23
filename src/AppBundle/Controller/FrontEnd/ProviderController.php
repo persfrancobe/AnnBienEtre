@@ -4,7 +4,7 @@ namespace AppBundle\Controller\FrontEnd;
 
 use AppBundle\Entity\Provider;
 use AppBundle\Form\ProviderSearchType;
-use AppBundle\Form\ProviderType;
+use AppBundle\Form\ProviderProfileType;
 use Knp\Component\Pager\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -61,7 +61,7 @@ class ProviderController extends Controller
         $em = $this->getDoctrine()->getManager();
         $providers = $em->getRepository('AppBundle:Provider')->MyFindAll();
 
-        return $this->render('partials/provider-wrapper-card.html.twig', array('providers' => $providers));
+        return $this->render('frontEnd/providers/wrapper-card.html.twig', array('providers' => $providers));
     }
 
 }

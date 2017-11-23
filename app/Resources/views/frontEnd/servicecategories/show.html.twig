@@ -1,4 +1,4 @@
-{% extends "frontEnd/frontend-layout.html.twig." %}
+{% extends "frontEnd/frontend-layout.html.twig" %}
 {% block titre %}{{ serviceCategory.name }}
 {% endblock %}
 {% block main %}
@@ -23,7 +23,10 @@
                 <div class="container">
                     <div class="row detail-content">
                         <div class="col-sm-7">
-                            {{ include('Partials/video.html.twig') }}
+                            <h2>video</h2>
+                            <div class="detail-video">
+                                <iframe src="https://player.vimeo.com/video/36911719?color=009f8b&byline=0&portrait=0" width="653" height="366" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div><!-- /.detail-video -->
                         </div><!-- /.col-sm-7 -->
 
                         <div class="col-sm-5">

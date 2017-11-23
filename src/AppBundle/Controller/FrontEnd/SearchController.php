@@ -22,7 +22,7 @@ class SearchController extends Controller
     public function searchProviderAction()
     {
         $form=$this->createForm(ProviderSearchType::class);
-        return $this->render(':Partials:provider-search-widget.html.twig',array('form'=>$form->createView()));
+        return $this->render('frontEnd/providers/search-widget.html.twig',array('form'=>$form->createView()));
     }
 
     /**
@@ -48,7 +48,7 @@ class SearchController extends Controller
     public function searchCategoryAction()
     {
         $form=$this->createForm(CategorySearchType::class);
-        return $this->render(':Partials:category-search.html.twig',array('form'=>$form->createView()));
+        return $this->render(':frontEnd/servicecategories:search.html.twig',array('form'=>$form->createView()));
     }
 
     /**

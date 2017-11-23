@@ -4,8 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Entity\User;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Provider
  *
@@ -100,6 +99,12 @@ class Provider extends User
      */
     private $firstName;
 
+    /**
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug",type="string")
+     */
+    private $slug;
 
     /**
      * @var ArrayCollection
@@ -170,7 +175,7 @@ class Provider extends User
     /**
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName()
     {
         return $this->firstName;
     }
@@ -183,6 +188,21 @@ class Provider extends User
         $this->firstName = $firstName;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
 
 
     /**

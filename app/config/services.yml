@@ -49,3 +49,18 @@ services:
         tags:
             - { name: doctrine.event_subscriber }
 
+    #uploadable annotation
+    Appbundle\Annotation\UploadAnnotationReader:
+        arguments: ["@annotations.reader"]
+        public: true
+    Appbundle\Handler\:
+        resource: '../../src/AppBundle/Handler'
+        public: true
+        autowire: true
+    AppBundle\Listener\UploadSubscriber:
+        arguments: ['@AppBundle\Annotation\UploadAnnotationReader','@AppBundle\Handler\UploadHandler']
+        tags: [{ name: doctrine.event_subscriber,connection: default }]
+        public: true
+
+
+

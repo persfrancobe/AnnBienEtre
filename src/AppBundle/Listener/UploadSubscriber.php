@@ -1,10 +1,10 @@
 <?php
-namespace AccesBundles\UploaderBundle\Listener;
+namespace AppBundle\Listener;
 
-use AccesBundles\UploaderBundle\Handler\UploadHandler;
+use AppBundle\Handler\UploadHandler;
 use Doctrine\Common\EventArgs;
 use Doctrine\Common\EventSubscriber;
-use AccesBundles\UploaderBundle\Annotation\UploadAnnotationReader;
+use AppBundle\Annotation\UploadAnnotationReader;
 
 class UploadSubscriber implements EventSubscriber {
 

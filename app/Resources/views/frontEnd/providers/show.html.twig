@@ -11,7 +11,7 @@
                 <div class="container">
                     <div class="row detail-content">
                         <div class="col-sm-7">
-                            {% include 'Partials/provider-gallery.html.twig' with {img:provider.images} %}
+                            {% include 'frontEnd/providers/gallery.html.twig' with {img:provider.images} %}
 
                             <h2>Enquire Form</h2>
 
@@ -63,7 +63,7 @@
 
                         <div class="col-sm-5">
 
-                            {{ include('Partials/provider-detail-side-right.html.twig',{provider:provider}) }}
+                            {{ include('frontEnd/providers/detail-side-right.html.twig',{provider:provider}) }}
                             {{ include('Partials/google-map.html.twig') }}
                             <h2><span class="text-secondary">Les Stages</span></h2>
 

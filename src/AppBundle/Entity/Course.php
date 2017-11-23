@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Course
@@ -78,6 +79,11 @@ class Course
      * @ORM\Column(name="info", type="string", length=255)
      */
     private $info;
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug",type="string")
+     */
+    private $slug;
 
     /**
      * @ORM\ManyToOne(targetEntity="Provider", inversedBy="courses")
@@ -373,5 +379,23 @@ class Course
     {
         return $this->info;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+
 }
 

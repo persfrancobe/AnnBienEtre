@@ -6,7 +6,7 @@
  * Time: 22:50
  */
 
-namespace AccesBundles\UploaderBundle\Annotation;
+namespace AppBundle\Annotation;
 
 
 use Doctrine\Common\Annotations\AnnotationReader;

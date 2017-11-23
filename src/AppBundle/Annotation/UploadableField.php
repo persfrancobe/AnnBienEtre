@@ -6,7 +6,7 @@
  * Time: 22:20
  */
 
-namespace AccesBundles\UploaderBundle\Annotation;
+namespace AppBundle\Annotation;
 use Doctrine\Common\Annotations\Annotation\Target;
 use Psr\Log\InvalidArgumentException;
 

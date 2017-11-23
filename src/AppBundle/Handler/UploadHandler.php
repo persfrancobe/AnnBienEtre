@@ -1,5 +1,5 @@
 <?php
-namespace AccesBundles\UploaderBundle\Handler;
+namespace AppBundle\Handler;
 
 use Psr\Log\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\File\File;
